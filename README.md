@@ -12,11 +12,10 @@ Dependencies:
 Usage instructions:
 -----------
 Run "test --help" to see options:
-
-  --load        Load a save file to the game
-  --debug       Enables Debug mode
-  --version     Display the version number and copyrights
-  --help|-h     Print this message
+* --load        Load a save file to the game
+* --debug       Enables Debug mode
+* --version     Display the version number and copyrights
+* --help|-h     Print this message
 
 
 
