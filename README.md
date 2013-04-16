@@ -17,5 +17,5 @@ Coding and Pull Request
 * [input more layout later]
 * Commit and give reasons for Pull
 * Test you code with the latest version
-
-
+* Please no Tabs
+* No white space after Code
