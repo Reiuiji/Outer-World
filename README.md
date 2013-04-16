@@ -9,9 +9,20 @@ Compliation
 Dependencies:
 * ncurses library
 
+Usage instructions:
+-----------
+Run "test --help" to see options:
+
+ --load   		Load a save file to the game
+ --debug  		Enables Debug mode
+ --version		Display the version number and copyrights
+ --help  		Displays the Help screen(you looking at it ;D)
+
+
+
 
 Coding and Pull Request
-------------------
+------------
 
 * Try to follow the current layout
 * [input more layout later]
