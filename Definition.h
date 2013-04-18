@@ -19,8 +19,8 @@ extern bool debug;
 extern bool play;
 
 //color setup
-#define COLOR_BROWN 61
-#define ENV_WATER   62
-#define ENV_WFALL   63//water fall
-#define ENV_PATH    64
-#define ENV_TREE    65
+#define COLOR_BROWN 10
+#define ENV_WATER   20
+#define ENV_WFALL   21//water fall
+#define ENV_PATH    22
+#define ENV_TREE    23

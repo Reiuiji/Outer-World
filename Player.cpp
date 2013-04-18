@@ -11,7 +11,6 @@
 #include <cmath>
 using namespace std;
 
-//#include "items.h"
 #include "Player.h"
 Player::Player(bool S)
 {

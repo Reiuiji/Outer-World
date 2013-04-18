@@ -5,12 +5,14 @@
  * ---
  * Copyright (C) 2013 Daniel Noyes <Reiuiji@gmail.com>
  */
-
+//#ifndef PLAYER_SET
+//#define PLAYER_SET
+#include <string>
 class Player
 {
 public:
-    Player(bool);           //implement new player
-    //Player(ifstream);   //import player data
+    Player(bool);                //implement new player
+    void LoadPlayer(ifstream);   //import player data
     void SavePlayer(ifstream);   //export player data
 
     void Set_FN(string);
@@ -69,3 +71,5 @@ private:
     int Location;
 
 };
+
+//#endif

@@ -150,7 +150,7 @@ void CDisplay::ColorMap(char var)
         break;
 
     case 'w':
-        attron(COLOR_PAIR(60));
+        attron(COLOR_PAIR(ENV_WATER));
         break;
 
     case 'X':

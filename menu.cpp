@@ -12,6 +12,7 @@
 #include <stdlib.h>
 #include "Game.h"
 #include "Display.h"
+//#include "Player.h"
 
 
 void init_col()
@@ -22,17 +23,8 @@ void init_col()
     init_pair(COLOR_RED, COLOR_RED, COLOR_BLACK);
     init_pair(COLOR_CYAN, COLOR_CYAN, COLOR_BLACK);
     init_pair(COLOR_WHITE, COLOR_WHITE, COLOR_BLACK);
-    init_pair(12, COLOR_MAGENTA, COLOR_BLACK);
     init_pair(COLOR_BLUE, COLOR_BLUE, COLOR_BLACK);
     init_pair(COLOR_YELLOW, COLOR_YELLOW, COLOR_BLACK);
-    init_pair(54, COLOR_BLACK, COLOR_BLUE);
-    init_pair(53, COLOR_BLACK, COLOR_MAGENTA);
-    init_pair(52, COLOR_BLACK, COLOR_WHITE);
-    init_pair(51, COLOR_CYAN, COLOR_WHITE);
-    init_pair(50, COLOR_BLUE, COLOR_WHITE);
-    init_pair(49, COLOR_RED, COLOR_YELLOW);
-    init_pair(48, COLOR_MAGENTA, COLOR_YELLOW);
-    init_pair(60, COLOR_BLUE,COLOR_BLUE);
     init_color(COLOR_BROWN,800,520,245);
     init_pair(ENV_WATER, COLOR_BLUE,COLOR_BLUE);
     init_pair(COLOR_BROWN, COLOR_BROWN,COLOR_BLACK);
@@ -225,8 +217,9 @@ void GameMenu()
 
             if(dotx == 8)
             {
+                //Player User(1);
                 play=true;
-                Game();
+                Game(/*User*/);
             };
 
             if(dotx == 10)
