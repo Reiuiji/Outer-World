@@ -1,0 +1,12 @@
+Todo List
+=========
+
+#Need to implement#
+
+*Player features
+*Battly System
+*Enemy AI
+*Dungeon Manager
+*Event listener
+*Story Manager
+*Story Features
