@@ -22,6 +22,7 @@
 #include <string.h>
 #include <curses.h>
 
+//temp array to display the status bar
 char StatusBar[5][102] =
 {
     "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
@@ -31,6 +32,7 @@ char StatusBar[5][102] =
     "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
 };
 
+//curses display that will init the status bar
 void CDisplay::init_StatusBar()
 {
     move(0,0);
@@ -43,6 +45,8 @@ void CDisplay::init_StatusBar()
     }
 }
 
+//curses: outputs the border of the screen
+//checks the limits of the border and output a border tag
 void CDisplay::init_Border()
 {
     move(Displaycenset+1,0);
@@ -68,6 +72,7 @@ void CDisplay::init_Border()
     }
 }
 
+//Curses: Debug screen
 void CDisplay::DebugScreen(int x, int y, char Map[][MapMax])
 {
     move(Displaycenset+WinHeight+1,0);
@@ -92,6 +97,7 @@ void CDisplay::DebugScreen(int x, int y, char Map[][MapMax])
     }
 }
 
+//curses: output the current map to the screen
 void CDisplay::Display(int Sx, int Sy, int x, int y,int xcen, int ycen, char Map[][MapMax]) //have to hard code for array, change to vector after test
 {
     x = x+xcen; //center cords
@@ -122,6 +128,7 @@ void CDisplay::Display(int Sx, int Sy, int x, int y,int xcen, int ycen, char Map
     }
 }
 
+//curses message display
 void CDisplay::Message(const char *msg)
 {
     move(XCenter-msg_X_Width/2,YCenter);
@@ -142,6 +149,7 @@ void CDisplay::Message(const char *msg)
     }
 }
 
+//curses: main color map, output the specific color on the screen
 void CDisplay::ColorMap(char var)
 {
     bool print = false;
