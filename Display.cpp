@@ -155,48 +155,48 @@ void CDisplay::ColorMap(char var)
     bool print = false;
     switch(var)
     {
-    case 'f':
+    case 'f'://Water Fall
         attron(COLOR_PAIR(COLOR_CYAN));
         break;
 
-    case 'v':
+    case 'v'://tree slant "\"
         attron(COLOR_PAIR(COLOR_GREEN));
         printw("\\");
         print = true;
         break;
 
-    case 'm':
+    case 'm'://mountain
         attron(COLOR_PAIR(COLOR_YELLOW));
         break;
 
-    case 'w':
+    case 'w'://water
         attron(COLOR_PAIR(ENV_WATER));
         break;
 
-    case 'X':
+    case 'X'://abyss/entrance
         attron(COLOR_PAIR(COLOR_BLACK));
         break;
 
-    case '#':
+    case '#'://pathway
         attron(COLOR_PAIR(COLOR_MAGENTA));
         break;
 
-    case '[':
-    case ']':
+    case '['://tree stump
+    case ']'://tree stump
         attron(COLOR_PAIR(COLOR_BROWN));
         break;
 
-    case '/':
+    case '/'://tree slant "/"
         attron(COLOR_PAIR(COLOR_GREEN));
         break;
 
-    default:
+    default://if not display then it is clear
         attron(COLOR_PAIR(COLOR_WHITE));
         break;
     }
     if(!print)
     {
-        printw("%1c",var);
+        printw("%1c",var);//output to the screen the character
     }
 }
 
