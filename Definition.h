@@ -33,6 +33,12 @@
 //Global variables
 extern int WinHeight;
 extern int WinWidth;
+//manage menu windows layout
+extern int MenuX;
+extern int MenuY;
+extern int dotx;
+extern int doty;
+
 
 extern bool debug;
 extern bool play;

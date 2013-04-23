@@ -132,10 +132,7 @@ int main(int argc, char *argv[])
     keypad(stdscr, TRUE);
     curs_set(0);
     //wresize(MainWindow, WinWidth, WinHeight);
-    if(AutoDisplay==true)
-    {
-        getmaxyx(stdscr,WinHeight,WinWidth);
-    }
+    UpdateScreen();
 //-----------------------------------
     attron(COLOR_PAIR(COLOR_BLUE));
     mainMenu();

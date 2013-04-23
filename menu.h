@@ -18,7 +18,7 @@
 * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-
+void UpdateScreen();
 void init_col();
 void optionsMenu();
 void GameMenu();

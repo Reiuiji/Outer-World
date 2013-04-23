@@ -20,6 +20,10 @@
 #include "Definition.h"
 int WinHeight=MaxHeight;
 int WinWidth=MaxWidth;
+int MenuX = WinHeight/4;
+int MenuY = WinWidth/2;
+int doty = MenuY - 2;
+int dotx = 0;
 bool debug=false;
 bool play=true;
 bool AutoDisplay=true;

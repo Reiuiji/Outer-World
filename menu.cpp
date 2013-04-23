@@ -24,6 +24,7 @@
 #include <stdlib.h>
 #include "Game.h"
 #include "Display.h"
+#include "menu.h"
 //#include "Player.h"
 
 //initilize the colors for the terminal
@@ -47,36 +48,37 @@ void init_col()
 void ResolutionMenu()
 {
     bool select = true;
-    int dotx = 8;
-    int doty = 32;
+    UpdateScreen();
+    int dotx = 4;
     clear();
     while(select == true)
     {
-        attron(A_BOLD);
-        attron(COLOR_PAIR(COLOR_CYAN));
         CDisplay win;
-        win.init_Border(0);
-        mvaddstr(4,30, "Resolution :");
-        move(6,34);
+
+        attron(A_BOLD);
+        attron(COLOR_PAIR(COLOR_RED));
+        mvaddstr(MenuX,MenuY, "Resolution :");
+        move(MenuX+2,MenuY+4);
         printw("%d height, %d width",WinHeight,WinWidth);
         attron(COLOR_PAIR(COLOR_GREEN));
-        mvaddstr(8, 34, "Enter custom height and width");
-        mvaddstr(10, 34, "Auto Set the height and width");
-        mvaddstr(12, 34, "Enable/Disable Auto:");
-                if(AutoDisplay == false)
-                {
-                    mvaddstr(12,55, "Disables");
-                }
-                else
-                {
-                    mvaddstr(12,55, "Enable");
-                }
-        mvaddstr(14, 34, "Set height 20, width 40");
-        mvaddstr(16, 34, "Set height 30, width 70");
-        mvaddstr(18, 34, "Set height 40, width 100");
-        mvaddstr(20, 34, "Exit");
+        mvaddstr(MenuX+4,MenuY+4, "Enter custom height and width");
+        mvaddstr(MenuX+6,MenuY+4, "Auto Set the height and width");
+        mvaddstr(MenuX+8,MenuY+4, "Enable/Disable Auto:");
+        if(AutoDisplay == false)
+        {
+            mvaddstr(MenuX+8,MenuY+25, "Disables");
+        }
+        else
+        {
+            mvaddstr(MenuX+8,MenuY+25, "Enable");
+        }
+        mvaddstr(MenuX+10, MenuY+4, "Set height 20, width 40");
+        mvaddstr(MenuX+12, MenuY+4, "Set height 30, width 70");
+        mvaddstr(MenuX+14, MenuY+4, "Set height 40, width 100");
+        mvaddstr(MenuX+16, MenuY+4, "Exit");
+        win.init_Border(0);
         attron(COLOR_PAIR(COLOR_BLUE));
-        mvaddch(dotx, doty, ACS_DIAMOND);
+        mvaddch(dotx+MenuX, doty, ACS_DIAMOND);
         int c = getch();
         switch(c)
         {
@@ -90,27 +92,27 @@ void ResolutionMenu()
 
         case '\n':
 
-            if(dotx == 8)
+            if(dotx == 4)
             {
                 clear();
-                mvaddstr(8,34,  "Height:");
-                mvaddch(8,32, ACS_DIAMOND);
-                move(8,44);
+                mvaddstr(MenuX+8,MenuY+4,  "Height:");
+                mvaddch(MenuX+8,MenuY+2, ACS_DIAMOND);
+                move(MenuX+8,MenuY+14);
                 scanw("%d",&WinHeight);
 
-                mvaddstr(10,34, "Width:");
-                mvaddch(10,32, ACS_DIAMOND);
-                move(10,44);
+                mvaddstr(MenuX+10,MenuY+4, "Width:");
+                mvaddch(MenuX+10,MenuY+2, ACS_DIAMOND);
+                move(MenuX+10,MenuY+14);
                 scanw("%d",&WinWidth);
 
             };
 
-            if(dotx == 10)
+            if(dotx == 6)
             {
                 getmaxyx(stdscr,WinHeight,WinWidth);
             };
 
-            if(dotx == 12)
+            if(dotx == 8)
             {
                 if(AutoDisplay == false)
                 {
@@ -122,42 +124,42 @@ void ResolutionMenu()
                 }
             };
 
-            if(dotx == 14)
+            if(dotx == 10)
             {
                 WinHeight=20;
                 WinWidth=40;
             };
 
-            if(dotx == 16)
+            if(dotx == 12)
             {
                 WinHeight=40;
                 WinWidth=60;
             };
 
-            if(dotx == 18)
+            if(dotx == 14)
             {
                 WinHeight=40;
                 WinWidth=100;
             };
 
 
-            if(dotx == 20)
+            if(dotx == 16)
             {
                 select = false;
             };
 
             break;
         }
+        UpdateScreen();
         clear();
-        if(dotx > 20)
+        if(dotx > 16)
         {
-            dotx = 8;
+            dotx = 4;
         }
-        if(dotx < 8)
+        if(dotx < 4)
         {
-            dotx = 20;
+            dotx = 16;
         }
-        mvaddch(dotx, doty, ACS_DIAMOND);
     }
 }
 
@@ -166,19 +168,19 @@ void optionsMenu()
 {
 
     bool select = true;
-    int dotx = 9;
-    int doty = 34;
+    UpdateScreen();
+    int dotx = 10;
     clear();
     while(select == true)
     {
         attron(A_BOLD);
         attron(COLOR_PAIR(COLOR_CYAN));
-        mvaddstr(6,34, "Options");
+        mvaddstr(MenuX+4,MenuY, "Options");
         attron(COLOR_PAIR(COLOR_YELLOW));
-        mvaddstr(9, 36, "Change Resolution");
-        mvaddstr(11, 36, "Back");
+        mvaddstr(MenuX+10, MenuY+4, "Change Resolution");
+        mvaddstr(MenuX+12, MenuY+4, "Back");
         attron(COLOR_PAIR(COLOR_BLUE));
-        mvaddch(dotx, doty, ACS_DIAMOND);
+        mvaddch(dotx+MenuX, doty, ACS_DIAMOND);
         int c = getch();
         switch(c)
         {
@@ -192,12 +194,12 @@ void optionsMenu()
 
         case '\n':
 
-            if(dotx == 9)
+            if(dotx == 10)
             {
                 ResolutionMenu();
             };
 
-            if(dotx == 11)
+            if(dotx == 12)
             {
                 select = false;
             };
@@ -205,38 +207,37 @@ void optionsMenu()
 
             break;
         }
+        UpdateScreen();
         clear();
-        if(dotx > 11)
+        if(dotx > 12)
         {
-            dotx = 9;
+            dotx = 10;
         }
-        if(dotx < 9)
+        if(dotx < 10)
         {
-            dotx = 11;
+            dotx = 12;
         }
-        mvaddch(dotx, doty, ACS_DIAMOND);
     }
 };
 
 void GameMenu()
 {
-
+    UpdateScreen();
     bool select = true;
     int dotx = 8;
-    int doty = 32;
     clear();
     while(select == true)
     {
         attron(A_BOLD);
         attron(COLOR_PAIR(COLOR_CYAN));
-        mvaddstr(4,30, "Game Mode");
+        mvaddstr(MenuX+4,MenuY, "Game Mode");
         attron(COLOR_PAIR(COLOR_YELLOW));
-        mvaddstr(8, 34, "Start Game");
-        mvaddstr(10, 34, "Load Game");
-        mvaddstr(12, 34, "Difficulty");
-        mvaddstr(14, 34, "Exit");
+        mvaddstr(MenuX+8, MenuY+4, "Start Game");
+        mvaddstr(MenuX+10, MenuY+4, "Load Game");
+        mvaddstr(MenuX+12, MenuY+4, "Difficulty");
+        mvaddstr(MenuX+14, MenuY+4, "Exit");
         attron(COLOR_PAIR(COLOR_BLUE));
-        mvaddch(dotx, doty, ACS_DIAMOND);
+        mvaddch(dotx+MenuX, doty, ACS_DIAMOND);
         int c = getch();
         switch(c)
         {
@@ -284,27 +285,27 @@ void GameMenu()
         {
             dotx = 14;
         }
-        mvaddch(dotx, doty, ACS_DIAMOND);
+        mvaddch(dotx+MenuX, doty, ACS_DIAMOND);
     }
 };
 
 void mainMenu()
 {
+    UpdateScreen();
     int dotx = 8;
-    int doty = 32;
     init_col();
 
     while(1)
     {
         attron(COLOR_PAIR(COLOR_BLUE));
         attron(A_BOLD);
-        mvaddstr(4,30,version);
+        mvaddstr(MenuX+4,MenuY,version);
         attron(COLOR_PAIR(COLOR_GREEN));
-        mvaddch(dotx, doty, ACS_DIAMOND);
+        mvaddch(dotx+MenuX, doty, ACS_DIAMOND);
         attron(COLOR_PAIR(COLOR_RED));
-        mvaddstr(8, 34, "Play");
-        mvaddstr(10, 34, "Options");
-        mvaddstr(12, 34, "Quit");
+        mvaddstr(MenuX+8, MenuY+4, "Play");
+        mvaddstr(MenuX+10, MenuY+4, "Options");
+        mvaddstr(MenuX+12, MenuY+4, "Quit");
         attroff(A_BOLD);
         int c = getch();
         switch(c)
@@ -335,8 +336,9 @@ void mainMenu()
             };
             break;
         }
+        UpdateScreen();
         clear();
-        if(dotx > 12)
+        if(dotx > (12))
         {
             dotx = 8;
         }
@@ -344,8 +346,23 @@ void mainMenu()
         {
             dotx = 12;
         }
-        mvaddch(dotx, doty, ACS_DIAMOND);
+        mvaddch(dotx+MenuX, doty, ACS_DIAMOND);
     }
 
 }
 
+void UpdateScreen()
+{
+    if(debug == true)
+    {
+        mvprintw(0,0,"M(X,Y): (%d,%d)", MenuX,MenuY);
+        mvprintw(1,0,"P(X,Y): (%d,%d)", dotx,doty);
+    }
+    if(AutoDisplay==true)
+    {
+        getmaxyx(stdscr,WinHeight,WinWidth);
+    }
+    MenuX = WinHeight/8;
+    MenuY = WinWidth/3;
+    doty = MenuY-2;
+}
