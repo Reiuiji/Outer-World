@@ -22,3 +22,4 @@ int WinHeight=MaxHeight;
 int WinWidth=MaxWidth;
 bool debug=false;
 bool play=true;
+bool AutoDisplay=true;

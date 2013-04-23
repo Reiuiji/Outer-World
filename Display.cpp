@@ -47,25 +47,25 @@ void CDisplay::init_StatusBar()
 
 //curses: outputs the border of the screen
 //checks the limits of the border and output a border tag
-void CDisplay::init_Border()
+void CDisplay::init_Border(int offset)
 {
-    move(Displaycenset+1,0);
+    move(offset+1,0);
     attron(COLOR_PAIR(COLOR_WHITE));
-    for(int y = 0; y<=WinHeight; y++)
+    for(int y = 0; y<WinHeight-offset; y++)
     {
-        for(int x = 0; x<=WinWidth; x++)
+        for(int x = 0; x<WinWidth; x++)
         {
-            if((y == 0 || y == WinHeight) & !(x == 0 || x == WinWidth))
+            if((y == 0 || y == (WinHeight-offset-1)) & !(x == 0 || x == WinWidth-1))
             {
-                mvaddch(Displaycenset+y,x,'\45');
+                mvaddch(offset+y,x,'\45');
             }
-            else if((x == 0 || x == WinWidth) & !(y == 0 || y == WinHeight))
+            else if((x == 0 || x == WinWidth-1) & !(y == 0 || y == (WinHeight-offset-1)))
             {
-                mvaddch(Displaycenset+y,x,'\124');
+                mvaddch(offset+y,x,'\124');
             }
-            else if(y == 0 || y == WinHeight || x == 0 || x == WinWidth)
+            else if(y == 0 || y == (WinHeight-offset-1) || x == 0 || x == WinWidth-1)
             {
-                mvaddch(Displaycenset+y,x,'X');
+                mvaddch(offset+y,x,'X');
             }
         }
 
@@ -102,10 +102,11 @@ void CDisplay::Display(int Sx, int Sy, int x, int y,int xcen, int ycen, char Map
 {
     x = x+xcen; //center cords
     y = ycen-y;
+    Sy-=Displaycenset;//fixed the cords based on the display offset from the status bar
     move(Displaycenset,1);
-    for(int Ly = (y-Sy/2) ; Ly < (y+Sy/2 + Sy%2); Ly ++)
+    for(int Ly = (y-Sy/2) ; Ly < (y+Sy/2 + Sy%2 -1); Ly ++)
     {
-        for(int Lx = (x - Sx/2) ; Lx < (x + Sx/2 +(Sx%2)) ; Lx++)
+        for(int Lx = (x - Sx/2) ; Lx < (x + Sx/2 +(Sx%2) -1) ; Lx++)
         {
             if( Ly >= 0 && Ly < MapMax && Lx >= 0 && Lx < MapMax)
             {

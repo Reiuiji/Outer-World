@@ -25,7 +25,7 @@ class CDisplay	//curses display
 {
 public:
     void init_StatusBar();
-    void init_Border();
+    void init_Border(int offset);
     void Display(int Sx, int Sy, int x, int y,int xcen, int ycen, char Map[][MapMax]);
     void Message(const char *);
     void DebugScreen(int x,int y, char Map[][MapMax]);

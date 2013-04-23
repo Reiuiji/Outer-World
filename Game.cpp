@@ -29,92 +29,98 @@ int Game()
 {
     int x = 0;
     int y = 0;
-    CDisplay game;
+    CDisplay GameDisplay;//sets up the display object for curses
     while(play == true)
     {
 
         clear();
-        game.init_StatusBar();
-        game.Display(WinWidth,WinHeight,x,y,100,50,Map1);
-        game.init_Border();
-        game.DebugScreen(x,y,Map1);
-        //game.Message("test");
+        GameDisplay.init_StatusBar();
+        GameDisplay.Display(WinWidth,WinHeight,x,y,100,50,Map1);
+        GameDisplay.init_Border(Displaycenset);
+        GameDisplay.DebugScreen(x,y,Map1);
+        GameDisplay.Message("test");
         Move(x,y,100,50,Map1);
-        refresh();
+        if(AutoDisplay==true)
+        {
+            getmaxyx(stdscr,WinHeight,WinWidth);
+        }
+        refresh();//refreshes the screen
     }
 
     return 0;
 }
 
+//player move function
+//check if player can move to that location, if so whey yay they can move
 void Move(int &x,int &y,int xcen, int ycen,char Map[][MapMax])
 {
     switch(Input())
     {
     case KEY_UP:
     case 'w':
-        if(MoveCheck(x,y,xcen,ycen,0,1,Map) == 0)
+        if(MoveCheck(x,y,xcen,ycen,0,1,Map) == 0)   //check if you can move to the next pos up
             y++;
         break;
     case KEY_DOWN:
     case 's':
-        if(MoveCheck(x,y,xcen,ycen,0,-1,Map) == 0)
+        if(MoveCheck(x,y,xcen,ycen,0,-1,Map) == 0)  //checks move down
             y--;
         break;
     case KEY_LEFT:
     case 'a':
-        if(MoveCheck(x,y,xcen,ycen,-1,0,Map) == 0)
+        if(MoveCheck(x,y,xcen,ycen,-1,0,Map) == 0)  //checks move left
             x--;
         break;
     case KEY_RIGHT:
     case 'd':
-        if(MoveCheck(x,y,xcen,ycen,1,0,Map) == 0)
+        if(MoveCheck(x,y,xcen,ycen,1,0,Map) == 0)   //checks move right
             x++;
         break;
 
     case 'q':
-        if(MoveCheck(x,y,xcen,ycen,-1,+1,Map) == 0 && (MoveCheck(x,y,xcen,ycen,0,+1,Map) == 0 || MoveCheck(x,y,xcen,ycen,-1,0,Map) == 0))
+        if(MoveCheck(x,y,xcen,ycen,-1,+1,Map) == 0 && (MoveCheck(x,y,xcen,ycen,0,+1,Map) == 0 || MoveCheck(x,y,xcen,ycen,-1,0,Map) == 0))   //check move NW
         {
             x--;
             y++;
         }
         break;
     case 'e':
-        if(MoveCheck(x,y,xcen,ycen,+1,+1,Map) == 0 && (MoveCheck(x,y,xcen,ycen,0,+1,Map) == 0 || MoveCheck(x,y,xcen,ycen,+1,0,Map) == 0))
+        if(MoveCheck(x,y,xcen,ycen,+1,+1,Map) == 0 && (MoveCheck(x,y,xcen,ycen,0,+1,Map) == 0 || MoveCheck(x,y,xcen,ycen,+1,0,Map) == 0))   //check move NE
         {
             x++;
             y++;
         }
         break;
     case 'z':
-        if(MoveCheck(x,y,xcen,ycen,-1,-1,Map) == 0 && (MoveCheck(x,y,xcen,ycen,0,-1,Map) == 0 || MoveCheck(x,y,xcen,ycen,-1,0,Map) == 0))
+        if(MoveCheck(x,y,xcen,ycen,-1,-1,Map) == 0 && (MoveCheck(x,y,xcen,ycen,0,-1,Map) == 0 || MoveCheck(x,y,xcen,ycen,-1,0,Map) == 0))   //check move SW
         {
             x--;
             y--;
         }
         break;
     case 'c':
-        if(MoveCheck(x,y,xcen,ycen,+1,-1,Map) == 0 && (MoveCheck(x,y,xcen,ycen,0,-1,Map) == 0 || MoveCheck(x,y,xcen,ycen,+1,0,Map) == 0))
+        if(MoveCheck(x,y,xcen,ycen,+1,-1,Map) == 0 && (MoveCheck(x,y,xcen,ycen,0,-1,Map) == 0 || MoveCheck(x,y,xcen,ycen,+1,0,Map) == 0))   //check move SE
         {
             x++;
             y--;
         }
         break;
-    case '[':
+    case '[':   //decrease window height
         WinHeight--;
         break;
-    case ']':
+    case ']':   //increase window height
         WinHeight++;
         break;
-    case ';':
+    case ';':   //decrease window width
         WinWidth--;
         break;
-    case '\'':
+    case '\'':  //increase window width
         WinWidth++;
         break;
-    case '0':
+    case '0':   //Exit the game display
         play = false;
         break;
-    case '`':
+    case '`':   //enable debug utility
         if(debug == false)
             debug = true;
         else
@@ -126,7 +132,7 @@ void Move(int &x,int &y,int xcen, int ycen,char Map[][MapMax])
 }
 
 
-
+//checks if the player can move to that specific location
 bool MoveCheck(int &x,int &y,int xcen, int ycen, int xmove, int ymove, char Map[][MapMax])
 {
     if(strncmp(&Map[ycen-y-ymove][x+xcen+xmove]," ",1) == 0 || strncmp(&Map[ycen-y-ymove][x+xcen+xmove],"#",1) == 0)
@@ -135,6 +141,7 @@ bool MoveCheck(int &x,int &y,int xcen, int ycen, int xmove, int ymove, char Map[
         return 1;
 }
 
+//input function
 int Input(void)
 {
     int ch = getch();

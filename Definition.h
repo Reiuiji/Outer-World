@@ -36,6 +36,7 @@ extern int WinWidth;
 
 extern bool debug;
 extern bool play;
+extern bool AutoDisplay;
 
 //color setup
 #define COLOR_BROWN 10

@@ -26,7 +26,7 @@
 #include "Display.h"
 //#include "Player.h"
 
-
+//initilize the colors for the terminal
 void init_col()
 {
     start_color();
@@ -43,6 +43,7 @@ void init_col()
     attron(COLOR_PAIR(COLOR_BLACK));
 };
 
+//menu that will manage the specific resolution
 void ResolutionMenu()
 {
     bool select = true;
@@ -54,16 +55,24 @@ void ResolutionMenu()
         attron(A_BOLD);
         attron(COLOR_PAIR(COLOR_CYAN));
         CDisplay win;
-        win.init_Border();
+        win.init_Border(0);
         mvaddstr(4,30, "Resolution :");
         move(6,34);
         printw("%d height, %d width",WinHeight,WinWidth);
         attron(COLOR_PAIR(COLOR_GREEN));
-        mvaddstr(8, 34, "Set height 20, width 40");
-        mvaddstr(10, 34, "Set height 40, width 40");
-        mvaddstr(12, 34, "Set height 60, width 40");
+        mvaddstr(8, 34, "Enter custom height and width");
+        mvaddstr(10, 34, "Auto Set the height and width");
+        mvaddstr(12, 34, "Enable/Disable Auto:");
+                if(AutoDisplay == false)
+                {
+                    mvaddstr(12,55, "Disables");
+                }
+                else
+                {
+                    mvaddstr(12,55, "Enable");
+                }
         mvaddstr(14, 34, "Set height 20, width 40");
-        mvaddstr(16, 34, "Set height 40, width 60");
+        mvaddstr(16, 34, "Set height 30, width 70");
         mvaddstr(18, 34, "Set height 40, width 100");
         mvaddstr(20, 34, "Exit");
         attron(COLOR_PAIR(COLOR_BLUE));
@@ -83,20 +92,34 @@ void ResolutionMenu()
 
             if(dotx == 8)
             {
-                WinHeight=20;
-                WinWidth=40;
+                clear();
+                mvaddstr(8,34,  "Height:");
+                mvaddch(8,32, ACS_DIAMOND);
+                move(8,44);
+                scanw("%d",&WinHeight);
+
+                mvaddstr(10,34, "Width:");
+                mvaddch(10,32, ACS_DIAMOND);
+                move(10,44);
+                scanw("%d",&WinWidth);
+
             };
 
             if(dotx == 10)
             {
-                WinHeight=40;
-                WinWidth=40;
+                getmaxyx(stdscr,WinHeight,WinWidth);
             };
 
             if(dotx == 12)
             {
-                WinHeight=60;
-                WinWidth=40;
+                if(AutoDisplay == false)
+                {
+                    AutoDisplay = true;
+                }
+                else
+                {
+                    AutoDisplay = false;
+                }
             };
 
             if(dotx == 14)
