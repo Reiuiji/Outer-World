@@ -1,0 +1,43 @@
+After move, check the adjacent spaces for enemies.
+
+
+bool EventCheck( <insert the different functions here> )
+{
+  if(strncmp(&Map[ycen-y+1][x+xcen+1],"/* Whatever the enemy is */",1) == 1 || strncmp(&Map[ycen-y+1][x+xcen-1],"/* Whatever the enemy is */",1) == 1 || 
+           strncmp(&Map[ycen-y-1][x+xcen+1],"/* Whatever the enemy is */",1) == 1 || strncmp(&Map[ycen-y-1][x+xcen-1],"/* Whatever the enemy is */",1) == 1
+	
+		<< Call a battle based on the monster >>
+	
+	else if( (BOSS ADJACENT A || B || C || D) && getch = \n or something like that
+
+		<< Call the dialogue event based on where the character position is. >>
+
+	else if( (PERSON ADJACENT A || B || C || D) && getch = \n or something like that
+
+		<< Call the dialogue event based on where the character position is. >>
+
+	else if(TREASURE CHEST ADJACENT) && getch = \n or something like that
+	
+		<< Call the treasure chest event based on where the character position is >>
+
+	else 
+		continue
+	
+}
+
+==========
+
+Okay screw this, instead we can allocate points.
+
+HP - 50 -> 1000 
+MP - 25 ->  500
+
+ATK - 1 -> 40
+DEF - 1 -> 40
+MTK - 1 -> 40
+MDF - 1 -> 40
+SPD - 1 -> 40
+LUK - 1 -> 40
+
+==========
+
