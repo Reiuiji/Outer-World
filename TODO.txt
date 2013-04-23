@@ -1,12 +1,39 @@
 Todo List
 =========
 
-#Need to implement#
+Coding
+  - Player Features
+	- Battle System
+	- Enemy AI
+	- Dungeon Manager
+	- Event Listener
+	- Story Manager
 
-*Player features
-*Battly System
-*Enemy AI
-*Dungeon Manager
-*Event listener
-*Story Manager
-*Story Features
+Semi-Code (to translate to code)
+	- Item Database
+    - At least one attack and defense item per area
+    - Healing items / Items to fix status effects
+    - Items to effect enemies
+    - Key Items
+    - Other Items
+
+	- Magic Database
+    - Two magic spells per area
+    - Additional magic spells
+
+	- Bestiary
+    - Four generic creatures per area
+    - One boss type per area
+    - Additional creatures
+
+  - Story Features
+    - Dialogue
+    - Maps
+    - Choice trees
+    - Endgame Events
+
+Other
+	- Powerpoint / Presentation Prep
+	- Report
+	- User Guide
+
