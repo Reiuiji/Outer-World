@@ -10,18 +10,18 @@ Coding
 	- Story Manager
 
 Semi-Code (to translate to code)
-	- Item Database
+  - Item Database
     - At least one attack and defense item per area
     - Healing items / Items to fix status effects
     - Items to effect enemies
     - Key Items
     - Other Items
 
-	- Magic Database
+  - Magic Database
     - Two magic spells per area
     - Additional magic spells
 
-	- Bestiary
+  - Bestiary
     - Four generic creatures per area
     - One boss type per area
     - Additional creatures
