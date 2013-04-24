@@ -6,7 +6,7 @@ int main()
 {
 char StatusBar[5][52] =
     {{"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"},
-  	 {"X                                                 X"},
+     {"X                                                 X"},
      {"X                                                 X"},
      {"X                                                 X"},
      {"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"}};
