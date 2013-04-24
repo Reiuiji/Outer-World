@@ -1,0 +1,65 @@
+bool EventCheck(int &x, int &y, int xcen, int ycen, /*Insert something here for checking the enter key*/)
+{
+
+  // Checks to see if there is a basic monster adjacent (whether or not it should call for a battle)
+	if (&Map[ycen-y+1][x+xcen] == '<') || (&Map[ycen-y+1][x+xcen] == '>') // Checks the space to the immediate north of the player for enemies.
+	|| (&Map[ycen-y-1][x+xcen] == '<') && (&Map[ycen-y+1][x+xcen] == '>') // Checks the space to the immediate south of the player for enemies.
+	|| (&Map[ycen-y][x+xcen+1] == '<') && (&Map[ycen-y+1][x+xcen] == '>') // Checks the space to the immediate east of the player for enemies.
+	|| (&Map[ycen-y][x+xcen-1] == '<') && (&Map[ycen-y+1][x+xcen] == '>') // Checks the space to the immediate west of the player for enemies.
+	{
+		battleCall(/* Map Number */,[ycen-y],[x+xcen]); // Calls the battle. Enemy is random. You're placed back in your original position (I'm not sure if this saves properly.
+		// if dead, whatever the game over function. if alive, go back to normal and erase enemy.
+	}
+	
+// ==========
+
+
+	// Checks to see if there is a surrounding person and possible dialogue event or chest event.
+	else if (((&Map[ycen-y+1][x+xcen] >= 'A') && (&Map[ycen-y+1][x+xcen] <= 'Z')) || (&Map[ycen-y+1][x+xcen] == '~')) && getch() = '\n' 
+	// Checks the space to the immediate north of the player. If enter is pressed a dialogue occurs.
+	   	// eventCall([ycen-y+1][x+xcen]); // Calls the event in the position immediately north of the player.
+
+	else if (((&Map[ycen-y-1][x+xcen] >= 'A') && (&Map[ycen-y-1][x+xcen] <= 'Z')) || (&Map[ycen-y-1][x+xcen] == '~')) && getch() = '\n' 
+	// Checks the space to the immediate south of the player. If enter is pressed a dialogue occurs.
+	   	// eventCall([ycen-y-1][x+xcen]); // Calls the event in the position immediately south of the player.
+
+	else if (((&Map[ycen-y][x+xcen+1] >= 'A') && (&Map[ycen-y][x+xcen+1] <= 'Z')) || (&Map[ycen-y][x+xcen+1] == '~')) && getch() = '\n' 
+	// Checks the space to the immediate east of the player. If enter is pressed a dialogue occurs.
+	   	// eventCall([ycen-y][x+xcen+1]); // Calls the event in the position immediately north of the player.
+
+	else if (((&Map[ycen-y][x+xcen-1] >= 'A') && (&Map[ycen-y][x+xcen-1] <= 'Z')) || (&Map[ycen-y][x+xcen-1] == '~')) && getch() = '\n' 
+	// Checks the space to the immediate west of the player. If enter is pressed a dialogue occurs.
+	   	// eventCall([ycen-y][x+xcen-1]); // Calls the event in the position immediately south of the player.	
+
+// ==========
+
+
+	// Checks to see if the player is initiating a boss battle.
+	else if ((&Map[ycen-y+1][x+xcen] == '%') || (&Map[ycen-y+1][x+xcen] == '$') || (&Map[ycen-y+1][x+xcen] == '&')) && getch() = '\n' 
+	// Checks the space to the immediate north of the player. If enter is pressed a battle occurs.
+	   	{
+			battleCall(/* Map Number */,[ycen-y],[x+xcen]); // Calls boss battle.
+			// if dead, whatever the game over function. if alive, go back to normal and erase enemy.
+		}
+
+	else if ((&Map[ycen-y-1][x+xcen] == '%') || (&Map[ycen-y-1][x+xcen] == '$') || (&Map[ycen-y-1][x+xcen] == '&')) && getch() = '\n' 
+	// Checks the space to the immediate south of the player. If enter is pressed a battle occurs.
+	   	{
+			battleCall(/* Map Number */,[ycen-y],[x+xcen]); // Calls the boss battle.
+			// if dead, whatever the game over function. if alive, go back to normal.
+		}
+	
+	else if ((&Map[ycen-y][x+xcen+1] == '%') || (&Map[ycen-y][x+xcen+1] == '$') || (&Map[ycen-y][x+xcen+1] == '&')) && getch() = '\n' 
+	// Checks the space to the immediate east of the player. If enter is pressed a battle occurs.
+	   	{
+			battleCall(/* Map Number */,[ycen-y],[x+xcen]); // Calls the boss battle.
+			// if dead, whatever the game over function. if alive, go back to normal.
+		}
+	else if ((&Map[ycen-y][x+xcen-1] == '%') || (&Map[ycen-y][x+xcen-1] == '$') || (&Map[ycen-y][x+xcen-1] == '&')) && getch() = '\n' 
+	// Checks the space to the immediate west of the player. If enter is pressed a battle occurs.
+	   	{
+			battleCall(/* Map Number */,[ycen-y],[x+xcen]); // Calls the boss battle.
+			// if dead, whatever the game over function. if alive, go back to normal.
+		}
+
+}
