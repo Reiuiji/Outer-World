@@ -8,6 +8,7 @@ Coding
 	- Dungeon Manager
 	- Event Listener (There was an attempt at this, nearly complete.)
 	- Story Manager
+	- Dialog Outputter (There was an attempt at this, could use some touchups.)
 
 Semi-Code (to translate to code)
   - Item Database
