@@ -4,27 +4,16 @@ Todo List
 Coding
   - Player Features
 	- Battle System
+	- Story Manager
 	& - Enemy AI
 	& - Dungeon Manager
 	& - Event Listener (There was an attempt at this, nearly complete.)
-	- Story Manager
 	& - Dialog Outputter (There was an attempt at this, could use some touchups.)
 
 Semi-Code (to translate to code)
-  - Item Database
-    - At least one attack and defense item per area (Needs descriptions)
-    - Healing items / Items to fix status effects (Needs descriptions.)
-    - Items to effect enemies (Needs Descriptions)
-    - Key Items (Needs implementation)
-
-  - Magic Database
-    - Two magic spells per area (Needs descriptions and stats)
-    - Additional magic spells (Needs descriptions and stats)
-
-  - Bestiary
-    - Four generic creatures per area (Descriptions and stats needed.)
-    - One boss type per area (Descriptions and stats needed.)
-    - Additional creatures (Descriptions and stats needed.)
+  - Item Database (Needs descriptions and implementations)
+  - Magic Database (Needs descriptions, bonuses, and stats)
+  - Bestiary (Descriptions and stats needed.)
 
   - Story Features
     - Dialogue
