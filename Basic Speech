@@ -12,67 +12,60 @@ char StatusBar[5][52] =
      {"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"}};
 
 char text[] = ("Insert large amount of text here.");
+
 int a = 0;
-for(int k=1; k<=3; k++)
+int b = 1;
+
+for(int k=1; k<=3; k++) // # of rows
 {
-	for(int j=1; j<=49; j++)
+	for(int j=1; j<=49; j++) // # of usable text spaces
 	{
-				if (text[a] == '\0') 
-					goto broken;
-				else StatusBar[k][j] = text[a];
-				a++;
+				if (text[a] == '\0') goto broken; // if it hits a null go to broken.
+				else StatusBar[k][j] = text[a]; // else, replace statusbar with text.
+				a++; // increment the position on text.
 	}
 }
 
-	cout << StatusBar[0] << "\n";
-	cout << StatusBar[1] << "\n";
-	cout << StatusBar[2] << "\n";
-	cout << StatusBar[3] << "\n";
-	cout << StatusBar[4] << "\n";
+for (int i = 0; i<=5; i++)
+	cout << StatusBar[i] << "\n"; // prints the lines
 
-int b;
-while(getchar() == '\n' && (text[a] != '\0'))
+// while loop to continually display pages
+while(getchar() == '\n' && (text[a] != '\0')) // waits on the user to press enter and makes sure a != NULL
 	{
-		system("cls");
+		system("cls"); // clears the console
 		for(int k=1; k<=3; k++)
 		{
 			for(int j=1; j<=49; j++)
 			{
 				if (text[a] == '\0') 
-					goto brokeninloop;
+					goto brokeninloop; // if it ends it goes to broken in loop
 				else 
-					StatusBar[k][j] = text[a];
-				a++;
-				b++;
+					StatusBar[k][j] = text[a]; // if not it writes to statusbar
+				a++; // a counts the position in the text array.
+				b++; // b counts the numbers of overwrites so far.
 			}
 		
 		}
 		b=1;
-	cout << StatusBar[0] << "\n";
-	cout << StatusBar[1] << "\n";
-	cout << StatusBar[2] << "\n";
-	cout << StatusBar[3] << "\n";	
-	cout << StatusBar[4] << "\n";
 
+	for (int i = 0; i<=5; i++)
+	cout << StatusBar[i] << "\n"; // prints the lines
 	}
 
 return 0;
 
-broken:
-if(text[a] == '\0')
+broken: // if the characters ended before the end of box 1, the function goes here.
+if(text[a] == '\0') 
 {
-	cout << StatusBar[0] << "\n";
-	cout << StatusBar[1] << "\n";
-	cout << StatusBar[2] << "\n";
-	cout << StatusBar[3] << "\n";
-	cout << StatusBar[4] << "\n";
-	return 0;
+	for (int i = 0; i<=5; i++)
+	cout << StatusBar[i] << "\n"; // prints the lines
+	return 0; // exit
 }
 
 brokeninloop:
 if(text[a] == '\0')
 {
-	if (b <= 49 && b >= 0)
+	if (b <= 49 && b >= 0) // if the characters ended in line 1, it uses this to clear garbage.
 	{
 		for(int k=1; k<=1; k++)
 			for(int j=b+1; j<=49; j++)
@@ -82,7 +75,7 @@ if(text[a] == '\0')
 				StatusBar[k][j] = ' ';
 	}
 
-	if (b <= 98 && b >= 50)
+	if (b <= 98 && b >= 50) // if the characters ended in line 2, it uses this to clear garbage.
 	{
 		for(int k=2; k<=2; k++)
 			for(int j=b-49; j<=49; j++)
@@ -92,19 +85,16 @@ if(text[a] == '\0')
 				StatusBar[k][j] = ' ';
 	}
 
-	if (b <= 147 && b >= 99)
+	if (b <= 147 && b >= 99) // if the characters ended in line 3, it uses this to clear garbage.
 	{
 		for(int k=3; k<=3; k++)
 			for(int j=b-98; j<=49; j++)
 				StatusBar[k][j] = ' ';
 	}
 
-	cout << StatusBar[0] << "\n";
-	cout << StatusBar[1] << "\n";
-	cout << StatusBar[2] << "\n";
-	cout << StatusBar[3] << "\n";
-	cout << StatusBar[4] << "\n";
-	return 0;
-}
+	for (int i = 0; i<=5; i++)
+	cout << StatusBar[i] << "\n"; // prints the lines
+	return 0; // exit
 
+	}
 }
