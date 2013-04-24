@@ -1,0 +1,110 @@
+#include <iostream>
+using namespace std;
+using std::cout;
+
+int main()
+{
+char StatusBar[5][52] =
+    {{"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"},
+  	 {"X                                                 X"},
+     {"X                                                 X"},
+     {"X                                                 X"},
+     {"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"}};
+
+char text[] = ("Insert large amount of text here.");
+int a = 0;
+for(int k=1; k<=3; k++)
+{
+	for(int j=1; j<=49; j++)
+	{
+				if (text[a] == '\0') 
+					goto broken;
+				else StatusBar[k][j] = text[a];
+				a++;
+	}
+}
+
+	cout << StatusBar[0] << "\n";
+	cout << StatusBar[1] << "\n";
+	cout << StatusBar[2] << "\n";
+	cout << StatusBar[3] << "\n";
+	cout << StatusBar[4] << "\n";
+
+int b;
+while(getchar() == '\n' && (text[a] != '\0'))
+	{
+		system("cls");
+		for(int k=1; k<=3; k++)
+		{
+			for(int j=1; j<=49; j++)
+			{
+				if (text[a] == '\0') 
+					goto brokeninloop;
+				else 
+					StatusBar[k][j] = text[a];
+				a++;
+				b++;
+			}
+		
+		}
+		b=1;
+	cout << StatusBar[0] << "\n";
+	cout << StatusBar[1] << "\n";
+	cout << StatusBar[2] << "\n";
+	cout << StatusBar[3] << "\n";	
+	cout << StatusBar[4] << "\n";
+
+	}
+
+return 0;
+
+broken:
+if(text[a] == '\0')
+{
+	cout << StatusBar[0] << "\n";
+	cout << StatusBar[1] << "\n";
+	cout << StatusBar[2] << "\n";
+	cout << StatusBar[3] << "\n";
+	cout << StatusBar[4] << "\n";
+	return 0;
+}
+
+brokeninloop:
+if(text[a] == '\0')
+{
+	if (b <= 49 && b >= 0)
+	{
+		for(int k=1; k<=1; k++)
+			for(int j=b+1; j<=49; j++)
+				StatusBar[k][j] = ' ';
+		for(int k=2; k<=3; k++)
+			for(int j=1; j<=49; j++)
+				StatusBar[k][j] = ' ';
+	}
+
+	if (b <= 98 && b >= 50)
+	{
+		for(int k=2; k<=2; k++)
+			for(int j=b-49; j<=49; j++)
+				StatusBar[k][j] = ' ';
+		for(int k=3; k<=3; k++)
+			for(int j=1; j<=49; j++)
+				StatusBar[k][j] = ' ';
+	}
+
+	if (b <= 147 && b >= 99)
+	{
+		for(int k=3; k<=3; k++)
+			for(int j=b-98; j<=49; j++)
+				StatusBar[k][j] = ' ';
+	}
+
+	cout << StatusBar[0] << "\n";
+	cout << StatusBar[1] << "\n";
+	cout << StatusBar[2] << "\n";
+	cout << StatusBar[3] << "\n";
+	cout << StatusBar[4] << "\n";
+	return 0;
+}
+
+}
