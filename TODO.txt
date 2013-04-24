@@ -19,13 +19,13 @@ Semi-Code (to translate to code)
     - Other Items
 
   - Magic Database
-    - Two magic spells per area
-    - Additional magic spells
+    - Two magic spells per area 
+    - Additional magic spells 
 
   - Bestiary
-    - Four generic creatures per area
-    - One boss type per area
-    - Additional creatures
+    - Four generic creatures per area (Names finished, Descriptions and stats needed.)
+    - One boss type per area (Names finished, Descriptions and stats needed.)
+    - Additional creatures (Names finished, Descriptions and stats needed.)
 
   - Story Features
     - Dialogue
