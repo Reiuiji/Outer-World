@@ -11,9 +11,12 @@ Coding
 	& - Dungeon Manager
 	& - Event Listener (There was an attempt at this, nearly complete.)
 	& - Dialog Outputter (There was an attempt at this, could use some touchups.)
+	- A shop function.
+	- A discard item function
 
 Semi-Code (to translate to code)
-  - Item Database (Needs descriptions and implementations)
+  - Item Database (Needs to be implemented)
+	- Key items (Needs definitions from story)
   - Magic Database (Needs descriptions, bonuses, and stats)
   - Bestiary Database (Descriptions and stats needed.)
 
