@@ -15,7 +15,7 @@ Coding
 Semi-Code (to translate to code)
   - Item Database (Needs descriptions and implementations)
   - Magic Database (Needs descriptions, bonuses, and stats)
-  - Bestiary (Descriptions and stats needed.)
+  - Bestiary Database (Descriptions and stats needed.)
 
   - Story Features
     - Dialogue
