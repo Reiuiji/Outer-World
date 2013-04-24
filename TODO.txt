@@ -6,14 +6,14 @@ Coding
 	- Battle System
 	- Enemy AI
 	- Dungeon Manager
-	- Event Listener
+	- Event Listener (There was an attempt at this, nearly complete.)
 	- Story Manager
 
 Semi-Code (to translate to code)
   - Item Database
-    - At least one attack and defense item per area
-    - Healing items / Items to fix status effects
-    - Items to effect enemies
+    - At least one attack and defense item per area (Needs descriptions and names.)
+    - Healing items / Items to fix status effects (Needs descriptions and names.)
+    - Items to effect enemies 
     - Key Items
     - Other Items
 
