@@ -2,9 +2,11 @@ Todo List
 =========
 
 Coding
-  - Player Features
+  	- Player Features
 	- Battle System
+		- Weapon / Magic / Armor Systems
 	- Story Manager
+	- Item System
 	& - Enemy AI
 	& - Dungeon Manager
 	& - Event Listener (There was an attempt at this, nearly complete.)
