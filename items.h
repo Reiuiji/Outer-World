@@ -21,7 +21,26 @@
 class items
 {
 public:
-    items();
-//        items();
+	items();
+	items(char name, char desc, int atk, int magatk, int def, int magdef, int itemtype, int usable, int health, int mana, int smoke, int repel, int key);
+	char getitem();
+	int getstats();
+	char getdesc();
+
 private:
+	char name; // weapon name.
+	char desc; // weapon description.
+
+	int atk; // the attack bonus or decrease of the item.
+	int magatk; // the magic attack bonus or decrease of the item.
+	int def; // the defense bonus or decrease of the item.
+	int magdef; // the magic defense bonus or decrease of the item.
+	int itemtype; // defines the type of item.
+
+    int usable; // defines whether or not an item is usable
+	int health; // defines the amount of health the item restores
+	int mana; // defines the amount of mana the item restores
+	int smoke; // defines if an item is a smoke bomb
+	int repel; // defines if an item is a repel
+	int key; // defines if an item is a key item
 };

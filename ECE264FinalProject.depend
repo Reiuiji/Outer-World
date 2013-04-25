@@ -152,14 +152,17 @@
 
 1366767634 c:\users\benny\documents\github\ece264finalproject\definition.h
 
-1366867920 source:c:\users\benny\documents\github\ece264finalproject\display.cpp
+1366901954 source:c:\users\benny\documents\github\ece264finalproject\display.cpp
+	"Player.h"
 	"Display.h"
 	"Definition.h"
 	<string.h>
 	<iostream>
-	"curses.h"
+	"dependencies/curses.h"
+	<curses.h>
 
-1366857036 c:\users\benny\documents\github\ece264finalproject\display.h
+1366884057 c:\users\benny\documents\github\ece264finalproject\display.h
+	"Player.h"
 	"Definition.h"
 
 1366857265 c:\users\benny\documents\github\ece264finalproject\curses.h
@@ -177,19 +180,21 @@
 
 1366767634 c:\users\benny\documents\github\ece264finalproject\enemy.h
 
-1366867228 source:c:\users\benny\documents\github\ece264finalproject\game.cpp
+1366884057 source:c:\users\benny\documents\github\ece264finalproject\game.cpp
 	"Display.h"
+	"Player.h"
 	"Game.h"
 	"Maps.h"
-	"curses.h"
 	<string.h>
 	<stdlib.h>
 	<time.h>
+	"dependencies/curses.h"
+	<curses.h>
 
-1366767634 c:\users\benny\documents\github\ece264finalproject\game.h
+1366901895 c:\users\benny\documents\github\ece264finalproject\game.h
 	"Definition.h"
 
-1366767634 c:\users\benny\documents\github\ece264finalproject\maps.h
+1366901993 c:\users\benny\documents\github\ece264finalproject\maps.h
 	"Definition.h"
 
 1366767634 source:c:\users\benny\documents\github\ece264finalproject\generator.cpp
@@ -198,36 +203,38 @@
 	<string>
 	"items.h"
 
-1366767634 c:\users\benny\documents\github\ece264finalproject\items.h
+1366902000 c:\users\benny\documents\github\ece264finalproject\items.h
 
-1366857265 source:c:\users\benny\documents\github\ece264finalproject\main.cpp
+1366870080 source:c:\users\benny\documents\github\ece264finalproject\main.cpp
 	<cstdlib>
 	<iostream>
 	<ctime>
-	"curses.h"
 	<string.h>
+	"dependencies\curses.h"
+	<curses.h>
 	"menu.h"
 	"Definition.h"
 	"Display.h"
 
 1366767634 c:\users\benny\documents\github\ece264finalproject\menu.h
 
-1366767634 source:c:\users\benny\documents\github\ece264finalproject\player.cpp
+1366884057 source:c:\users\benny\documents\github\ece264finalproject\player.cpp
 	<iostream>
 	<fstream>
 	<string>
 	<cmath>
 	"Player.h"
 
-1366767634 c:\users\benny\documents\github\ece264finalproject\player.h
+1366884057 c:\users\benny\documents\github\ece264finalproject\player.h
 	<string>
 
-1366857265 source:c:\users\benny\documents\github\ece264finalproject\menu.cpp
-	"curses.h"
+1366870080 source:c:\users\benny\documents\github\ece264finalproject\menu.cpp
 	<stdlib.h>
 	"Game.h"
 	"Display.h"
 	"menu.h"
+	"dependencies/curses.h"
+	<curses.h>
 
 1366865999 source:c:\users\benny\documents\github\ece264finalproject\battle.cpp
 	"Definition.h"
@@ -235,6 +242,12 @@
 	"curses.h"
 
 1366869039 /home/okuu/Programing/ECE264FinalProject/curses.h
+	<stdarg.h>
+	<stddef.h>
+	<stdio.h>
+	<wchar.h>
+
+1366857265 c:\users\benny\documents\github\ece264finalproject\dependencies\curses.h
 	<stdarg.h>
 	<stddef.h>
 	<stdio.h>
