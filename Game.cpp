@@ -151,24 +151,24 @@ bool MoveCheck(int &x,int &y,int xcen, int ycen, int xmove, int ymove, char Map[
 }
 
 
-bool CollisionCheck(int &x, int &y, char *event)
+bool CollisionCheck(int x, int y, char *Map[][MapMax], char event)
 {
     // Checks to see if there is a basic monster adjacent (whether or not it should call for a battle)
-    if (    (&Map[y+1][x] == event) || (&Map[y][x+1] == event) // Checks the space to the immediate north of the player for enemies.
-            ||  (&Map[y-1][x] == event) || (&Map[y][x-1] == event)
+    if (    (Map[y+1][x] == &event) || (Map[y][x+1] == &event) // Checks the space to the immediate north of the player for enemies.
+            ||  (Map[y-1][x] == &event) || (Map[y][x-1] == &event)
        ) // Checks the space to the immediate south of the player for enemies.
         return 0;
     else
         return 1;
 }
 
-bool CollisionRangeCheck(int &x, int &y, char *Start, char *End)
+bool CollisionRangeCheck(int x, int y, char *Map[][MapMax], char Start, char End)
 {
     // Checks to see if there is a basic monster adjacent (whether or not it should call for a battle)
-    if (    ((&Map[y+1][x] >= Start) && (&Map[y+1][x] <= End))
-            ||  ((&Map[y-1][x] >= Start) && (&Map[y-1][x] <= End))
-            ||  ((&Map[y][x+1] >= Start) && (&Map[y][x+1] <= End))
-            ||  ((&Map[y][x-1] >= Start) && (&Map[y][x-1] <= End))
+    if (    ((Map[y+1][x] >= &Start) && (Map[y+1][x] <= &End))
+            ||  ((Map[y-1][x] >= &Start) && (Map[y-1][x] <= &End))
+            ||  ((Map[y][x+1] >= &Start) && (Map[y][x+1] <= &End))
+            ||  ((Map[y][x-1] >= &Start) && (Map[y][x-1] <= &End))
        )
         return 0;
     else
@@ -176,16 +176,17 @@ bool CollisionRangeCheck(int &x, int &y, char *Start, char *End)
 }
 // ==========
 
-void eventListener(int &x,&y, char input)
+void eventListener(int x,int y, char* Map[][MapMax], char input)
 {
-    if(CollisionCheck(x,y,'<') || CollisionCheck(x,y,'>'))
+    if(CollisionCheck(x,y,Map,'<') || CollisionCheck(x,y,Map,'>'))
         // Normal Battle;
-    if((CollisionRangeCheck(x,y,'A','Z') && input == '\n')
+    if((CollisionRangeCheck(x,y,Map,'A','Z') && input == '\n'))
         // Speech Event
-    if((CollisionCheck(x,y,'%') || CollisionCheck(x,y,'$') || CollisionCheck(x,y,'&')) && input == '\n')
+    if((CollisionCheck(x,y,Map,'%') || CollisionCheck(x,y,Map,'$') || CollisionCheck(x,y,Map,'&')) && input == '\n')
         // Boss Battle. Maybe implement a feature to check the map.
-    if(CollisionCheck(x,y,'~') && input == '\n')
+    if(CollisionCheck(x,y,Map,'~') && input == '\n')
         // opens chest and gets idems, display etc.
+        return 0;
 }
 
 //input function
