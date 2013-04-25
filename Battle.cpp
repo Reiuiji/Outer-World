@@ -20,10 +20,10 @@
 #include "Definition.h"
 #include <string.h>
 #include "curses.h"
-/*
+
 //curses: outputs the border of the screen
 //checks the limits of the border and output a border tag
-void CDisplay::init_Border(int offset)
+/*void CDisplay::init_Border(int offset)
 {
     move(offset+1,0);
     attron(COLOR_PAIR(COLOR_WHITE));
@@ -77,6 +77,4 @@ void CDisplay::Message(int X,int Y, int Width, int Height, const char *msg)
         }
     }
 }
-
-
 */
