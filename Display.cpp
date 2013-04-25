@@ -207,7 +207,7 @@ void CDisplay::Message(int X,int Y, int Width, int Height, const char *msg)
     int i = 0,j=0,line=1;
 
     int CenWidthBox = (Width)/2;
-    int Strlength = strnlen(msg,500);
+    int Strlength = strlen(msg);
     int length = Strlength;
     while(length > CenWidthBox*1.5)
     {

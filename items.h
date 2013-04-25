@@ -43,4 +43,4 @@ private:
 	int smoke; // defines if an item is a smoke bomb
 	int repel; // defines if an item is a repel
 	int key; // defines if an item is a key item
-}
+};
