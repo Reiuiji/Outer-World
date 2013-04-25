@@ -199,7 +199,6 @@ void eventListener(int x, int y, int xcen,int ycen, char Map[][MapMax], char inp
 if(CollisionCheck(x,y,xcen,ycen,Map,'&') && input == '\n')
     {
     CDisplay display;
-    int c=0;
     display.Message("You opened the chest. There was nothing inside!");
 
     refresh();
@@ -216,9 +215,7 @@ if(CollisionCheck(x,y,xcen,ycen,Map,'&') && input == '\n')
 
 else if(CollisionCheck(x,y,xcen,ycen,Map,'A') && input == '\n')
     {
-<<<<<<< HEAD
     CDisplay display;
-    int c=0;
     display.Message("Please get out of my house.");
 
     refresh();
@@ -236,13 +233,9 @@ else if(CollisionCheck(x,y,xcen,ycen,Map,'A') && input == '\n')
 else if((CollisionCheck(x,y,xcen,ycen,Map,'[') || CollisionCheck(x,y,xcen,ycen,Map,']') || CollisionCheck(x,y,xcen,ycen,Map,'/') || CollisionCheck(x,y,xcen,ycen,Map,'v'))  && input == '\n')
     {
     CDisplay display;
-    int c=0;
     display.Message("It's a tree. Fascinating.");
 
-=======
-        CDisplay display;
     display.Message("you opened the chest... you found Nothing");
->>>>>>> f59ca00c924c56259bb042086640fff6efdfe698
     refresh();
         bool leave = false;
         while(leave == false)

@@ -27,10 +27,8 @@ bool CollisionCheck(int x, int y, int xcen, int ycen, char Map[][MapMax], char e
 bool CollisionRangeCheck(int x, int y, int xcen, int ycen, char Map[][MapMax], char Start, char End);
 void eventListener(int x, int y, int xcen,int ycen, char Map[][MapMax], char input);
 
-<<<<<<< HEAD
 // void eventListener(int x,int y, char* Map[][MapMax], char input);
-=======
+
 void eventListener(int x,int y, char* Map[][MapMax], char input);
 
->>>>>>> f59ca00c924c56259bb042086640fff6efdfe698
 int Input(void);

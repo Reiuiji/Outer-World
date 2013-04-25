@@ -54,7 +54,7 @@
 	"dependencies/curses.h"
 	<curses.h>
 
-1366903454 /home/okuu/Programing/ECE264FinalProject/Game.h
+1366916007 /home/okuu/Programing/ECE264FinalProject/Game.h
 	"Definition.h"
 
 1366883308 source:/home/okuu/Programing/ECE264FinalProject/Player.cpp
@@ -72,7 +72,7 @@
 	<string.h>
 	"curses.h"
 
-1366915080 source:/home/okuu/Programing/ECE264FinalProject/Display.cpp
+1366915784 source:/home/okuu/Programing/ECE264FinalProject/Display.cpp
 	"Player.h"
 	"Display.h"
 	"Definition.h"
