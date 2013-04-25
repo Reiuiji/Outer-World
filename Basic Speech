@@ -5,11 +5,11 @@ using std::cout;
 int main()
 {
 char StatusBar[5][52] =
-    {{"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"},
-     {"X                                                 X"},
-     {"X                                                 X"},
-     {"X                                                 X"},
-     {"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"}};
+    {{"+-------------------------------------------------+"},
+     {"|                                                 |"},
+     {"|                                                 |"},
+     {"|                                                 |"},
+     {"+-------------------------------------------------+"}};
 
 char text[] = ("Insert large amount of text here.");
 
@@ -26,7 +26,7 @@ for(int k=1; k<=3; k++) // # of rows
 	}
 }
 
-for (int i = 0; i<=5; i++)
+for (int i = 0; i<=4; i++)
 	cout << StatusBar[i] << "\n"; // prints the lines
 
 // while loop to continually display pages
@@ -44,11 +44,11 @@ while(getchar() == '\n' && (text[a] != '\0')) // waits on the user to press ente
 				a++; // a counts the position in the text array.
 				b++; // b counts the numbers of overwrites so far.
 			}
-		
+
 		}
 		b=1;
 
-	for (int i = 0; i<=5; i++)
+	for (int i = 0; i<=4; i++)
 	cout << StatusBar[i] << "\n"; // prints the lines
 	}
 
@@ -57,7 +57,7 @@ return 0;
 broken: // if the characters ended before the end of box 1, the function goes here.
 if(text[a] == '\0') 
 {
-	for (int i = 0; i<=5; i++)
+	for (int i = 0; i<=4; i++)
 	cout << StatusBar[i] << "\n"; // prints the lines
 	return 0; // exit
 }
@@ -92,7 +92,7 @@ if(text[a] == '\0')
 				StatusBar[k][j] = ' ';
 	}
 
-	for (int i = 0; i<=5; i++)
+	for (int i = 0; i<=4; i++)
 	cout << StatusBar[i] << "\n"; // prints the lines
 	return 0; // exit
 

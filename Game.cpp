@@ -24,22 +24,31 @@
 #include "curses.h"
 #include <string.h>
 #include <stdlib.h>
+#include <time.h>
 
 int Game()
 {
     int x = 0;
     int y = 0;
     CDisplay GameDisplay;//sets up the display object for curses
+
+    //sets up time layout for 1 seconds
+    struct timespec tim,tim2;
+    tim.tv_sec = 0;
+    tim.tv_nsec = 50000000L;
+
     while(play == true)
     {
 
         clear();
         GameDisplay.init_StatusBar();
         GameDisplay.Display(WinWidth,WinHeight,x,y,100,50,Map1);
-        GameDisplay.init_Border(Displaycenset);
         GameDisplay.DebugScreen(x,y,Map1);
-        GameDisplay.Message("test");
+        GameDisplay.Message(0,(4*WinHeight)/5,WinWidth,WinHeight,"test");
+        GameDisplay.init_Border(Displaycenset);
+        //GameDisplay.Message("test");
         Move(x,y,100,50,Map1);
+        nanosleep(&tim,&tim2);
         if(AutoDisplay==true)
         {
             getmaxyx(stdscr,WinHeight,WinWidth);

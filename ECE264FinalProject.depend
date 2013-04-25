@@ -106,10 +106,10 @@
 
 1366752732 /home/okuu/Programing/ECE264FinalProject/menu.h
 
-1366747407 /home/okuu/Programing/ECE264FinalProject/Display.h
+1366828313 /home/okuu/Programing/ECE264FinalProject/Display.h
 	"Definition.h"
 
-1366753306 source:/home/okuu/Programing/ECE264FinalProject/menu.cpp
+1366755886 source:/home/okuu/Programing/ECE264FinalProject/menu.cpp
 	<curses.h>
 	<stdlib.h>
 	"Game.h"
@@ -129,19 +129,20 @@
 1366428623 /home/okuu/Programing/ECE264FinalProject/Player.h
 	<string>
 
-1366747382 source:/home/okuu/Programing/ECE264FinalProject/Display.cpp
+1366828226 source:/home/okuu/Programing/ECE264FinalProject/Display.cpp
 	"Display.h"
 	"Definition.h"
 	<string.h>
 	<curses.h>
 
-1366747428 source:/home/okuu/Programing/ECE264FinalProject/Game.cpp
+1366828548 source:/home/okuu/Programing/ECE264FinalProject/Game.cpp
 	"Display.h"
 	"Game.h"
 	"Maps.h"
 	<curses.h>
 	<string.h>
 	<stdlib.h>
+	<time.h>
 
 1366428657 /home/okuu/Programing/ECE264FinalProject/Maps.h
 	"Definition.h"

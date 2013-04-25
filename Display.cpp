@@ -61,11 +61,11 @@ void CDisplay::init_Border(int offset)
             }
             else if((x == 0 || x == WinWidth-1) & !(y == 0 || y == (WinHeight-offset-1)))
             {
-                mvaddch(offset+y,x,'\124');
+                mvaddch(offset+y,x,'\45');
             }
             else if(y == 0 || y == (WinHeight-offset-1) || x == 0 || x == WinWidth-1)
             {
-                mvaddch(offset+y,x,'X');
+                mvaddch(offset+y,x,'\45');
             }
         }
 
@@ -130,21 +130,30 @@ void CDisplay::Display(int Sx, int Sy, int x, int y,int xcen, int ycen, char Map
 }
 
 //curses message display
-void CDisplay::Message(const char *msg)
+void CDisplay::Message(int X,int Y, int Width, int Height, const char *msg)
 {
-    move(XCenter-msg_X_Width/2,YCenter);
-    int place = 0;
-    for(int y = YCenter; y <= msg_Y_Width; y++)
+    attron(COLOR_PAIR(COLOR_WHITE));
+    //sets up the blank window
+    for(int y = Y; y < Height; y++)
     {
-        for(int x = XCenter-msg_X_Width/2; x <= msg_X_Width; x++)
+        for(int x = X; x < Width; x++)
         {
-            if(y == YCenter || y == msg_Y_Width || x == XCenter-msg_X_Width/2 || x == msg_X_Width)
-                printw("x");
+            if(y == Y || y == Height || x == X || x == Width)
+                mvaddstr(y,x,"\45");
             else
             {
-                mvaddstr(y,x,"0");
-                place++;
+                mvaddstr(y,x," ");
             }
+
+        }
+    }
+
+    //inputs the text into the window
+    for(int y = Y+2; y < Height-2; y++)
+    {
+        for(int x = X+3; x < Width-3; x++)
+        {
+                mvaddstr(y,x,"#");
 
         }
     }
