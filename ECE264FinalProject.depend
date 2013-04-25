@@ -147,21 +147,24 @@
 1366428657 /home/okuu/Programing/ECE264FinalProject/Maps.h
 	"Definition.h"
 
-1366767634 source:c:\users\benny\documents\github\ece264finalproject\definition.cpp
+1366916290 source:c:\users\benny\documents\github\ece264finalproject\definition.cpp
 	"Definition.h"
 
-1366767634 c:\users\benny\documents\github\ece264finalproject\definition.h
+1366916290 c:\users\benny\documents\github\ece264finalproject\definition.h
 
-1366914055 source:c:\users\benny\documents\github\ece264finalproject\display.cpp
+1366916704 source:c:\users\benny\documents\github\ece264finalproject\display.cpp
 	"Player.h"
 	"Display.h"
 	"Definition.h"
 	<string.h>
 	<iostream>
+	<time.h>
 	"dependencies/curses.h"
+	<windows.h>
 	<curses.h>
 
-1366902357 c:\users\benny\documents\github\ece264finalproject\display.h
+1366916290 c:\users\benny\documents\github\ece264finalproject\display.h
+	"Enemy.h"
 	"Player.h"
 	"Definition.h"
 
@@ -178,7 +181,8 @@
 	<cmath>
 	"Enemy.h"
 
-1366767634 c:\users\benny\documents\github\ece264finalproject\enemy.h
+1366916290 c:\users\benny\documents\github\ece264finalproject\enemy.h
+	<string>
 
 1366915833 source:c:\users\benny\documents\github\ece264finalproject\game.cpp
 	"Display.h"
@@ -191,7 +195,7 @@
 	"dependencies/curses.h"
 	<curses.h>
 
-1366915523 c:\users\benny\documents\github\ece264finalproject\game.h
+1366916440 c:\users\benny\documents\github\ece264finalproject\game.h
 	"Definition.h"
 
 1366915833 c:\users\benny\documents\github\ece264finalproject\maps.h

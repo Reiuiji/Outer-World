@@ -58,24 +58,15 @@ int Game()
         //GameDisplay.Message(0,0,WinWidth,WinHeight,"abcdefghijklmnopqrstuvwxyz");
         GameDisplay.init_Border(Displaycenset);
         //GameDisplay.Message("test");
-<<<<<<< HEAD
-<<<<<<< HEAD
         Move(x,y,100,50,Map1,event);
         // nanosleep(&tim,&tim2);
-=======
-=======
->>>>>>> c5b48bdf685be6b4d4cdaa16c629fe82372080fd
-        Move(x,y,100,50,Map1);
+        Move(x,y,100,50,Map1,event);
 
         if(BattleMode == true)
         {
             GameDisplay.Battle(playerONE,EnemyONE);
         }
 
-<<<<<<< HEAD
->>>>>>> c5b48bdf685be6b4d4cdaa16c629fe82372080fd
-=======
->>>>>>> c5b48bdf685be6b4d4cdaa16c629fe82372080fd
         if(AutoDisplay==true)
         {
             getmaxyx(stdscr,WinHeight,WinWidth);
@@ -216,16 +207,8 @@ void eventListener(int x, int y, int xcen,int ycen, char Map[][MapMax], char inp
 if(CollisionCheck(x,y,xcen,ycen,Map,'<') || CollisionCheck(x,y,xcen,ycen,Map,'>'))
     {
     CDisplay display;
-<<<<<<< HEAD
-<<<<<<< HEAD
     int c=0;
     display.Message("If the battle system was implemented, you would be fighting.");
-=======
-=======
->>>>>>> c5b48bdf685be6b4d4cdaa16c629fe82372080fd
-    display.Message("You opened the chest. There was nothing inside!");
->>>>>>> c5b48bdf685be6b4d4cdaa16c629fe82372080fd
-
     refresh();
         bool leave = false;
         while(leave == false)
@@ -241,16 +224,7 @@ if(CollisionCheck(x,y,xcen,ycen,Map,'<') || CollisionCheck(x,y,xcen,ycen,Map,'>'
 else if(CollisionCheck(x,y,xcen,ycen,Map,'&') && input == '\n')
     {
     CDisplay display;
-<<<<<<< HEAD
-<<<<<<< HEAD
-    int c=0;
     display.Message("You opened the chest. There was nothing inside!");
-=======
-=======
->>>>>>> c5b48bdf685be6b4d4cdaa16c629fe82372080fd
-    display.Message("Please get out of my house.");
->>>>>>> c5b48bdf685be6b4d4cdaa16c629fe82372080fd
-
     refresh();
         bool leave = false;
         while(leave == false)
@@ -267,7 +241,6 @@ else if(CollisionCheck(x,y,xcen,ycen,Map,'&') && input == '\n')
 else if(CollisionCheck(x,y,xcen,ycen,Map,'A') && input == '\n')
     {
     CDisplay display;
-<<<<<<< HEAD
     int c=0;
     display.Message("Oh, you're awake. Welcome to the city of Seaview. Yes, I know it's a terrible name. Blame the mayor.You washed up in our lake, so we placed you in our");
     refresh();
@@ -452,16 +425,6 @@ else if((CollisionCheck(x,y,xcen,ycen,Map,'[') || CollisionCheck(x,y,xcen,ycen,M
     {
     CDisplay display;
     display.Message("It's a tree. Fascinating.");
-<<<<<<< HEAD
-=======
-
-    display.Message("you opened the chest... you found Nothing");
->>>>>>> c5b48bdf685be6b4d4cdaa16c629fe82372080fd
-=======
-    display.Message("It's a tree. Fascinating.");
-
-    display.Message("you opened the chest... you found Nothing");
->>>>>>> c5b48bdf685be6b4d4cdaa16c629fe82372080fd
     refresh();
         bool leave = false;
         while(leave == false)

@@ -26,6 +26,7 @@
 
 #ifdef _WIN32
 #include "dependencies/curses.h"
+#include <windows.h>
 #endif
 #ifdef linux
 #include <curses.h>
@@ -44,7 +45,7 @@
 void CDisplay::wait(int milliseconds)
 {
 #ifdef _WIN32
-    sleep(milliseconds)
+    Sleep(milliseconds);
 #endif
 #ifdef linux
     struct timespec tim,tim2;
