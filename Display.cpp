@@ -110,7 +110,7 @@ void CDisplay::Display(int Sx, int Sy, int x, int y,int xcen, int ycen, char Map
     x = x+xcen; //center cords
     y = ycen-y;
     Sy-=Displaycenset;//fixed the cords based on the display offset from the status bar
-    move(Displaycenset,1);
+    move(Displaycenset,0);
     for(int Ly = (y-Sy/2) ; Ly < (y+Sy/2 + Sy%2 -1); Ly ++)
     {
         for(int Lx = (x - Sx/2) ; Lx < (x + Sx/2 +(Sx%2) -1) ; Lx++)
@@ -154,19 +154,24 @@ void CDisplay::Message(int X,int Y, int Width, int Height, const char *msg)
 
         }
     }
-    std::string text (msg);
-    int StringCen = (Width-6-(X+6))/2;
-    int a = 1;
+    int CenWidthBox = (Width)/2;
+    int length = strnlen(msg,500);
+    mvprintw(4,4,"%d",CenWidthBox);
+    int i = 0,j=0;
+    if(Height>4)
+    j=2;
+    else
+    j=1;
     //inputs the text into the window
-    for(int y = Y; y < Height+Y; y++)
+    for(int y = Y+j; y < Height+Y; y++)
     {
-        for(int x = StringCen-text.length()/2; x < StringCen+text.length()/2; x++)
+        for(int x = X+CenWidthBox-length/2; x < X+CenWidthBox+length/2; x++)
         {
-            mvaddch(X+4,y+4,text.at(0)); //x-(StringCen-text.length()/2))];
-            mvprintw(X+6,y+4,"%d",text.length());
-            mvprintw(X+8,y+4,"%d",x);
-            mvprintw(X+10,y+4,"%d",StringCen);
-            //printw("%1c",text.at(a));
+            if(i< length)
+            {
+                mvaddch(y,x,msg[i]);
+            }
+            i++;
         }
     }
 }

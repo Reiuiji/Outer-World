@@ -48,12 +48,12 @@ int Game()
     {
 
         clear();
-        /*GameDisplay.init_StatusBar();
+        GameDisplay.init_StatusBar();
         GameDisplay.Display(WinWidth,WinHeight,x,y,100,50,Map1);
         GameDisplay.DebugScreen(x,y,Map1);
-        GameDisplay.Message(0,(4*WinHeight)/5,WinWidth,WinHeight,"test");*/
-        GameDisplay.Message(0,0,WinWidth,WinHeight,"box");
-        //GameDisplay.init_Border(Displaycenset);
+        GameDisplay.Message(WinWidth/6,(4*WinHeight)/5,(2*WinWidth)/3,WinHeight/5,"Hello young one, i am a traveler from a different land, please help me and I will give you a mgic ball");
+        //GameDisplay.Message(0,0,WinWidth,WinHeight,"abcdefghijklmnopqrstuvwxyz");
+        GameDisplay.init_Border(Displaycenset);
         //GameDisplay.Message("test");
         Move(x,y,100,50,Map1);
         // nanosleep(&tim,&tim2);
