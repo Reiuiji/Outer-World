@@ -186,7 +186,6 @@ void eventListener(int x,int y, char Map[][MapMax], char input)
     if(CollisionCheck(x,y,Map,'&') && input == '\n')
     {
         CDisplay display;
-        int c=0;
     display.Message("you opened the chest... you found Nothing");
     refresh();
         bool leave = false;
