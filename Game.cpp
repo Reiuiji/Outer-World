@@ -33,9 +33,9 @@ int Game()
     CDisplay GameDisplay;//sets up the display object for curses
 
     //sets up time layout for 1 seconds
-    struct timespec tim,tim2;
-    tim.tv_sec = 0;
-    tim.tv_nsec = 50000000L;
+   // struct timespec tim,tim2;
+   // tim.tv_sec = 0;
+   // tim.tv_nsec = 50000000L;
 
     while(play == true)
     {
@@ -48,7 +48,7 @@ int Game()
         GameDisplay.init_Border(Displaycenset);
         //GameDisplay.Message("test");
         Move(x,y,100,50,Map1);
-        nanosleep(&tim,&tim2);
+       // nanosleep(&tim,&tim2);
         if(AutoDisplay==true)
         {
             getmaxyx(stdscr,WinHeight,WinWidth);
