@@ -1,0 +1,66 @@
+
+// definition of a weapon
+class WeaponItem
+{
+public:
+  WeaponItem();									
+	WeaponItem(char name, int atk, int magatk, char desc);	
+	char getitem();						
+	int getstats();
+	char getdesc();								
+
+private:
+	char name; // weapon name.
+	char desc; // weapon description.
+	int atk; // the attack bonus or decrease of the item.
+	int magatk; // the magic attack bonus or decrease of the item.
+}
+
+// definition of an armor
+class ArmorItem
+{
+public:
+	ArmorItem();									
+	ArmorItem(char name, int def, int magdef, char desc);	
+	char getitem();								
+	int getstats();
+	char getdesc();								
+
+private:
+	char name; // armor name
+	char desc; // armor description
+	int def; // the defence bonus or decrease of the item
+	int magdef; // the magic defense or increase of the item.
+}
+
+// definition of an other item
+class OtherItem
+{
+public:
+	OtherItem();									
+	OtherItem(char name, int health, int mana, int smoke, int repel, char desc);	
+	char getitem();								
+	int getstats();
+	char getdesc();								
+
+private:
+	char name; // item name
+	char desc; // item description
+	int health; // the health bonus from the item
+	int mana; // the mana bonus from the item
+	int smoke; // if it's a smoke bomb
+	int repel; // if it's a repel
+}
+
+class KeyItem
+{
+public:
+	KeyItem();									
+	KeyItem(char name, char desc);	
+	char getitem();								
+	char getdesc();								
+
+private:
+	char name; // item name
+	char desc; // item description
+}
