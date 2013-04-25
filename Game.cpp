@@ -19,6 +19,7 @@
 */
 #include "Display.h"
 #include "Player.h"
+#include "Enemy.h"
 #include "Game.h"
 #include "Maps.h"
 #include <string.h>
@@ -39,6 +40,7 @@ int Game()
     int y = 0;
     CDisplay GameDisplay;//sets up the display object for curses
     Player playerONE(1);
+    Enemy EnemyONE(1);
     //sets up time layout for 1 seconds
     // struct timespec tim,tim2;
     // tim.tv_sec = 0;
@@ -48,15 +50,20 @@ int Game()
     {
 
         clear();
-        GameDisplay.init_StatusBar(playerONE);
+        GameDisplay.init_StatusBar(0,playerONE);
         GameDisplay.Display(WinWidth,WinHeight,x,y,100,50,Map1);
-        GameDisplay.DebugScreen(x,y,Map1);
+        //GameDisplay.DebugScreen(x,y,Map1);
         //GameDisplay.Message(WinWidth/6,(4*WinHeight)/5,(2*WinWidth)/3,WinHeight/5,"Hello young one, i am a traveler from a different land, please help me and I will give you a magic ball");
         //GameDisplay.Message(0,0,WinWidth,WinHeight,"abcdefghijklmnopqrstuvwxyz");
         GameDisplay.init_Border(Displaycenset);
         //GameDisplay.Message("test");
         Move(x,y,100,50,Map1);
-        // nanosleep(&tim,&tim2);
+
+        if(BattleMode == true)
+        {
+            GameDisplay.Battle(playerONE,EnemyONE);
+        }
+
         if(AutoDisplay==true)
         {
             getmaxyx(stdscr,WinHeight,WinWidth);
@@ -125,11 +132,15 @@ void Move(int &x,int &y,int xcen, int ycen,char Map[][MapMax])
         }
         break;
 
-    case KEY_EXIT:   //Exit the game display
+    case 'b':   //Test Enter the Battle mode
+        BattleMode = true;
+        break;
+
+    case '`':   //Exit the game display
         play = false;
         break;
 
-    case '`':   //enable debug utility
+    case '~':   //enable debug utility
         if(debug == false)
             debug = true;
         else

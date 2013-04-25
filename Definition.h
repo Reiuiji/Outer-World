@@ -42,6 +42,7 @@ extern int doty;
 
 extern bool debug;
 extern bool play;
+extern bool BattleMode;
 extern bool AutoDisplay;
 
 //color setup

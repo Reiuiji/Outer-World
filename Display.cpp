@@ -22,6 +22,7 @@
 #include "Definition.h"
 #include <string.h>
 #include <iostream>
+#include <time.h>
 
 #ifdef _WIN32
 #include "dependencies/curses.h"
@@ -40,16 +41,30 @@
 //    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
 //};
 
+void CDisplay::wait(int milliseconds)
+{
+#ifdef _WIN32
+    sleep(milliseconds)
+#endif
+#ifdef linux
+    struct timespec tim,tim2;
+    tim.tv_sec = 0;
+    tim.tv_nsec = milliseconds*1000;
+    nanosleep(&tim,&tim2);
+#endif
+}
+
+
 //curses display that will init the status bar
-void CDisplay::init_StatusBar(Player P)
+void CDisplay::init_StatusBar(int HightPos, Player P) //hight pos is where it is relevant to the main screen(note -5 for actal status height)
 {
     move(0,0);
     attron(COLOR_PAIR(COLOR_WHITE));
-    for(int y = 0; y<Displaycenset; y++)
+    for(int y = HightPos; y<HightPos+Displaycenset; y++)
     {
         for(int x = 0; x<WinWidth; x++)
         {
-            if(y == 0 || y == Displaycenset-1 || x ==0 || x == WinWidth-1)
+            if(y == HightPos || y == HightPos+Displaycenset-1 || x ==0 || x == WinWidth-1)
             {
                 mvprintw(y,x,"X");
             }
@@ -62,35 +77,35 @@ void CDisplay::init_StatusBar(Player P)
     }
 
 //setup the displays
-attron(COLOR_PAIR(COLOR_RED));
-mvaddstr(1,6,"Health");
-mvaddch(2,6,'[');
+    attron(COLOR_PAIR(COLOR_RED));
+    mvaddstr(HightPos+1,6,"Health");
+    mvaddch(HightPos+2,6,'[');
 
 //output the health bar
-for(int i=7;i< (P.H()/P.MH() % 10)*(WinWidth*0.25);i++)
-{
-    mvaddch(2,i,'|');
-}
-mvaddch(2,WinWidth*0.25,']');
+    for(int i=7; i< (P.H()/P.MH() % 10)*(WinWidth*0.25); i++)
+    {
+        mvaddch(HightPos+2,i,'|');
+    }
+    mvaddch(HightPos+2,WinWidth*0.25,']');
 
-mvprintw(3,6,"( %4d / %4d )",P.H(), P.MH());
+    mvprintw(HightPos+3,6,"( %4d / %4d )",P.H(), P.MH());
 
 //sets up for MANA
-attron(COLOR_PAIR(COLOR_BLUE));
-mvaddstr(1,WinWidth-10,"MANA");
-mvaddch(2,WinWidth-7,']');
+    attron(COLOR_PAIR(COLOR_BLUE));
+    mvaddstr(HightPos+1,WinWidth-10,"MANA");
+    mvaddch(HightPos+2,WinWidth-7,']');
 
 //output the health bar
-for(int i= ((P.M()/P.MM()) % 10)*(WinWidth-7)-1;i>WinWidth*0.75-1;i--)
-{
-    mvaddch(2,i,'|');
-}
-mvaddch(2,WinWidth*0.75-1,'[');
+    for(int i= ((P.M()/P.MM()) % 10)*(WinWidth-7)-1; i>WinWidth*0.75-1; i--)
+    {
+        mvaddch(HightPos+2,i,'|');
+    }
+    mvaddch(HightPos+2,WinWidth*0.75-1,'[');
 
-mvprintw(3,WinWidth-21,"( %4d / %4d )",P.M(), P.MM());
+    mvprintw(HightPos+3,WinWidth-21,"( %4d / %4d )",P.M(), P.MM());
 
 
-attron(COLOR_PAIR(COLOR_WHITE));
+    attron(COLOR_PAIR(COLOR_WHITE));
 
 //                if(y == 1 && (x>0 && x<9))
 //            {
@@ -245,7 +260,7 @@ void CDisplay::Message(int X,int Y, int Width, int Height, const char *msg)
 
 void CDisplay::Message(const char *msg)
 {
-Message(WinWidth/6,(4*WinHeight)/5,(2*WinWidth)/3,WinHeight/5, msg);
+    Message(WinWidth/6,(4*WinHeight)/5,(2*WinWidth)/3,WinHeight/5, msg);
 }
 
 //curses: main color map, output the specific color on the screen
@@ -299,3 +314,94 @@ void CDisplay::ColorMap(char var)
     }
 }
 
+
+void CDisplay::Battle(Player plyone, Enemy Mob)
+{
+
+    for(int y=0; y<=WinHeight-Displaycenset; y++)
+    {
+        for(int x=0; x<WinWidth; x++)
+        {
+            mvaddch(y-1,x,' ');
+        }
+        if(y>WinHeight/5)
+        {
+            Message(WinWidth/6,(1*WinHeight)/5,(2*WinWidth)/3,WinHeight/5, "Talk");
+        }
+
+        if(y>(2*WinHeight)/5)
+        {
+            Message(WinWidth/6,(2*WinHeight)/5,(2*WinWidth)/3,WinHeight/5, "Action");
+        }
+
+        if(y>(3*WinHeight)/5)
+        {
+            Message(WinWidth/6,(3*WinHeight)/5,(2*WinWidth)/3,WinHeight/5, "Selection");
+        }
+        if(y % (WinHeight/12) == 0)
+        {
+
+            init_StatusBar(y,plyone);
+            wait(40000);
+
+            refresh();
+        }
+
+
+
+
+    }
+    wait(10000);
+
+    refresh();
+
+
+    while(BattleMode == true)
+    {
+        clear();
+        move(0,0);
+        Message(WinWidth/6,(3*WinHeight)/5,(2*WinWidth)/3,WinHeight/5, "Selection");
+        Message(WinWidth/6,(2*WinHeight)/5,(2*WinWidth)/3,WinHeight/5, "Action");
+        Message(WinWidth/6,(1*WinHeight)/5,(2*WinWidth)/3,WinHeight/5, "Talk");
+        init_StatusBar(WinHeight-Displaycenset,plyone);
+        if(AutoDisplay==true)
+        {
+            getmaxyx(stdscr,WinHeight,WinWidth);
+        }
+        refresh();
+
+//battle functions
+        int  c=getch();
+        if(c)
+        {
+            switch(c)
+            {
+            case KEY_DOWN:
+                dotx += 2;
+                break;
+
+            case KEY_UP:
+                dotx -= 2;
+                break;
+
+            case KEY_LEFT:
+                doty -= 2;
+                break;
+
+            case KEY_RIGHT:
+                doty += 2;
+                break;
+
+            case '\n':
+
+                break;
+
+            case '0':
+                BattleMode = false;
+                break;
+
+            }
+        }
+    }
+
+}

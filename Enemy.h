@@ -17,16 +17,19 @@
 * You should have received a copy of the GNU General Public License
 * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
+#ifndef ENEMY_SET
+#define ENEMY_SET
 
+#include <string>
 class Enemy
 {
 public:
     Enemy(bool);           //implement new Enemy
     //Enemy(ifstream);   //import Enemy data
 
-    void Set_N(string);
-    string N();
-    void Set_Name(string);
+    void Set_N(std::string);
+    std::string N();
+    void Set_Name(std::string);
 
     void Set_LVL(int);
 
@@ -54,7 +57,7 @@ public:
     void move(float,float);
 
 private:
-    string Name;
+    std::string Name;
     int Level;
     double Health;
     double MaxHealth;
@@ -70,3 +73,4 @@ private:
     int Location;
 
 };
+#endif
