@@ -21,7 +21,7 @@
 #include <cstdlib>
 #include <iostream>
 #include <ctime>
-#include <curses.h>
+#include "curses.h"
 #include <string.h>
 
 
@@ -123,7 +123,7 @@ int main(int argc, char *argv[])
 //    }
 
 #ifdef PDCURSES
-    PDC_set_title(version);
+    PDC_set_title(revision);
 #endif
 
 //---------Initialize Curses---------

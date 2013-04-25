@@ -20,7 +20,7 @@
 #include "Display.h"
 #include "Definition.h"
 #include <string.h>
-#include <curses.h>
+#include "curses.h"
 
 //temp array to display the status bar
 char StatusBar[5][102] =

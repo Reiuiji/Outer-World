@@ -20,7 +20,7 @@
 
 //tmp to test
 #define version "Test 0.01"
-#include <curses.h>
+#include "curses.h"
 #include <stdlib.h>
 #include "Game.h"
 #include "Display.h"

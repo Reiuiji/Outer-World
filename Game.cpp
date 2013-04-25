@@ -21,7 +21,7 @@
 //#include "Player.h"
 #include "Game.h"
 #include "Maps.h"
-#include <curses.h>
+#include "curses.h"
 #include <string.h>
 #include <stdlib.h>
 
