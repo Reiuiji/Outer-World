@@ -2,6 +2,7 @@ Todo List
 =========
 
 Coding
+	- Jump Function Between Maps
   	- Player Features
 	- Battle System
 		- Weapon / Magic / Armor Systems
