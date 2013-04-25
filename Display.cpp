@@ -17,6 +17,7 @@
 * You should have received a copy of the GNU General Public License
 * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
+#include "Player.h"
 #include "Display.h"
 #include "Definition.h"
 #include <string.h>
@@ -30,26 +31,73 @@
 #endif
 
 //temp array to display the status bar
-char StatusBar[5][102] =
-{
-    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-    "X  Health                    /             equiped items               \\                     Mana   X",
-    "X  [                      ] || [j:  ] [k:  ] [j: ] [i: ]  [sword:    ] || [                      ]  X",
-    "X  ___%                      \\                                         /                     ___%   X",
-    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-};
+//char StatusBar[5][102] =
+//{
+//    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+//    "X  Health                    /             equiped items               \\                     Mana   X",
+//    "X  [                      ] || [j:  ] [k:  ] [j: ] [i: ]  [sword:    ] || [                      ]  X",
+//    "X  ___%                      \\                                         /                     ___%   X",
+//    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+//};
 
 //curses display that will init the status bar
-void CDisplay::init_StatusBar()
+void CDisplay::init_StatusBar(Player P)
 {
     move(0,0);
     attron(COLOR_PAIR(COLOR_WHITE));
-    for(int i = 0; i<5; i++)
+    for(int y = 0; y<Displaycenset; y++)
     {
-        for(int j = 0; j<=100; j++)
-            printw("%c",StatusBar[i][j]);
+        for(int x = 0; x<WinWidth; x++)
+        {
+            if(y == 0 || y == Displaycenset-1 || x ==0 || x == WinWidth-1)
+            {
+                mvprintw(y,x,"X");
+            }
+            else
+            {
+                mvprintw(y,x," ");
+            }
+        }
         printw("\n");
     }
+
+//setup the displays
+attron(COLOR_PAIR(COLOR_RED));
+mvaddstr(1,6,"Health");
+mvaddch(2,6,'[');
+
+//output the health bar
+for(int i=7;i< (P.H()/P.MH() % 10)*(WinWidth*0.25);i++)
+{
+    mvaddch(2,i,'|');
+}
+mvaddch(2,WinWidth*0.25,']');
+
+mvprintw(3,6,"( %4d / %4d )",P.H(), P.MH());
+
+//sets up for MANA
+attron(COLOR_PAIR(COLOR_BLUE));
+mvaddstr(1,WinWidth-10,"MANA");
+mvaddch(2,WinWidth-7,']');
+
+//output the health bar
+for(int i= ((P.M()/P.MM()) % 10)*(WinWidth-7)-1;i>WinWidth*0.75-1;i--)
+{
+    mvaddch(2,i,'|');
+}
+mvaddch(2,WinWidth*0.75-1,'[');
+
+mvprintw(3,WinWidth-21,"( %4d / %4d )",P.M(), P.MM());
+
+
+attron(COLOR_PAIR(COLOR_WHITE));
+
+//                if(y == 1 && (x>0 && x<9))
+//            {
+//                attron(COLOR_PAIR(COLOR_RED));
+//                mvprintw(y,x,"%c",StatusBar[y][x]);
+//                attron(COLOR_PAIR(COLOR_WHITE));
+//            }
 }
 
 //curses: outputs the border of the screen
@@ -141,11 +189,11 @@ void CDisplay::Message(int X,int Y, int Width, int Height, const char *msg)
 {
     attron(COLOR_PAIR(COLOR_WHITE));
     //sets up the blank window
-    for(int y = Y; y < Y+Height; y++)
+    for(int y = Y; y < Y+Height-1; y++)
     {
         for(int x = X; x < X+Width; x++)
         {
-            if(y == Y || y == Y+Height-1 || x == X || x == X+Width-1)
+            if(y == Y || y == Y+Height-2 || x == X || x == X+Width-1)
                 mvaddstr(y,x,"\45");
             else
             {
@@ -154,24 +202,43 @@ void CDisplay::Message(int X,int Y, int Width, int Height, const char *msg)
 
         }
     }
+
+
+    int i = 0,j=0,line=1;
+
     int CenWidthBox = (Width)/2;
-    int length = strnlen(msg,500);
-    mvprintw(4,4,"%d",CenWidthBox);
-    int i = 0,j=0;
+    int Strlength = strnlen(msg,500);
+    int length = Strlength;
+    while(length > CenWidthBox*1.5)
+    {
+        length -=CenWidthBox;
+        line++;
+    }
+
     if(Height>4)
-    j=2;
+        j=2;
     else
-    j=1;
+        j=1;
     //inputs the text into the window
     for(int y = Y+j; y < Height+Y; y++)
     {
-        for(int x = X+CenWidthBox-length/2; x < X+CenWidthBox+length/2; x++)
+        for(int x = X+CenWidthBox*0.25; x < X+CenWidthBox*1.75; x++)
         {
             if(i< length)
             {
                 mvaddch(y,x,msg[i]);
+                i++;
             }
-            i++;
+            else
+            {
+                if(line > 1)
+                {
+                    length +=CenWidthBox;
+                    line--;
+                    mvaddch(y,x,msg[i]);
+                    i++;
+                }
+            }
         }
     }
 }

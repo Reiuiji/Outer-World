@@ -18,7 +18,7 @@
 * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 #include "Display.h"
-//#include "Player.h"
+#include "Player.h"
 #include "Game.h"
 #include "Maps.h"
 #include <string.h>
@@ -38,7 +38,7 @@ int Game()
     int x = 0;
     int y = 0;
     CDisplay GameDisplay;//sets up the display object for curses
-
+    Player playerONE(1);
     //sets up time layout for 1 seconds
     // struct timespec tim,tim2;
     // tim.tv_sec = 0;
@@ -48,10 +48,10 @@ int Game()
     {
 
         clear();
-        GameDisplay.init_StatusBar();
+        GameDisplay.init_StatusBar(playerONE);
         GameDisplay.Display(WinWidth,WinHeight,x,y,100,50,Map1);
         GameDisplay.DebugScreen(x,y,Map1);
-        GameDisplay.Message(WinWidth/6,(4*WinHeight)/5,(2*WinWidth)/3,WinHeight/5,"Hello young one, i am a traveler from a different land, please help me and I will give you a mgic ball");
+        //GameDisplay.Message(WinWidth/6,(4*WinHeight)/5,(2*WinWidth)/3,WinHeight/5,"Hello young one, i am a traveler from a different land, please help me and I will give you a magic ball");
         //GameDisplay.Message(0,0,WinWidth,WinHeight,"abcdefghijklmnopqrstuvwxyz");
         GameDisplay.init_Border(Displaycenset);
         //GameDisplay.Message("test");
@@ -122,21 +122,11 @@ void Move(int &x,int &y,int xcen, int ycen,char Map[][MapMax])
             y--;
         }
         break;
-    case '[':   //decrease window height
-        WinHeight--;
-        break;
-    case ']':   //increase window height
-        WinHeight++;
-        break;
-    case ';':   //decrease window width
-        WinWidth--;
-        break;
-    case '\'':  //increase window width
-        WinWidth++;
-        break;
-    case '0':   //Exit the game display
+
+    case KEY_EXIT:   //Exit the game display
         play = false;
         break;
+
     case '`':   //enable debug utility
         if(debug == false)
             debug = true;

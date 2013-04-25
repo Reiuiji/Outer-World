@@ -17,21 +17,21 @@
 * You should have received a copy of the GNU General Public License
 * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
-//#ifndef PLAYER_SET
-//#define PLAYER_SET
+#ifndef PLAYER_SET
+#define PLAYER_SET
 #include <string>
 class Player
 {
 public:
     Player(bool);                //implement new player
-    void LoadPlayer(ifstream);   //import player data
-    void SavePlayer(ifstream);   //export player data
+    //void LoadPlayer(ifstream);   //import player data
+    //void SavePlayer(ifstream);   //export player data
 
-    void Set_FN(string);
-    string FN();
-    void Set_LN(string);
-    string LN();
-    void Set_Name(string,string);
+    void Set_FN(std::string);
+    std::string FN();
+    void Set_LN(std::string);
+    std::string LN();
+    void Set_Name(std::string,std::string);
 
     void Set_LVL(int);
     void LVL_UP();
@@ -41,17 +41,19 @@ public:
     void Gain_EXP(int);
     int EXP();
 
-    void MAX_Health(double);
-    void Set_Health(double);
-    void INC_Health(double);
-    void DEC_Health(double);
-    double H();
+    void MAX_Health(int);
+    void Set_Health(int);
+    void INC_Health(int);
+    void DEC_Health(int);
+    int H();
+    int MH();
 
     void Set_Mana(int);
     void MAX_Mana(int);
     void INC_Mana(int);
     void DEC_Mana(int);
-    double M();
+    int M();
+    int MM();
 
     void Set_State(bool);
     bool S();
@@ -65,12 +67,12 @@ public:
     void move(float,float);
 
 private:
-    string FirstName;
-    string LastName;
+    std::string FirstName;
+    std::string LastName;
     int Level;
     int Experience;
-    double Health;
-    double MaxHealth;
+    int Health;
+    int MaxHealth;
     int Mana;
     int MaxMana;
     bool State;
@@ -84,4 +86,4 @@ private:
 
 };
 
-//#endif
+#endif

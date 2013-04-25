@@ -105,17 +105,17 @@ int Player::EXP()
 }
 
 
-void Player::MAX_Health(double H)
+void Player::MAX_Health(int H)
 {
     MaxHealth = H;
 }
 
-void Player::Set_Health(double H)
+void Player::Set_Health(int H)
 {
     Health = H;
 }
 
-void Player::INC_Health(double INC)
+void Player::INC_Health(int INC)
 {
     if((Health = Health + INC) > MaxHealth)
     {
@@ -123,7 +123,7 @@ void Player::INC_Health(double INC)
     }
 }
 
-void Player::DEC_Health(double DEC)
+void Player::DEC_Health(int DEC)
 {
     if((Health = Health - DEC )<= 0)
     {
@@ -132,10 +132,16 @@ void Player::DEC_Health(double DEC)
     }
 }
 
-double Player::H()
+int Player::H()
 {
     return Health;
 }
+
+int Player::MH()
+{
+    return MaxHealth;
+}
+
 
 void Player::Set_Mana(int M)
 {
@@ -163,10 +169,16 @@ void Player::DEC_Mana(int DEC)
     }
 }
 
-double Player::M()
+int Player::M()
 {
     return Mana;
 }
+
+int Player::MM()
+{
+    return MaxMana;
+}
+
 
 void Player::Set_State(bool S) //0 alive, 1 dead
 {
