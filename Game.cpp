@@ -33,9 +33,9 @@ int Game()
     CDisplay GameDisplay;//sets up the display object for curses
 
     //sets up time layout for 1 seconds
-    struct timespec tim,tim2;
-    tim.tv_sec = 0;
-    tim.tv_nsec = 50000000L;
+    // struct timespec tim,tim2;
+    // tim.tv_sec = 0;
+    // tim.tv_nsec = 50000000L;
 
     while(play == true)
     {
@@ -48,7 +48,7 @@ int Game()
         GameDisplay.init_Border(Displaycenset);
         //GameDisplay.Message("test");
         Move(x,y,100,50,Map1);
-        nanosleep(&tim,&tim2);
+        // nanosleep(&tim,&tim2);
         if(AutoDisplay==true)
         {
             getmaxyx(stdscr,WinHeight,WinWidth);
@@ -148,6 +148,44 @@ bool MoveCheck(int &x,int &y,int xcen, int ycen, int xmove, int ymove, char Map[
         return 0;
     else
         return 1;
+}
+
+
+bool CollisionCheck(int &x, int &y, char *event)
+{
+    // Checks to see if there is a basic monster adjacent (whether or not it should call for a battle)
+    if (    (&Map[y+1][x] == event) || (&Map[y][x+1] == event) // Checks the space to the immediate north of the player for enemies.
+            ||  (&Map[y-1][x] == event) || (&Map[y][x-1] == event)
+       ) // Checks the space to the immediate south of the player for enemies.
+        return 0;
+    else
+        return 1;
+}
+
+bool CollisionRangeCheck(int &x, int &y, char *Start, char *End)
+{
+    // Checks to see if there is a basic monster adjacent (whether or not it should call for a battle)
+    if (    ((&Map[y+1][x] >= Start) && (&Map[y+1][x] <= End))
+            ||  ((&Map[y-1][x] >= Start) && (&Map[y-1][x] <= End))
+            ||  ((&Map[y][x+1] >= Start) && (&Map[y][x+1] <= End))
+            ||  ((&Map[y][x-1] >= Start) && (&Map[y][x-1] <= End))
+       )
+        return 0;
+    else
+        return 1;
+}
+// ==========
+
+void eventListener(int &x,&y, char input)
+{
+    if(CollisionCheck(x,y,'<') || CollisionCheck(x,y,'>'))
+        // Normal Battle;
+    if((CollisionRangeCheck(x,y,'A','Z') && input == '\n')
+        // Speech Event
+    if((CollisionCheck(x,y,'%') || CollisionCheck(x,y,'$') || CollisionCheck(x,y,'&')) && input == '\n')
+        // Boss Battle. Maybe implement a feature to check the map.
+    if(CollisionCheck(x,y,'~') && input == '\n')
+        // opens chest and gets idems, display etc.
 }
 
 //input function
