@@ -60,7 +60,6 @@ int Game()
         //GameDisplay.Message("test");
         Move(x,y,100,50,Map1,event);
         // nanosleep(&tim,&tim2);
-        Move(x,y,100,50,Map1,event);
 
         if(BattleMode == true)
         {
