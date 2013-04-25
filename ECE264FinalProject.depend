@@ -176,13 +176,14 @@
 
 1366767634 c:\users\benny\documents\github\ece264finalproject\enemy.h
 
-1366856322 source:c:\users\benny\documents\github\ece264finalproject\game.cpp
+1366858235 source:c:\users\benny\documents\github\ece264finalproject\game.cpp
 	"Display.h"
 	"Game.h"
 	"Maps.h"
 	"curses.h"
 	<string.h>
 	<stdlib.h>
+	<time.h>
 
 1366767634 c:\users\benny\documents\github\ece264finalproject\game.h
 	"Definition.h"
@@ -198,7 +199,7 @@
 
 1366767634 c:\users\benny\documents\github\ece264finalproject\items.h
 
-1366856419 source:c:\users\benny\documents\github\ece264finalproject\main.cpp
+1366857265 source:c:\users\benny\documents\github\ece264finalproject\main.cpp
 	<cstdlib>
 	<iostream>
 	<ctime>
@@ -219,4 +220,11 @@
 
 1366767634 c:\users\benny\documents\github\ece264finalproject\player.h
 	<string>
+
+1366857265 source:c:\users\benny\documents\github\ece264finalproject\menu.cpp
+	"curses.h"
+	<stdlib.h>
+	"Game.h"
+	"Display.h"
+	"menu.h"
 
