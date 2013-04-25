@@ -22,4 +22,9 @@
 int Game(/*Player USER*/);
 void Move(int &x,int &y,int xcen, int ycen,char Map[][MapMax]);
 bool MoveCheck(int &x,int &y,int xcen, int ycen, int xmove, int ymove, char Map[][MapMax]);
+
+bool CollisionCheck(int x, int y, char Map[][MapMax], char event);
+bool CollisionRangeCheck(int x, int y, char *Map[][MapMax], char Start, char End);
+void eventListener(int x,int y, char Map[][MapMax], char input);
+
 int Input(void);

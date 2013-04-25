@@ -14,9 +14,6 @@
 				<Compiler>
 					<Add option="-g" />
 				</Compiler>
-				<Linker>
-					<Add library="dependencies/pdcurses.lib" />
-				</Linker>
 			</Target>
 			<Target title="Release">
 				<Option output="bin/Release/ECE264FinalProject" prefix_auto="1" extension_auto="1" />
@@ -51,7 +48,6 @@
 		<Unit filename="Player.h" />
 		<Unit filename="README.md" />
 		<Unit filename="battle.h" />
-		<Unit filename="curses.h" />
 		<Unit filename="items.cpp" />
 		<Unit filename="items.h" />
 		<Unit filename="main.cpp" />

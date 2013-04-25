@@ -28,6 +28,7 @@ public:
     void init_Border(int offset);
     void Display(int Sx, int Sy, int x, int y,int xcen, int ycen, char Map[][MapMax]);
     void Message(int X,int Y, int Width, int Height, const char *msg);
+    void Message(const char *msg);
     void DebugScreen(int x,int y, char Map[][MapMax]);
     void ColorMap(char var);
 };

@@ -71,7 +71,9 @@ int Game()
 //check if player can move to that location, if so whey yay they can move
 void Move(int &x,int &y,int xcen, int ycen,char Map[][MapMax])
 {
-    switch(Input())
+    int  c=Input();
+    eventListener(x,y,Map,c);
+    switch(c)
     {
     case KEY_UP:
     case 'w':
@@ -149,11 +151,11 @@ bool MoveCheck(int &x,int &y,int xcen, int ycen, int xmove, int ymove, char Map[
 }
 
 
-bool CollisionCheck(int x, int y, char *Map[][MapMax], char event)
+bool CollisionCheck(int x, int y, char Map[][MapMax], char event)
 {
     // Checks to see if there is a basic monster adjacent (whether or not it should call for a battle)
-    if (    (Map[y+1][x] == &event) || (Map[y][x+1] == &event) // Checks the space to the immediate north of the player for enemies.
-            ||  (Map[y-1][x] == &event) || (Map[y][x-1] == &event)
+    if (    (Map[y+1][x] == event) || (Map[y][x+1] == event) // Checks the space to the immediate north of the player for enemies.
+            ||  (Map[y-1][x] == event) || (Map[y][x-1] == event)
        ) // Checks the space to the immediate south of the player for enemies.
         return 0;
     else
@@ -173,17 +175,31 @@ bool CollisionRangeCheck(int x, int y, char *Map[][MapMax], char Start, char End
         return 1;
 }
 
-void eventListener(int x,int y, char* Map[][MapMax], char input)
+void eventListener(int x,int y, char Map[][MapMax], char input)
 {
-    if(CollisionCheck(x,y,Map,'<') || CollisionCheck(x,y,Map,'>'))
+   // if(CollisionCheck(x,y,Map,'<') || CollisionCheck(x,y,Map,'>'))
         // Normal Battle;
-    if((CollisionRangeCheck(x,y,Map,'A','Z') && input == '\n'))
+    //if((CollisionRangeCheck(x,y,Map,'A','Z') && input == '\n'))
         // Speech Event
-    if((CollisionCheck(x,y,Map,'%') || CollisionCheck(x,y,Map,'$') || CollisionCheck(x,y,Map,'&')) && input == '\n')
+    //if((CollisionCheck(x,y,Map,'%') || CollisionCheck(x,y,Map,'$') || CollisionCheck(x,y,Map,'&')) && input == '\n')
         // Boss Battle. Maybe implement a feature to check the map.
-    if(CollisionCheck(x,y,Map,'~') && input == '\n')
+    if(CollisionCheck(x,y,Map,'&') && input == '\n')
+    {
+        CDisplay display;
+        int c=0;
+    display.Message("you opened the chest... you found Nothing");
+    refresh();
+        bool leave = false;
+        while(leave == false)
+        {
+            if(Input() == '\n')
+            {
+                leave = true;
+            }
+        }
+
+    }
         // opens chest and gets idems, display etc.
-    ;
 }
 
 //input function

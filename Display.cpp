@@ -243,6 +243,11 @@ void CDisplay::Message(int X,int Y, int Width, int Height, const char *msg)
     }
 }
 
+void CDisplay::Message(const char *msg)
+{
+Message(WinWidth/6,(4*WinHeight)/5,(2*WinWidth)/3,WinHeight/5, msg);
+}
+
 //curses: main color map, output the specific color on the screen
 void CDisplay::ColorMap(char var)
 {

@@ -40,7 +40,7 @@
 
 1366752732 /home/okuu/Programing/ECE264FinalProject/menu.h
 
-1366880448 /home/okuu/Programing/ECE264FinalProject/Display.h
+1366884206 /home/okuu/Programing/ECE264FinalProject/Display.h
 	"Player.h"
 	"Definition.h"
 
@@ -52,7 +52,7 @@
 	"dependencies/curses.h"
 	<curses.h>
 
-1366428648 /home/okuu/Programing/ECE264FinalProject/Game.h
+1366885664 /home/okuu/Programing/ECE264FinalProject/Game.h
 	"Definition.h"
 
 1366883308 source:/home/okuu/Programing/ECE264FinalProject/Player.cpp
@@ -70,7 +70,7 @@
 	<string.h>
 	"curses.h"
 
-1366883281 source:/home/okuu/Programing/ECE264FinalProject/Display.cpp
+1366896839 source:/home/okuu/Programing/ECE264FinalProject/Display.cpp
 	"Player.h"
 	"Display.h"
 	"Definition.h"
@@ -85,7 +85,7 @@
 	<stdio.h>
 	<wchar.h>
 
-1366880213 source:/home/okuu/Programing/ECE264FinalProject/Game.cpp
+1366890597 source:/home/okuu/Programing/ECE264FinalProject/Game.cpp
 	"Display.h"
 	"Player.h"
 	"Game.h"
