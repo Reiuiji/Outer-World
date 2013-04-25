@@ -131,6 +131,8 @@ int main(int argc, char *argv[])
     PDC_set_title(revision);
 #endif
 
+
+
 //---------Initialize Curses---------
 
     keypad(initscr(), 1);

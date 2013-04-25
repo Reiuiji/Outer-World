@@ -205,6 +205,7 @@ if(CollisionCheck(x,y,xcen,ycen,Map,'&') && input == '\n')
 
 else if(CollisionCheck(x,y,xcen,ycen,Map,'A') && input == '\n')
     {
+<<<<<<< HEAD
     CDisplay display;
     int c=0;
     display.Message("Please get out of my house.");
@@ -227,6 +228,10 @@ else if((CollisionCheck(x,y,xcen,ycen,Map,'[') || CollisionCheck(x,y,xcen,ycen,M
     int c=0;
     display.Message("It's a tree. Fascinating.");
 
+=======
+        CDisplay display;
+    display.Message("you opened the chest... you found Nothing");
+>>>>>>> f59ca00c924c56259bb042086640fff6efdfe698
     refresh();
         bool leave = false;
         while(leave == false)
