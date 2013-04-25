@@ -19,6 +19,7 @@
 */
 #include "Display.h"
 #include "Player.h"
+#include "Enemy.h"
 #include "Game.h"
 #include "Maps.h"
 #include <string.h>
@@ -40,6 +41,7 @@ int Game()
     int y = 0;
     CDisplay GameDisplay;//sets up the display object for curses
     Player playerONE(1);
+    Enemy EnemyONE(1);
     //sets up time layout for 1 seconds
     // struct timespec tim,tim2;
     // tim.tv_sec = 0;
@@ -49,15 +51,25 @@ int Game()
     {
 
         clear();
-        GameDisplay.init_StatusBar(playerONE);
+        GameDisplay.init_StatusBar(0,playerONE);
         GameDisplay.Display(WinWidth,WinHeight,x,y,100,50,Map1);
-        GameDisplay.DebugScreen(x,y,Map1);
+        //GameDisplay.DebugScreen(x,y,Map1);
         //GameDisplay.Message(WinWidth/6,(4*WinHeight)/5,(2*WinWidth)/3,WinHeight/5,"Hello young one, i am a traveler from a different land, please help me and I will give you a magic ball");
         //GameDisplay.Message(0,0,WinWidth,WinHeight,"abcdefghijklmnopqrstuvwxyz");
         GameDisplay.init_Border(Displaycenset);
         //GameDisplay.Message("test");
+<<<<<<< HEAD
         Move(x,y,100,50,Map1,event);
         // nanosleep(&tim,&tim2);
+=======
+        Move(x,y,100,50,Map1);
+
+        if(BattleMode == true)
+        {
+            GameDisplay.Battle(playerONE,EnemyONE);
+        }
+
+>>>>>>> c5b48bdf685be6b4d4cdaa16c629fe82372080fd
         if(AutoDisplay==true)
         {
             getmaxyx(stdscr,WinHeight,WinWidth);
@@ -126,11 +138,15 @@ void Move(int &x,int &y,int xcen, int ycen,char Map[][MapMax], int event[])
         }
         break;
 
-    case KEY_EXIT:   //Exit the game display
+    case 'b':   //Test Enter the Battle mode
+        BattleMode = true;
+        break;
+
+    case '`':   //Exit the game display
         play = false;
         break;
 
-    case '`':   //enable debug utility
+    case '~':   //enable debug utility
         if(debug == false)
             debug = true;
         else
@@ -194,8 +210,12 @@ void eventListener(int x, int y, int xcen,int ycen, char Map[][MapMax], char inp
 if(CollisionCheck(x,y,xcen,ycen,Map,'<') || CollisionCheck(x,y,xcen,ycen,Map,'>'))
     {
     CDisplay display;
+<<<<<<< HEAD
     int c=0;
     display.Message("If the battle system was implemented, you would be fighting.");
+=======
+    display.Message("You opened the chest. There was nothing inside!");
+>>>>>>> c5b48bdf685be6b4d4cdaa16c629fe82372080fd
 
     refresh();
         bool leave = false;
@@ -212,8 +232,12 @@ if(CollisionCheck(x,y,xcen,ycen,Map,'<') || CollisionCheck(x,y,xcen,ycen,Map,'>'
 else if(CollisionCheck(x,y,xcen,ycen,Map,'&') && input == '\n')
     {
     CDisplay display;
+<<<<<<< HEAD
     int c=0;
     display.Message("You opened the chest. There was nothing inside!");
+=======
+    display.Message("Please get out of my house.");
+>>>>>>> c5b48bdf685be6b4d4cdaa16c629fe82372080fd
 
     refresh();
         bool leave = false;
@@ -414,8 +438,12 @@ else if(CollisionCheck(x,y,xcen,ycen,Map,'!') && input == '\n')
 else if((CollisionCheck(x,y,xcen,ycen,Map,'[') || CollisionCheck(x,y,xcen,ycen,Map,']') || CollisionCheck(x,y,xcen,ycen,Map,'/') || CollisionCheck(x,y,xcen,ycen,Map,'v'))  && input == '\n')
     {
     CDisplay display;
-    int c=0;
     display.Message("It's a tree. Fascinating.");
+<<<<<<< HEAD
+=======
+
+    display.Message("you opened the chest... you found Nothing");
+>>>>>>> c5b48bdf685be6b4d4cdaa16c629fe82372080fd
     refresh();
         bool leave = false;
         while(leave == false)

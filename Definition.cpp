@@ -26,4 +26,5 @@ int doty = MenuY - 2;
 int dotx = 0;
 bool debug=false;
 bool play=true;
+bool BattleMode = false;
 bool AutoDisplay=true;
