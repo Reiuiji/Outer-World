@@ -135,11 +135,11 @@ void CDisplay::Message(int X,int Y, int Width, int Height, const char *msg)
 {
     attron(COLOR_PAIR(COLOR_WHITE));
     //sets up the blank window
-    for(int y = Y; y < Height; y++)
+    for(int y = Y; y < Y+Height; y++)
     {
-        for(int x = X; x < Width; x++)
+        for(int x = X; x < X+Width; x++)
         {
-            if(y == Y || y == Height || x == X || x == Width)
+            if(y == Y || y == Y+Height-1 || x == X || x == X+Width-1)
                 mvaddstr(y,x,"\45");
             else
             {
@@ -150,13 +150,17 @@ void CDisplay::Message(int X,int Y, int Width, int Height, const char *msg)
     }
     std::string text (msg);
     int StringCen = (Width-6-(X+6))/2;
+    int a = 1;
     //inputs the text into the window
-    for(int y = Y+2; y < Height-2; y++)
+    for(int y = Y; y < Height+Y; y++)
     {
         for(int x = StringCen-text.length()/2; x < StringCen+text.length()/2; x++)
         {
-            printw("%1c",text.at(x-(StringCen-text.length()/2)));
-
+            mvaddch(X+4,y+4,text.at(0)); //x-(StringCen-text.length()/2))];
+            mvprintw(X+6,y+4,"%d",text.length());
+            mvprintw(X+8,y+4,"%d",x);
+            mvprintw(X+10,y+4,"%d",StringCen);
+            //printw("%1c",text.at(a));
         }
     }
 }

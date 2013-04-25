@@ -41,11 +41,12 @@ int Game()
     {
 
         clear();
-        GameDisplay.init_StatusBar();
+        /*GameDisplay.init_StatusBar();
         GameDisplay.Display(WinWidth,WinHeight,x,y,100,50,Map1);
         GameDisplay.DebugScreen(x,y,Map1);
-        GameDisplay.Message(0,(4*WinHeight)/5,WinWidth,WinHeight,"test");
-        GameDisplay.init_Border(Displaycenset);
+        GameDisplay.Message(0,(4*WinHeight)/5,WinWidth,WinHeight,"test");*/
+        GameDisplay.Message(0,0,WinWidth,WinHeight,"box");
+        //GameDisplay.init_Border(Displaycenset);
         //GameDisplay.Message("test");
         Move(x,y,100,50,Map1);
         // nanosleep(&tim,&tim2);

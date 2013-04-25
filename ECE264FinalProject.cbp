@@ -34,6 +34,7 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="Battle.cpp" />
 		<Unit filename="Definition.cpp" />
 		<Unit filename="Definition.h" />
 		<Unit filename="Display.cpp" />
@@ -49,6 +50,7 @@
 		<Unit filename="Player.cpp" />
 		<Unit filename="Player.h" />
 		<Unit filename="README.md" />
+		<Unit filename="battle.h" />
 		<Unit filename="curses.h" />
 		<Unit filename="items.cpp" />
 		<Unit filename="items.h" />

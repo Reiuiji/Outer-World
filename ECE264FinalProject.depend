@@ -152,7 +152,7 @@
 
 1366767634 c:\users\benny\documents\github\ece264finalproject\definition.h
 
-1366863932 source:c:\users\benny\documents\github\ece264finalproject\display.cpp
+1366867920 source:c:\users\benny\documents\github\ece264finalproject\display.cpp
 	"Display.h"
 	"Definition.h"
 	<string.h>
@@ -177,7 +177,7 @@
 
 1366767634 c:\users\benny\documents\github\ece264finalproject\enemy.h
 
-1366858235 source:c:\users\benny\documents\github\ece264finalproject\game.cpp
+1366867228 source:c:\users\benny\documents\github\ece264finalproject\game.cpp
 	"Display.h"
 	"Game.h"
 	"Maps.h"
@@ -228,4 +228,9 @@
 	"Game.h"
 	"Display.h"
 	"menu.h"
+
+1366865999 source:c:\users\benny\documents\github\ece264finalproject\battle.cpp
+	"Definition.h"
+	<string.h>
+	"curses.h"
 
