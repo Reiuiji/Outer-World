@@ -20,6 +20,7 @@
 #include "Display.h"
 #include "Definition.h"
 #include <string.h>
+#include <iostream>
 #include "curses.h"
 
 //temp array to display the status bar
@@ -147,13 +148,14 @@ void CDisplay::Message(int X,int Y, int Width, int Height, const char *msg)
 
         }
     }
-
+    std::string text (msg);
+    int StringCen = (Width-6-(X+6))/2;
     //inputs the text into the window
     for(int y = Y+2; y < Height-2; y++)
     {
-        for(int x = X+3; x < Width-3; x++)
+        for(int x = StringCen-text.length()/2; x < StringCen+text.length()/2; x++)
         {
-                mvaddstr(y,x,"#");
+            printw("%1c",text.at(x-(StringCen-text.length()/2)));
 
         }
     }

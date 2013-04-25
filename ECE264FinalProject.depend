@@ -94,11 +94,11 @@
 
 1366428669 /home/okuu/Programing/ECE264FinalProject/items.h
 
-1366752643 source:/home/okuu/Programing/ECE264FinalProject/main.cpp
+1366857983 source:/home/okuu/Programing/ECE264FinalProject/main.cpp
 	<cstdlib>
 	<iostream>
 	<ctime>
-	<curses.h>
+	"curses.h"
 	<string.h>
 	"menu.h"
 	"Definition.h"
@@ -109,8 +109,8 @@
 1366828313 /home/okuu/Programing/ECE264FinalProject/Display.h
 	"Definition.h"
 
-1366755886 source:/home/okuu/Programing/ECE264FinalProject/menu.cpp
-	<curses.h>
+1366857983 source:/home/okuu/Programing/ECE264FinalProject/menu.cpp
+	"curses.h"
 	<stdlib.h>
 	"Game.h"
 	"Display.h"
@@ -135,11 +135,11 @@
 	<string.h>
 	<curses.h>
 
-1366828548 source:/home/okuu/Programing/ECE264FinalProject/Game.cpp
+1366857983 source:/home/okuu/Programing/ECE264FinalProject/Game.cpp
 	"Display.h"
 	"Game.h"
 	"Maps.h"
-	<curses.h>
+	"curses.h"
 	<string.h>
 	<stdlib.h>
 	<time.h>
