@@ -174,7 +174,6 @@ bool CollisionRangeCheck(int &x, int &y, char *Start, char *End)
     else
         return 1;
 }
-// ==========
 
 void eventListener(int &x,&y, char input)
 {
