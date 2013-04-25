@@ -174,7 +174,6 @@ bool CollisionRangeCheck(int x, int y, char *Map[][MapMax], char Start, char End
     else
         return 1;
 }
-// ==========
 
 void eventListener(int x,int y, char* Map[][MapMax], char input)
 {
