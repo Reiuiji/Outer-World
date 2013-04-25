@@ -72,7 +72,7 @@ int Game()
 void Move(int &x,int &y,int xcen, int ycen,char Map[][MapMax])
 {
     int  c=Input();
-    eventListener(x,y,Map,c);
+    eventListener(x,y,xcen,ycen,Map,c);
     switch(c)
     {
     case KEY_UP:
@@ -148,34 +148,35 @@ bool MoveCheck(int &x,int &y,int xcen, int ycen, int xmove, int ymove, char Map[
         return 0;
     else
         return 1;
+
 }
 
 
-bool CollisionCheck(int x, int y, char Map[][MapMax], char event)
+bool CollisionCheck(int x, int y, int xcen, int ycen, char Map[][MapMax], char event)
 {
     // Checks to see if there is a basic monster adjacent (whether or not it should call for a battle)
-    if (    (Map[y+1][x] == event) || (Map[y][x+1] == event) // Checks the space to the immediate north of the player for enemies.
-            ||  (Map[y-1][x] == event) || (Map[y][x-1] == event)
+    if (        (Map[ycen-y+1][x+xcen] == event) || (Map[ycen-y][x+xcen+1] == event) // Checks the space to the immediate north of the player for enemies.
+            ||  (Map[ycen-y-1][x+xcen] == event) || (Map[ycen-y][x+xcen-1] == event)
        ) // Checks the space to the immediate south of the player for enemies.
-        return 0;
-    else
         return 1;
+    else
+        return 0;
 }
 
-bool CollisionRangeCheck(int x, int y, char *Map[][MapMax], char Start, char End)
+bool CollisionRangeCheck(int x, int y, int xcen, int ycen, char Map[][MapMax], char Start, char End)
 {
     // Checks to see if there is a basic monster adjacent (whether or not it should call for a battle)
-    if (    ((Map[y+1][x] >= &Start) && (Map[y+1][x] <= &End))
-            ||  ((Map[y-1][x] >= &Start) && (Map[y-1][x] <= &End))
-            ||  ((Map[y][x+1] >= &Start) && (Map[y][x+1] <= &End))
-            ||  ((Map[y][x-1] >= &Start) && (Map[y][x-1] <= &End))
+    if (    (    (Map[ycen-y+1][x+xcen] >= Start) && (Map[ycen-y+1][x+xcen] <= End))
+            ||  ((Map[ycen-y-1][x+xcen] >= Start) && (Map[ycen-y-1][x+xcen] <= End))
+            ||  ((Map[ycen-y][x+xcen+1] >= Start) && (Map[ycen-y][x+xcen+1] <= End))
+            ||  ((Map[ycen-y][x+xcen-1] >= Start) && (Map[ycen-y][x+xcen-1] <= End))
        )
         return 0;
     else
         return 1;
 }
 
-void eventListener(int x,int y, char Map[][MapMax], char input)
+void eventListener(int x, int y, int xcen,int ycen, char Map[][MapMax], char input)
 {
    // if(CollisionCheck(x,y,Map,'<') || CollisionCheck(x,y,Map,'>'))
         // Normal Battle;
@@ -183,11 +184,13 @@ void eventListener(int x,int y, char Map[][MapMax], char input)
         // Speech Event
     //if((CollisionCheck(x,y,Map,'%') || CollisionCheck(x,y,Map,'$') || CollisionCheck(x,y,Map,'&')) && input == '\n')
         // Boss Battle. Maybe implement a feature to check the map.
-    if(CollisionCheck(x,y,Map,'&') && input == '\n')
+
+if(CollisionCheck(x,y,xcen,ycen,Map,'&') && input == '\n')
     {
-        CDisplay display;
-        int c=0;
-    display.Message("you opened the chest... you found Nothing");
+    CDisplay display;
+    int c=0;
+    display.Message("You opened the chest. There was nothing inside!");
+
     refresh();
         bool leave = false;
         while(leave == false)
@@ -199,7 +202,47 @@ void eventListener(int x,int y, char Map[][MapMax], char input)
         }
 
     }
-        // opens chest and gets idems, display etc.
+
+else if(CollisionCheck(x,y,xcen,ycen,Map,'A') && input == '\n')
+    {
+    CDisplay display;
+    int c=0;
+    display.Message("Please get out of my house.");
+
+    refresh();
+        bool leave = false;
+        while(leave == false)
+        {
+            if(Input() == '\n')
+            {
+                leave = true;
+            }
+        }
+
+    }
+
+else if((CollisionCheck(x,y,xcen,ycen,Map,'[') || CollisionCheck(x,y,xcen,ycen,Map,']') || CollisionCheck(x,y,xcen,ycen,Map,'/') || CollisionCheck(x,y,xcen,ycen,Map,'v'))  && input == '\n')
+    {
+    CDisplay display;
+    int c=0;
+    display.Message("It's a tree. Fascinating.");
+
+    refresh();
+        bool leave = false;
+        while(leave == false)
+        {
+            if(Input() == '\n')
+            {
+                leave = true;
+            }
+        }
+
+    }
+
+
+
+
+
 }
 
 //input function
