@@ -21,7 +21,13 @@
 #include "Definition.h"
 #include <string.h>
 #include <iostream>
-#include "curses.h"
+
+#ifdef _WIN32
+#include "dependencies/curses.h"
+#endif
+#ifdef linux
+#include <curses.h>
+#endif
 
 //temp array to display the status bar
 char StatusBar[5][102] =

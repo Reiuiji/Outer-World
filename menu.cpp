@@ -20,12 +20,18 @@
 
 //tmp to test
 #define version "Test 0.01"
-#include "curses.h"
 #include <stdlib.h>
 #include "Game.h"
 #include "Display.h"
 #include "menu.h"
 //#include "Player.h"
+
+#ifdef _WIN32
+#include "dependencies/curses.h"
+#endif
+#ifdef linux
+#include <curses.h>
+#endif
 
 //initilize the colors for the terminal
 void init_col()

@@ -21,9 +21,14 @@
 #include <cstdlib>
 #include <iostream>
 #include <ctime>
-#include "curses.h"
 #include <string.h>
 
+#ifdef _WIN32
+#include "dependencies\curses.h"
+#endif
+#ifdef linux
+#include <curses.h>
+#endif
 
 #include "menu.h"
 #include "Definition.h"

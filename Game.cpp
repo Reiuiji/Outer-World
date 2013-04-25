@@ -21,10 +21,17 @@
 //#include "Player.h"
 #include "Game.h"
 #include "Maps.h"
-#include "curses.h"
 #include <string.h>
 #include <stdlib.h>
 #include <time.h>
+
+#ifdef _WIN32
+#include "dependencies/curses.h"
+#endif
+#ifdef linux
+#include <curses.h>
+#endif
+
 
 int Game()
 {

@@ -234,3 +234,9 @@
 	<string.h>
 	"curses.h"
 
+1366869039 /home/okuu/Programing/ECE264FinalProject/curses.h
+	<stdarg.h>
+	<stddef.h>
+	<stdio.h>
+	<wchar.h>
+
