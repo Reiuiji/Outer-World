@@ -185,7 +185,7 @@ void eventListener(int x,int y, char* Map[][MapMax], char input)
         // Boss Battle. Maybe implement a feature to check the map.
     if(CollisionCheck(x,y,Map,'~') && input == '\n')
         // opens chest and gets idems, display etc.
-        return 0;
+    ;
 }
 
 //input function
