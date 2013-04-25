@@ -35,6 +35,7 @@
 
 int Game()
 {
+    int event[5] = {0,0,0,0,0};
     int x = 0;
     int y = 0;
     CDisplay GameDisplay;//sets up the display object for curses
@@ -55,7 +56,7 @@ int Game()
         //GameDisplay.Message(0,0,WinWidth,WinHeight,"abcdefghijklmnopqrstuvwxyz");
         GameDisplay.init_Border(Displaycenset);
         //GameDisplay.Message("test");
-        Move(x,y,100,50,Map1);
+        Move(x,y,100,50,Map1,event);
         // nanosleep(&tim,&tim2);
         if(AutoDisplay==true)
         {
@@ -69,10 +70,10 @@ int Game()
 
 //player move function
 //check if player can move to that location, if so whey yay they can move
-void Move(int &x,int &y,int xcen, int ycen,char Map[][MapMax])
+void Move(int &x,int &y,int xcen, int ycen,char Map[][MapMax], int event[])
 {
     int  c=Input();
-    eventListener(x,y,xcen,ycen,Map,c);
+    eventListener(x,y,xcen,ycen,Map,c,event);
     switch(c)
     {
     case KEY_UP:
@@ -140,7 +141,6 @@ void Move(int &x,int &y,int xcen, int ycen,char Map[][MapMax])
     }
 }
 
-
 //checks if the player can move to that specific location
 bool MoveCheck(int &x,int &y,int xcen, int ycen, int xmove, int ymove, char Map[][MapMax])
 {
@@ -150,7 +150,6 @@ bool MoveCheck(int &x,int &y,int xcen, int ycen, int xmove, int ymove, char Map[
         return 1;
 
 }
-
 
 bool CollisionCheck(int x, int y, int xcen, int ycen, char Map[][MapMax], char event)
 {
@@ -163,29 +162,54 @@ bool CollisionCheck(int x, int y, int xcen, int ycen, char Map[][MapMax], char e
         return 0;
 }
 
-bool CollisionRangeCheck(int x, int y, int xcen, int ycen, char Map[][MapMax], char Start, char End)
+bool clearevent(int x, int y, int xcen, int ycen, char Map[][MapMax], char read, char write)
 {
-    // Checks to see if there is a basic monster adjacent (whether or not it should call for a battle)
-    if (    (    (Map[ycen-y+1][x+xcen] >= Start) && (Map[ycen-y+1][x+xcen] <= End))
-            ||  ((Map[ycen-y-1][x+xcen] >= Start) && (Map[ycen-y-1][x+xcen] <= End))
-            ||  ((Map[ycen-y][x+xcen+1] >= Start) && (Map[ycen-y][x+xcen+1] <= End))
-            ||  ((Map[ycen-y][x+xcen-1] >= Start) && (Map[ycen-y][x+xcen-1] <= End))
-       )
-        return 0;
-    else
-        return 1;
+if (Map[ycen-y+1][x+xcen] == read)
+          {
+          Map[ycen-y+1][x+xcen] = write;
+          return 1;
+          }
+else if (Map[ycen-y][x+xcen+1] == read)
+          {
+          Map[ycen-y][x+xcen+1] = write;
+          return 1;
+          }
+else if (Map[ycen-y-1][x+xcen] == read)
+          {
+          Map[ycen-y-1][x+xcen] = write;
+          return 1;
+          }
+else if (Map[ycen-y][x+xcen-1] == read)
+          {
+          Map[ycen-y][x+xcen-1] = write;
+          return 1;
+          }
+else return 0;
 }
 
-void eventListener(int x, int y, int xcen,int ycen, char Map[][MapMax], char input)
+void eventListener(int x, int y, int xcen,int ycen, char Map[][MapMax], char input, int event[])
 {
-   // if(CollisionCheck(x,y,Map,'<') || CollisionCheck(x,y,Map,'>'))
-        // Normal Battle;
-    //if((CollisionRangeCheck(x,y,Map,'A','Z') && input == '\n'))
-        // Speech Event
-    //if((CollisionCheck(x,y,Map,'%') || CollisionCheck(x,y,Map,'$') || CollisionCheck(x,y,Map,'&')) && input == '\n')
-        // Boss Battle. Maybe implement a feature to check the map.
 
-if(CollisionCheck(x,y,xcen,ycen,Map,'&') && input == '\n')
+// Collision Check for Enemies
+if(CollisionCheck(x,y,xcen,ycen,Map,'<') || CollisionCheck(x,y,xcen,ycen,Map,'>'))
+    {
+    CDisplay display;
+    int c=0;
+    display.Message("If the battle system was implemented, you would be fighting.");
+
+    refresh();
+        bool leave = false;
+        while(leave == false)
+        {
+            if(Input() == '\n')
+            {
+                leave = true;
+            }
+        }
+    }
+
+// Collision Check for Chests
+else if(CollisionCheck(x,y,xcen,ycen,Map,'&') && input == '\n')
     {
     CDisplay display;
     int c=0;
@@ -203,35 +227,195 @@ if(CollisionCheck(x,y,xcen,ycen,Map,'&') && input == '\n')
 
     }
 
+// Collision Check for Person A
 else if(CollisionCheck(x,y,xcen,ycen,Map,'A') && input == '\n')
     {
-<<<<<<< HEAD
     CDisplay display;
     int c=0;
-    display.Message("Please get out of my house.");
-
+    display.Message("Oh, you're awake. Welcome to the city of Seaview. Yes, I know it's a terrible name. Blame the mayor.You washed up in our lake, so we placed you in our");
     refresh();
-        bool leave = false;
-        while(leave == false)
+        bool leave1 = false;
+        while(leave1 == false)
         {
             if(Input() == '\n')
             {
-                leave = true;
+                leave1 = true;
             }
         }
-
+    display.Message("inn to heal. And by inn, I suppose I mean guest   bedroom, considering the size of our town. Anyway,enough of that. Your clothes tell me you're not");
+    refresh();
+        bool leave2 = false;
+        while(leave2 == false)
+        {
+            if(Input() == '\n')
+            {
+                leave2 = true;
+            }
+        }
+    display.Message("from around here. Let me guess, you messed up     casting some sort of interdimensional spell and   landed in our lake. ");
+    refresh();
+        bool leave3 = false;
+        while(leave3 == false)
+        {
+            if(Input() == '\n')
+            {
+                leave3 = true;
+            }
+        }
+    display.Message("It figures. Truth be told, you're the fourth this year. I don't know why but our town seems to be a popular hotspot for this kind of stuff.");
+    refresh();
+        bool leave4 = false;
+        while(leave4 == false)
+        {
+            if(Input() == '\n')
+            {
+                leave4 = true;
+            }
+        }
+    display.Message("My name's Aryn. It's nice to meet you.");
+    refresh();
+        bool leave5 = false;
+        while(leave5 == false)
+        {
+            if(Input() == '\n')
+            {
+                leave5 = true;
+            }
+        }
+    clearevent(x,y,xcen,ycen,Map,'A','Á');
+    refresh();
     }
 
+// Collision Check for Person Á
+else if(CollisionCheck(x,y,xcen,ycen,Map,'Á') && input == '\n')
+    {
+    CDisplay display;
+    int c=0;
+    display.Message("Nothing new to report here.");
+    refresh();
+        bool leave1 = false;
+        while(leave1 == false)
+        {
+            if(Input() == '\n')
+            {
+                leave1 = true;
+            }
+        }
+    }
+
+// Collision Check for Person B
+else if(CollisionCheck(x,y,xcen,ycen,Map,'B') && input == '\n')
+    {
+    CDisplay display;
+    int c=0;
+    display.Message("I apologize, but my shop is currently closed.");
+    refresh();
+        bool leave1 = false;
+        while(leave1 == false)
+        {
+            if(Input() == '\n')
+            {
+                leave1 = true;
+            }
+        }
+    display.Message("Please come back at a later time.");
+    refresh();
+        bool leave2 = false;
+        while(leave2 == false)
+        {
+            if(Input() == '\n')
+            {
+                leave2 = true;
+            }
+        }
+    }
+
+// Collision Check for Person M
+else if(CollisionCheck(x,y,xcen,ycen,Map,'M') && input == '\n')
+    {
+    CDisplay display;
+    int c=0;
+    if(event[0]=1)
+    {
+        display.Message("Hm? Some person is locked out of their house?");
+        refresh();
+            bool leave1 = false;
+            while(leave1 == false)
+            {
+                if(Input() == '\n')
+                {
+                    leave1 = true;
+                }
+            }
+        display.Message("Well, I may have known you for all of two seconds, but here, take the town keys.");
+        refresh();
+            bool leave2 = false;
+            while(leave2 == false)
+            {
+                if(Input() == '\n')
+                {
+                    leave2 = true;
+                }
+            event[1] = 1;
+            }
+    }
+    else
+    {
+        display.Message("I'm busy at the moment.");
+        refresh();
+            bool leave3 = false;
+            while(leave3 == false)
+            {
+                if(Input() == '\n')
+                {
+                    leave3 = true;
+                }
+            }
+
+        display.Message("I'm busy at the moment.");
+        refresh();
+            bool leave1 = false;
+            while(leave1 == false)
+            {
+                if(Input() == '\n')
+                {
+                    leave1 = true;
+                }
+            }
+        }
+    }
+
+// Collision Check for Person H
+else if(CollisionCheck(x,y,xcen,ycen,Map,'H') && input == '\n')
+    {
+    CDisplay display;
+    int c=0;
+    display.Message("For whatever reason the mayor has decided to lock the passageway to my house.");
+    refresh();
+        bool leave1 = false;
+        while(leave1 == false)
+        {
+            if(Input() == '\n')
+            {
+                leave1 = true;
+            }
+        }
+        event[0] = 0;
+    }
+
+// Collision Check for Doors
+else if(CollisionCheck(x,y,xcen,ycen,Map,'!') && input == '\n')
+    {
+        if(event[1] = 1)
+            clearevent(x,y,xcen,ycen,Map,'!','#');
+    }
+
+//Collision Check for Trees
 else if((CollisionCheck(x,y,xcen,ycen,Map,'[') || CollisionCheck(x,y,xcen,ycen,Map,']') || CollisionCheck(x,y,xcen,ycen,Map,'/') || CollisionCheck(x,y,xcen,ycen,Map,'v'))  && input == '\n')
     {
     CDisplay display;
     int c=0;
     display.Message("It's a tree. Fascinating.");
-
-=======
-        CDisplay display;
-    display.Message("you opened the chest... you found Nothing");
->>>>>>> f59ca00c924c56259bb042086640fff6efdfe698
     refresh();
         bool leave = false;
         while(leave == false)
@@ -244,9 +428,23 @@ else if((CollisionCheck(x,y,xcen,ycen,Map,'[') || CollisionCheck(x,y,xcen,ycen,M
 
     }
 
+// Collision Check for Bosses
+else if(CollisionCheck(x,y,xcen,ycen,Map,'$') && input == '\n')
+    {
+    CDisplay display;
+    int c=0;
+    display.Message("This would be a boss battle.");
+    refresh();
+        bool leave = false;
+        while(leave == false)
+        {
+            if(Input() == '\n')
+            {
+                leave = true;
+            }
+        }
 
-
-
+    }
 
 }
 

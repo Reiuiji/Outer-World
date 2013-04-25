@@ -264,6 +264,11 @@ void CDisplay::ColorMap(char var)
         print = true;
         break;
 
+    case 'Á':
+        attron(COLOR_PAIR(COLOR_WHITE));
+        printw("A");
+        print = true;
+
     case 'm'://mountain
         attron(COLOR_PAIR(COLOR_YELLOW));
         break;

@@ -20,17 +20,14 @@
 #include "Definition.h"
 
 int Game(/*Player USER*/);
-void Move(int &x,int &y,int xcen, int ycen,char Map[][MapMax]);
+void Move(int &x,int &y,int xcen, int ycen,char Map[][MapMax], int event[]);
 bool MoveCheck(int &x,int &y,int xcen, int ycen, int xmove, int ymove, char Map[][MapMax]);
-
 bool CollisionCheck(int x, int y, int xcen, int ycen, char Map[][MapMax], char event);
-bool CollisionRangeCheck(int x, int y, int xcen, int ycen, char Map[][MapMax], char Start, char End);
-void eventListener(int x, int y, int xcen,int ycen, char Map[][MapMax], char input);
+bool clearevent(int x, int y, int xcen, int ycen, char Map[][MapMax], char read, char write);
+void eventListener(int x, int y, int xcen,int ycen, char Map[][MapMax], char input, int event[]);
 
-<<<<<<< HEAD
 // void eventListener(int x,int y, char* Map[][MapMax], char input);
-=======
+
 void eventListener(int x,int y, char* Map[][MapMax], char input);
 
->>>>>>> f59ca00c924c56259bb042086640fff6efdfe698
 int Input(void);

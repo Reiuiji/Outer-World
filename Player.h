@@ -67,6 +67,7 @@ public:
     void move(float,float);
 
 private:
+    int event[];
     std::string FirstName;
     std::string LastName;
     int Level;
