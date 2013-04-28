@@ -52,13 +52,13 @@ int Game()
 
         clear();
         GameDisplay.init_StatusBar(0,playerONE);
-        GameDisplay.Display(WinWidth,WinHeight,x,y,100,50,Map1);
+        GameDisplay.Display(WinWidth,WinHeight,x,y,26,13,Map[maplocation]);
         //GameDisplay.DebugScreen(x,y,Map1);
         //GameDisplay.Message(WinWidth/6,(4*WinHeight)/5,(2*WinWidth)/3,WinHeight/5,"Hello young one, i am a traveler from a different land, please help me and I will give you a magic ball");
         //GameDisplay.Message(0,0,WinWidth,WinHeight,"abcdefghijklmnopqrstuvwxyz");
         GameDisplay.init_Border(Displaycenset);
         //GameDisplay.Message("test");
-        Move(x,y,100,50,Map1,event);
+        Move(x,y,26,13,Map[maplocation],event);
         // nanosleep(&tim,&tim2);
 
         if(BattleMode == true)
@@ -160,7 +160,6 @@ bool MoveCheck(int &x,int &y,int xcen, int ycen, int xmove, int ymove, char Map[
         return 0;
     else
         return 1;
-
 }
 
 bool CollisionCheck(int x, int y, int xcen, int ycen, char Map[][MapMax], char event)
@@ -201,9 +200,18 @@ else return 0;
 
 void eventListener(int x, int y, int xcen,int ycen, char Map[][MapMax], char input, int event[])
 {
-
 // Collision Check for Enemies
-if(CollisionCheck(x,y,xcen,ycen,Map,'<') || CollisionCheck(x,y,xcen,ycen,Map,'>'))
+
+
+if(CollisionCheck(x,y,xcen,ycen,Map,',') && input == '\n')
+    {
+    if(maplocation == 0)
+       maplocation = 1;
+    else if(maplocation == 1)
+        maplocation = 0;
+    }
+
+else if(CollisionCheck(x,y,xcen,ycen,Map,'<') || CollisionCheck(x,y,xcen,ycen,Map,'>'))
     {
     CDisplay display;
     int c=0;

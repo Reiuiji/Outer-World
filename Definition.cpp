@@ -28,3 +28,4 @@ bool debug=false;
 bool play=true;
 bool BattleMode = false;
 bool AutoDisplay=true;
+int maplocation = 0;
