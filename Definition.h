@@ -20,7 +20,7 @@
 #define MapMax 202
 #define MaxHeight   40
 #define MaxWidth    100
-#define GameName "test"
+#define GameName "OuterW@rld"
 
 #define MaxMsg      50
 #define XCenter     50

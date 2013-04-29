@@ -169,6 +169,15 @@ void CDisplay::DebugScreen(int x, int y, char Map[][MapMax])
 }
 
 //curses: output the current map to the screen
+//
+//Sx: Set Width for the Screen
+//Sy: Set Height for the Screen
+//x: player x position
+//y: player y position
+//xcen: X center cordinates
+//ycen: Y center cordingates
+//map: map the display is working with
+//
 void CDisplay::Display(int Sx, int Sy, int x, int y,int xcen, int ycen, char Map[][MapMax]) //have to hard code for array, change to vector after test
 {
     x = x+xcen; //center cords

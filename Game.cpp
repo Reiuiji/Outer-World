@@ -71,6 +71,7 @@ int Game()
             getmaxyx(stdscr,WinHeight,WinWidth);
         }
         refresh();//refreshes the screen
+        GameDisplay.wait(10000);
     }
 
     return 0;
