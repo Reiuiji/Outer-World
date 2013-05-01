@@ -1,18 +1,31 @@
 Todo List
 =========
-
-Coding
-	- Jump Function Between Maps
+        - Make the rest of the maps (14?)
+                    - MAKE THE MAPS SMALLER.
+                    - Add elements to the maps to make it playable.
+	            - Jump Function Between Maps
   	- Player Features
+                    - *Correct* stat list
+                    - Magic
+                    - Inventory
+                    - Other Things
 	- Battle System
-		- Weapon / Magic / Armor Systems
-	- Story Manager
+		    - Weapon / Magic / Armor Systems
+                    - Enemy Battle Functions and AI
+	- Story Event Handler
+                    - (Basically make it so that when an event occurs it flags a 1 or a -1  
+                   to a specific array, and then that array gets read for future events.
 	- Item System
-	& - Enemy AI
-	& - Dungeon Manager
-	& - Event Listener (There was an attempt at this, nearly complete.)
-	& - Dialog Outputter (There was an attempt at this, could use some touchups.)
-	- A shop function.
+                    - Allow it to export out stats to the player's stats.
+                    - Allow it to have descriptions read out to the screen.
+        - Enemy Map AI
+                    * Bosses do not move, they are user-initiated and event-ed.
+         - Dungeon Manager
+                    * I have the feeling this shouldn't be randomized.
+         - Fix dialogue outputter
+                    - Allow it to resize/only write to a specific area so it doesn't overrun.
+                    - Multiple windows cause map invisibility for some reason.
+	- A shop function (Buy/Sell)
 	- A discard item function
 
 Semi-Code (to translate to code)
@@ -23,12 +36,9 @@ Semi-Code (to translate to code)
 
   - Story Features
     - Dialogue
-    - Maps
     - Choice trees
-    - Endgame Events
 
 Other
-	- Powerpoint / Presentation Prep
-	- Report
-	- User Guide
+	- Report (Jenny, Marie)
+	- User Guide (Ben, Brandyn)
 

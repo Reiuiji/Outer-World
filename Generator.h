@@ -44,7 +44,7 @@ typedef struct Dungeon
 class Generator
 {
 public:
-    Dungeon DungeonGen();
+    Dungeon DungeonGen(int FloorCount, int FloorSize, int LvlLow, int LvlHigh);
     void MobGen();
-    void ItemGen();
+    void ItemGen()cc;
 };

@@ -17,16 +17,21 @@
 * You should have received a copy of the GNU General Public License
 * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
-#define MapMax 202
+#define MapMax 52
 #define MaxHeight   40
 #define MaxWidth    100
+<<<<<<< HEAD
 #define GameName "OuterW@rld"
+=======
+#define GameName "Outer World"
+>>>>>>> 4978c745b6da20f4d36625b99f1060b46fbd0438
 
 #define MaxMsg      50
 #define XCenter     50
 #define msg_X_Width 40
 #define msg_Y_Width 20
 #define YCenter     20
+
 
 #define Displaycenset 5
 
@@ -38,7 +43,7 @@ extern int MenuX;
 extern int MenuY;
 extern int dotx;
 extern int doty;
-
+extern int maplocation;
 
 extern bool debug;
 extern bool play;

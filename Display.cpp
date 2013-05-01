@@ -197,7 +197,10 @@ void CDisplay::Display(int Sx, int Sy, int x, int y,int xcen, int ycen, char Map
                 }
                 else
                 {
-                    ColorMap(Map[Ly][Lx]);
+                    if(Ly < 26)
+                    {
+                        ColorMap(Map[Ly][Lx]);
+                    }
                 }
             }
             else
