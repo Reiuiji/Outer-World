@@ -15,7 +15,7 @@
 					<Add option="-g" />
 				</Compiler>
 				<Linker>
-					<Add library="dependencies\pdcurses.lib" />
+					<Add library="dependencies/pdcurses.lib" />
 				</Linker>
 			</Target>
 			<Target title="Release">
@@ -51,7 +51,6 @@
 		<Unit filename="Player.h" />
 		<Unit filename="README.md" />
 		<Unit filename="battle.h" />
-		<Unit filename="curses.h" />
 		<Unit filename="items.cpp" />
 		<Unit filename="items.h" />
 		<Unit filename="main.cpp" />

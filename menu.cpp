@@ -19,7 +19,7 @@
 */
 
 //tmp to test
-#define version "Test 0.01"
+#define version "OuterW@rld InDev-Build V.83"
 #include <stdlib.h>
 #include "Game.h"
 #include "Display.h"

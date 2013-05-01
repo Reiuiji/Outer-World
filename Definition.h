@@ -20,7 +20,11 @@
 #define MapMax 52
 #define MaxHeight   40
 #define MaxWidth    100
+<<<<<<< HEAD
+#define GameName "OuterW@rld"
+=======
 #define GameName "Outer World"
+>>>>>>> 4978c745b6da20f4d36625b99f1060b46fbd0438
 
 #define MaxMsg      50
 #define XCenter     50

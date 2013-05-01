@@ -18,3 +18,11 @@
 * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 //insert gen functions
+
+Dungeon DungeonGen(int FloorCount, int FloorSize, int LvlLow, int LvlHigh)
+{
+
+
+
+}
+
