@@ -1,44 +1,42 @@
 Todo List
 =========
-        - Make the rest of the maps (14?)
-                    - MAKE THE MAPS SMALLER.
+	- Maps
+       		    - Fix all of the maps that are broken
                     - Add elements to the maps to make it playable.
-	            - Jump Function Between Maps
+	            - Confirm working map jump function for multiple maps
+				- Implement the map jump function.
+
   	- Player Features
                     - *Correct* stat list
                     - Magic
                     - Inventory
                     - Other Things
+
 	- Battle System
-		    - Weapon / Magic / Armor Systems
+		    - Weapon / Magic / Armor Systems implementation
                     - Enemy Battle Functions and AI
+
 	- Story Event Handler
                     - (Basically make it so that when an event occurs it flags a 1 or a -1  
                    to a specific array, and then that array gets read for future events.
+
+	- Enemy Map AI (Bosses do not move, they are user-initiated and event-ed)
+        - Dungeon Manager (I have the feeling this shouldn't be randomized)
+	- A shop function (Buy/Sell)
+	- A discard item function
+	- Items Database Function
 	- Item System
                     - Allow it to export out stats to the player's stats.
                     - Allow it to have descriptions read out to the screen.
-        - Enemy Map AI
-                    * Bosses do not move, they are user-initiated and event-ed.
-         - Dungeon Manager
-                    * I have the feeling this shouldn't be randomized.
-         - Fix dialogue outputter
-                    - Allow it to resize/only write to a specific area so it doesn't overrun.
-                    - Multiple windows cause map invisibility for some reason.
-	- A shop function (Buy/Sell)
-	- A discard item function
+	- Magic Database Function
+	- Bestiary Database Function
 
-Semi-Code (to translate to code)
-  - Item Database (Needs to be implemented)
-	- Key items (Needs definitions from story)
-  - Magic Database (Needs descriptions, bonuses, and stats)
-  - Bestiary Database (Descriptions and stats needed.)
-
+Semi-Code
   - Story Features
     - Dialogue
     - Choice trees
 
 Other
-	- Report (Jenny, Marie)
-	- User Guide (Ben, Brandyn)
+	- 35% Report (Jenny, Marie)
+	- 25% User Guide (Ben, Brandyn)
 
