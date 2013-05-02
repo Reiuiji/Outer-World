@@ -19,10 +19,10 @@
 */
 //insert gen functions
 
-Dungeon DungeonGen(int FloorCount, int FloorSize, int LvlLow, int LvlHigh)
-{
+//Dungeon DungeonGen(int FloorCount, int FloorSize, int LvlLow, int LvlHigh)
+//{
 
 
 
-}
+//}
 

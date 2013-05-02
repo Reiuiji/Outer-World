@@ -20,11 +20,11 @@
 #include "Definition.h"
 
 int Game(/*Player USER*/);
-void Move(int &x,int &y,int xcen, int ycen,char Map[][MapMax], int event[]);
+void Move(int &x,int &y,int xcen, int ycen,char Map[][MapMax]);
 bool MoveCheck(int &x,int &y,int xcen, int ycen, int xmove, int ymove, char Map[][MapMax]);
 bool CollisionCheck(int x, int y, int xcen, int ycen, char Map[][MapMax], char event);
 bool clearevent(int x, int y, int xcen, int ycen, char Map[][MapMax], char read, char write);
-void eventListener(int x, int y, int xcen,int ycen, char Map[][MapMax], char input, int event[]);
+void eventListener(int x, int y, int xcen,int ycen, char Map[][MapMax], char input);
 
 // void eventListener(int x,int y, char* Map[][MapMax], char input);
 
