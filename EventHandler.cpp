@@ -1,6 +1,6 @@
 /*
 * ECE 264 Final Group Prject: Source Code
-* Copyright (C) 2013 Daniel Noyes <Reiuiji@gmail.com>
+* Copyright (C) 2013 Benjamin Doiron <ALEDelric@gmail.com> and Daniel Noyes <Reiuiji@gmail.com>
 *
 * This file is part of the ECE 264 Final Group Prject
 *
@@ -17,40 +17,21 @@
 * You should have received a copy of the GNU General Public License
 * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
-#define MapMax 52
-#define MaxHeight   40
-#define MaxWidth    100
-#define GameName "OuterW@rld"
+#include "EventHandler.h"
+#include <string>
 
-#define MaxMsg      50
-#define XCenter     50
-#define msg_X_Width 40
-#define msg_Y_Width 20
-#define YCenter     20
+EventHandler::EventHandler(int Event)
+{
+    EventsFlagged = Event;
+};
 
+int EventHandler::Get_Event()
+{
+    return EventsFlagged;
+};
 
-#define Displaycenset 5
-
-//Global variables
-extern int WinHeight;
-extern int WinWidth;
-//manage menu windows layout
-extern int MenuX;
-extern int MenuY;
-extern int dotx;
-extern int doty;
-extern int maplocation;
-
-extern bool debug;
-extern bool play;
-extern bool BattleMode;
-extern bool AutoDisplay;
-
-extern int Event[4];
-
-//color setup
-#define COLOR_BROWN 10
-#define ENV_WATER   20
-#define ENV_WFALL   21//water fall
-#define ENV_PATH    22
-#define ENV_TREE    23
+int EventHandler::Set_Event()
+{
+    EventsFlagged++;
+    return EventsFlagged;
+}

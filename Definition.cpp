@@ -29,3 +29,5 @@ bool play=true;
 bool BattleMode = false;
 bool AutoDisplay=true;
 int maplocation = 0;
+
+int Event[4] = {0};

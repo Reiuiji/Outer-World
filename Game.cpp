@@ -17,6 +17,7 @@
 * You should have received a copy of the GNU General Public License
 * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
+#include "EventHandler.h"
 #include "Display.h"
 #include "Player.h"
 #include "Enemy.h"
@@ -36,7 +37,6 @@
 
 int Game()
 {
-    int event[5] = {0,0,0,0,0};
     int x = 0;
     int y = 0;
     CDisplay GameDisplay;//sets up the display object for curses
@@ -58,7 +58,7 @@ int Game()
         //GameDisplay.Message(0,0,WinWidth,WinHeight,"abcdefghijklmnopqrstuvwxyz");
         GameDisplay.init_Border(Displaycenset);
         //GameDisplay.Message("test");
-        Move(x,y,26,13,Map[maplocation],event);
+        Move(x,y,26,13,Map[maplocation]);
         // nanosleep(&tim,&tim2);
 
         if(BattleMode == true)
@@ -71,7 +71,7 @@ int Game()
             getmaxyx(stdscr,WinHeight,WinWidth);
         }
         refresh();//refreshes the screen
-        GameDisplay.wait(10000);
+        //GameDisplay.wait(10000);
     }
 
     return 0;
@@ -79,10 +79,10 @@ int Game()
 
 //player move function
 //check if player can move to that location, if so whey yay they can move
-void Move(int &x,int &y,int xcen, int ycen,char Map[][MapMax], int event[])
+void Move(int &x,int &y,int xcen, int ycen,char Map[][MapMax])
 {
     int  c=Input();
-    eventListener(x,y,xcen,ycen,Map,c,event);
+    eventListener(x,y,xcen,ycen,Map,c);
     switch(c)
     {
     case KEY_UP:
@@ -199,7 +199,7 @@ else if (Map[ycen-y][x+xcen-1] == read)
 else return 0;
 }
 
-void eventListener(int x, int y, int xcen,int ycen, char Map[][MapMax], char input, int event[])
+void eventListener(int x, int y, int xcen,int ycen, char Map[][MapMax], char input)
 {
 // Collision Check for Enemies
 
@@ -215,7 +215,6 @@ if(CollisionCheck(x,y,xcen,ycen,Map,',') && input == '\n')
 else if(CollisionCheck(x,y,xcen,ycen,Map,'<') || CollisionCheck(x,y,xcen,ycen,Map,'>'))
     {
     CDisplay display;
-    int c=0;
     display.Message("If the battle system was implemented, you would be fighting.");
     refresh();
         bool leave = false;
@@ -249,7 +248,6 @@ else if(CollisionCheck(x,y,xcen,ycen,Map,'&') && input == '\n')
 else if(CollisionCheck(x,y,xcen,ycen,Map,'A') && input == '\n')
     {
     CDisplay display;
-    int c=0;
     display.Message("Oh, you're awake. Welcome to the city of Seaview. Yes, I know it's a terrible name. Blame the mayor.You washed up in our lake, so we placed you in our");
     refresh();
         bool leave1 = false;
@@ -308,7 +306,6 @@ else if(CollisionCheck(x,y,xcen,ycen,Map,'A') && input == '\n')
 else if(CollisionCheck(x,y,xcen,ycen,Map,'Á') && input == '\n')
     {
     CDisplay display;
-    int c=0;
     display.Message("Nothing new to report here.");
     refresh();
         bool leave1 = false;
@@ -325,7 +322,8 @@ else if(CollisionCheck(x,y,xcen,ycen,Map,'Á') && input == '\n')
 else if(CollisionCheck(x,y,xcen,ycen,Map,'B') && input == '\n')
     {
     CDisplay display;
-    int c=0;
+    if(Event[0] == 0)
+    {
     display.Message("I apologize, but my shop is currently closed.");
     refresh();
         bool leave1 = false;
@@ -335,7 +333,12 @@ else if(CollisionCheck(x,y,xcen,ycen,Map,'B') && input == '\n')
             {
                 leave1 = true;
             }
+        Event[0] = 1;
         }
+    }
+
+    else if(Event[0] == 1)
+    {
     display.Message("Please come back at a later time.");
     refresh();
         bool leave2 = false;
@@ -347,14 +350,14 @@ else if(CollisionCheck(x,y,xcen,ycen,Map,'B') && input == '\n')
             }
         }
     }
+    }
 
 // Collision Check for Person M
 else if(CollisionCheck(x,y,xcen,ycen,Map,'M') && input == '\n')
     {
     CDisplay display;
-    int c=0;
-    if(event[0]=1)
-    {
+// if(Event[0] == 1)
+// {
         display.Message("Hm? Some person is locked out of their house?");
         refresh();
             bool leave1 = false;
@@ -374,11 +377,11 @@ else if(CollisionCheck(x,y,xcen,ycen,Map,'M') && input == '\n')
                 {
                     leave2 = true;
                 }
-            event[1] = 1;
+//            event[1] = 1;
             }
-    }
-    else
-    {
+//    }
+//    else
+//    {
         display.Message("I'm busy at the moment.");
         refresh();
             bool leave3 = false;
@@ -392,22 +395,21 @@ else if(CollisionCheck(x,y,xcen,ycen,Map,'M') && input == '\n')
 
         display.Message("I'm busy at the moment.");
         refresh();
-            bool leave1 = false;
-            while(leave1 == false)
+            bool leave4 = false;
+            while(leave4 == false)
             {
                 if(Input() == '\n')
                 {
-                    leave1 = true;
+                    leave4 = true;
                 }
             }
         }
-    }
+//    }
 
 // Collision Check for Person H
 else if(CollisionCheck(x,y,xcen,ycen,Map,'H') && input == '\n')
     {
     CDisplay display;
-    int c=0;
     display.Message("For whatever reason the mayor has decided to lock the passageway to my house.");
     refresh();
         bool leave1 = false;
@@ -418,13 +420,12 @@ else if(CollisionCheck(x,y,xcen,ycen,Map,'H') && input == '\n')
                 leave1 = true;
             }
         }
-        event[0] = 0;
     }
 
 // Collision Check for Doors
 else if(CollisionCheck(x,y,xcen,ycen,Map,'!') && input == '\n')
     {
-        if(event[1] = 1)
+//        if(event[1] = 1)
             clearevent(x,y,xcen,ycen,Map,'!','#');
     }
 
@@ -449,7 +450,6 @@ else if((CollisionCheck(x,y,xcen,ycen,Map,'[') || CollisionCheck(x,y,xcen,ycen,M
 else if(CollisionCheck(x,y,xcen,ycen,Map,'$') && input == '\n')
     {
     CDisplay display;
-    int c=0;
     display.Message("This would be a boss battle.");
     refresh();
         bool leave = false;

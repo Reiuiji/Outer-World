@@ -19,7 +19,12 @@
 */
 #include "Definition.h"
 #include <string.h>
-#include "curses.h"
+#ifdef _WIN32
+#include "dependencies/curses.h"
+#endif
+#ifdef linux
+#include <curses.h>
+#endif
 
 //curses: outputs the border of the screen
 //checks the limits of the border and output a border tag
