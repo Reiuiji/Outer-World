@@ -73,7 +73,7 @@
 	"dependencies/curses.h"
 	<curses.h>
 
-1367526800 source:/home/okuu/Programing/ECE264FinalProject/Display.cpp
+1367529813 source:/home/okuu/Programing/ECE264FinalProject/Display.cpp
 	"Player.h"
 	"Display.h"
 	"Definition.h"
@@ -195,14 +195,15 @@
 	"dependencies/curses.h"
 	<curses.h>
 
-1367527616 source:/home/okuu/Programing/ECE264FinalProject/Dungeon.cpp
+1367531219 source:/home/okuu/Programing/ECE264FinalProject/Dungeon.cpp
 	"Player.h"
 	"Display.h"
 	"Dungeon.h"
 	<curses.h>
 	<iostream>
+	"string.h"
 
-1367526539 /home/okuu/Programing/ECE264FinalProject/Dungeon.h
+1367531203 /home/okuu/Programing/ECE264FinalProject/Dungeon.h
 
 1367521661 /home/okuu/Programing/ECE264FinalProject/EventHandler.h
 	<string>

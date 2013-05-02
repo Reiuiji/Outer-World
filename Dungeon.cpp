@@ -22,14 +22,25 @@
 #include "Dungeon.h"
 #include <curses.h>
 #include <iostream>
+#include "string.h"
 
 //insert gen functions
+
+bool Dungeon::MoveCheck(int &x,int &y,int xcen, int ycen, int xmove, int ymove, const char Map[][DungeonMapX])
+{
+    if(strncmp(&Map[ycen-y-ymove][x+xcen+xmove]," ",1) == 0 || strncmp(&Map[ycen-y-ymove][x+xcen+xmove],"#",1) == 0)
+        return 0;
+    else
+        return 1;
+}
 
 //void DungeonGen(int FloorCount, int FloorSize, int LvlLow, int LvlHigh)
 void Dungeon::StartDungeon(Player plyone,int DungeonLVL)
 {
-    int PlayerX = 9;
-    int PlayerY = 10;
+    int DungeonX = 9;
+    int DungeonY = 10;
+    int PlayerX = 5;
+    int PlayerY = 5;
 
     CDisplay CDisp;
 
@@ -45,30 +56,34 @@ void Dungeon::StartDungeon(Player plyone,int DungeonLVL)
         {
             getmaxyx(stdscr,WinHeight,WinWidth);
         }
-        Dungeon::DisplayRoom(DungeonRoom,DungeonMap1,PlayerY,PlayerX);
-        GameDisplay.init_Border(Displaycenset);
+        Dungeon::DisplayRoom(DungeonRoom,DungeonMap1,PlayerY,PlayerX, DungeonY, DungeonX);
+        CDisp.init_Border(Displaycenset);
         refresh();
 
-    //Dungeon functions
+        //Dungeon functions
         int  c=getch();
         if(c)
         {
             switch(c)
             {
             case KEY_DOWN:
-                PlayerY ++;
+                if(MoveCheck(PlayerX,PlayerY,10,10,0,-1,DungeonRoom[DungeonMap1[PlayerY][PlayerX]]) == 0)
+                    PlayerY ++;
                 break;
 
             case KEY_UP:
-                PlayerY --;
+                if(MoveCheck(PlayerX,PlayerY,10,10,0,1,DungeonRoom[DungeonMap1[PlayerY][PlayerX]]) == 0)
+                    PlayerY --;
                 break;
 
             case KEY_LEFT:
-                PlayerX --;
+                if(MoveCheck(PlayerX,PlayerY,10,10,-1,0,DungeonRoom[DungeonMap1[PlayerY][PlayerX]]) == 0)
+                    PlayerX --;
                 break;
 
             case KEY_RIGHT:
-                PlayerX ++;
+                if(MoveCheck(PlayerX,PlayerY,10,10,1,0,DungeonRoom[DungeonMap1[PlayerY][PlayerX]]) == 0)
+                    PlayerX ++;
                 break;
 
             case '\n':
@@ -85,16 +100,62 @@ void Dungeon::StartDungeon(Player plyone,int DungeonLVL)
 
 }
 
-void Dungeon::DisplayRoom(const char Map[DungeonRoomNum][DungeonMapY][DungeonMapX],const int DungeonMap[DungeonMapLVL][DungeonMapLVL],int PlayerY, int PlayerX)
+void Dungeon::DisplayRoom(const char Map[DungeonRoomNum][DungeonMapY][DungeonMapX],const int DungeonMap[DungeonMapLVL][DungeonMapLVL],int PlayerY, int PlayerX, int DungeonY, int DungeonX)
 {
-    move(Displaycenset,0);
-    for(int Ly = 0 ; Ly < DungeonMapY; Ly ++)
+    Dungeon::Display(WinWidth,WinHeight,PlayerX,PlayerY,DungeonMapX/2,DungeonMapY/2,Map[DungeonMap[DungeonY][DungeonX]]);
+
+
+    if(DungeonMap[DungeonY--][DungeonX] != 0)
     {
-        for(int Lx = 0 ; Lx < DungeonMapX ; Lx++)
+
+    }
+
+    //check if you can move east
+    if(DungeonMap[DungeonY][DungeonX++] != 0)
+    {
+
+    }
+
+    //check if you can move south
+    if(DungeonMap[DungeonY++][DungeonX] != 0)
+    {
+
+    }
+
+    //check if you can move west
+    if(DungeonMap[DungeonY][DungeonX--] != 0)
+    {
+
+    }
+
+
+
+
+
+    printw("X: %d, Y: %d", PlayerX, PlayerY);
+}
+
+void Dungeon::Display(int Sx, int Sy, int x, int y,int xcen, int ycen,const char Map[][DungeonMapX]) //have to hard code for array, change to vector after Dungeone
+{
+    x = x+xcen; //center cords
+    y = ycen-y;
+    Sy-=Displaycenset;//fixed the cords based on the display offset from the status bar
+    move(Displaycenset,0);
+    for(int Ly = (y-Sy/2) ; Ly < (y+Sy/2 + Sy%2 -1); Ly ++)
+    {
+        for(int Lx = (x - Sx/2) ; Lx < (x + Sx/2 +(Sx%2) -1) ; Lx++)
         {
-            if(DungeonMap[PlayerY][PlayerX] > 0 && DungeonMap[PlayerY][PlayerX]  <5)
+            if( Ly >= 0 && Ly < DungeonMapX && Lx >= 0 && Lx < DungeonMapX)
             {
-                printw("%1c",Map[DungeonMap[PlayerY][PlayerX]-1][Ly][Lx]);
+                if(Lx == x && Ly == y)
+                {
+                    attron(COLOR_PAIR(COLOR_CYAN));
+                    printw("@");
+                }
+                else
+                {
+                    printw("%1c",Map[Ly][Lx]);
+                }
             }
             else
             {
@@ -103,6 +164,4 @@ void Dungeon::DisplayRoom(const char Map[DungeonRoomNum][DungeonMapY][DungeonMap
         }
         printw("\n");
     }
-    printw("X: %d, Y: %d", PlayerX, PlayerY);
 }
-

@@ -22,10 +22,12 @@ class Dungeon
 {
 public:
     void StartDungeon(Player plyone,int DungeonLVL);
-    void DisplayRoom(const char Map[DungeonRoomNum][DungeonMapY][DungeonMapX],const int DungeonMap[DungeonMapLVL][DungeonMapLVL],int PlayerY,int PlayerX);
+    void DisplayRoom(const char Map[DungeonRoomNum][DungeonMapY][DungeonMapX],const int DungeonMap[DungeonMapLVL][DungeonMapLVL],int PlayerY,int PlayerX, int DungeonY, int DungeonX);
     //DungeonGen(int FloorCount, int FloorSize, int LvlLow, int LvlHigh);
+    bool MoveCheck(int &x,int &y,int xcen, int ycen, int xmove, int ymove, const char Map[][DungeonMapX]);
     void MobGen();
     void ItemGen();
+    void Display(int Sx, int Sy, int x, int y,int xcen, int ycen,const char Map[][DungeonMapX]);
 
 private:
     void RoomCreate(int X, int Y, int *Floor);
