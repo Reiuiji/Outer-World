@@ -59,4 +59,5 @@ extern int Event[4];
 //Dungeon Setup
 #define DungeonMapX 21
 #define DungeonMapY 10
+#define DungeonMapLVL 20
 #define DungeonRoomNum 3

@@ -21,6 +21,7 @@
 #include "Display.h"
 #include "Dungeon.h"
 #include <curses.h>
+#include <iostream>
 
 //insert gen functions
 
@@ -29,45 +30,45 @@ void Dungeon::StartDungeon(Player plyone,int DungeonLVL)
 {
     int PlayerX = 9;
     int PlayerY = 10;
-    bool leave = false;
 
     CDisplay CDisp;
 
     refresh();
 
 
-    while(leave == false)
+    while(DungeonMode == true)
     {
         clear();
         move(0,0);
-
         CDisp.init_StatusBar(0,plyone);
         if(AutoDisplay==true)
         {
             getmaxyx(stdscr,WinHeight,WinWidth);
         }
+        Dungeon::DisplayRoom(DungeonRoom,DungeonMap1,PlayerY,PlayerX);
+        GameDisplay.init_Border(Displaycenset);
         refresh();
 
-//Dungeon functions
+    //Dungeon functions
         int  c=getch();
         if(c)
         {
             switch(c)
             {
             case KEY_DOWN:
-                dotx += 2;
+                PlayerY ++;
                 break;
 
             case KEY_UP:
-                dotx -= 2;
+                PlayerY --;
                 break;
 
             case KEY_LEFT:
-                doty -= 2;
+                PlayerX --;
                 break;
 
             case KEY_RIGHT:
-                doty += 2;
+                PlayerX ++;
                 break;
 
             case '\n':
@@ -84,7 +85,24 @@ void Dungeon::StartDungeon(Player plyone,int DungeonLVL)
 
 }
 
-void Dungeon::DisplayRoom(char Map[DungeonRoomNum][DungeonMapY][DungeonMapX], int RNum)
+void Dungeon::DisplayRoom(const char Map[DungeonRoomNum][DungeonMapY][DungeonMapX],const int DungeonMap[DungeonMapLVL][DungeonMapLVL],int PlayerY, int PlayerX)
 {
-
+    move(Displaycenset,0);
+    for(int Ly = 0 ; Ly < DungeonMapY; Ly ++)
+    {
+        for(int Lx = 0 ; Lx < DungeonMapX ; Lx++)
+        {
+            if(DungeonMap[PlayerY][PlayerX] > 0 && DungeonMap[PlayerY][PlayerX]  <5)
+            {
+                printw("%1c",Map[DungeonMap[PlayerY][PlayerX]-1][Ly][Lx]);
+            }
+            else
+            {
+                printw(" ");
+            }
+        }
+        printw("\n");
+    }
+    printw("X: %d, Y: %d", PlayerX, PlayerY);
 }
+
