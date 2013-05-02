@@ -27,6 +27,7 @@ int dotx = 0;
 bool debug=false;
 bool play=true;
 bool BattleMode = false;
+bool DungeonMode = false;
 bool AutoDisplay=true;
 int maplocation = 0;
 

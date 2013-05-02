@@ -44,6 +44,7 @@ extern int maplocation;
 extern bool debug;
 extern bool play;
 extern bool BattleMode;
+extern bool DungeonMode;
 extern bool AutoDisplay;
 
 extern int Event[4];
@@ -54,3 +55,8 @@ extern int Event[4];
 #define ENV_WFALL   21//water fall
 #define ENV_PATH    22
 #define ENV_TREE    23
+
+//Dungeon Setup
+#define DungeonMapX 21
+#define DungeonMapY 10
+#define DungeonRoomNum 3
