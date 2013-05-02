@@ -5,31 +5,26 @@ Todo List
                     - Add elements to the maps to make it playable.
 	            - Confirm working map jump function for multiple maps
 				- Implement the map jump function.
-
   	- Player Features
-                    - *Correct* stat list
-                    - Magic
-                    - Inventory
-                    - Other Things
+                    - *Correct* stat list (LVL, HP, MP, ATK, DEF, MATK, MDEF, SPD, LUK, ...)
 
 	- Battle System
 		    - Weapon / Magic / Armor Systems implementation
                     - Enemy Battle Functions and AI
-
-	- Story Event Handler
-                    - (Basically make it so that when an event occurs it flags a 1 or a -1  
-                   to a specific array, and then that array gets read for future events.
-
 	- Enemy Map AI (Bosses do not move, they are user-initiated and event-ed)
         - Dungeon Manager (I have the feeling this shouldn't be randomized)
-	- A shop function (Buy/Sell)
-	- A discard item function
-	- Items Database Function
-	- Item System
-                    - Allow it to export out stats to the player's stats.
-                    - Allow it to have descriptions read out to the screen.
-	- Magic Database Function
-	- Bestiary Database Function
+
+Needs to just be put into the game:
+	- Bestiary Code
+		* Can easily be implemented into a battle system.
+	- Items Code
+		* There's a discard function in Items.
+		* You can easily implement a shop with these functions.
+		* You can easily implement an inventory with these functions.
+		* You can easily implement stat boost with these functions.
+	- Spells Code
+		* You can easily implement a spell list from this.
+		* You can easily implement stat boost with these functions.
 
 Semi-Code
   - Story Features
@@ -37,6 +32,6 @@ Semi-Code
     - Choice trees
 
 Other
-	- 35% Report (Jenny, Marie)
-	- 25% User Guide (Ben, Brandyn)
+	- Revise and edit the report
+	- Write the user guide (Ben, Brandyn)
 

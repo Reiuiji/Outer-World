@@ -4,7 +4,8 @@
 
 
 Spells::Spells(std::string NAME, std::string DESC, bool OFFENSIVE, int ELEMENT, int MP_LOSS, int DAMAGE,
-          int ATK_GAIN, int DEF_GAIN, int MATK_GAIN, int MDEF_GAIN, int SPD_GAIN, int HEALTH_GAIN)
+          int ATK_GAIN, int DEF_GAIN, int MATK_GAIN, int MDEF_GAIN, int SPD_GAIN, int HEALTH_GAIN, int GET_LEARNED,
+          int SET_LEARNED)
 {
 
         SpellName = NAME;
@@ -21,6 +22,7 @@ Spells::Spells(std::string NAME, std::string DESC, bool OFFENSIVE, int ELEMENT, 
         SpdGain = ATK_GAIN;
 
         HealthGain = HEALTH_GAIN;
+        Learned = GET_LEARNED;
 
 };
 
@@ -71,4 +73,13 @@ int Spells::SPD_GAIN()
 int Spells::HEALTH_GAIN()
 {
     return HealthGain;
+};
+int Spells::GET_LEARNED()
+{
+    return Learned;
+};
+int Spells::SET_LEARNED()
+{
+    Learned = 1;
+    return Learned;
 };
