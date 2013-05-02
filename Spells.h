@@ -3,16 +3,22 @@ class Spells
 {
 public:
     Spells();
-    Spells(std::string NAME, std::string DESC, bool OFFENSIVE, int ELEMENT, int MP_LOSS, int DAMAGE, int STAT_GAIN, int HEALTH_GAIN);
+    Spells(std::string NAME, std::string DESC, bool OFFENSIVE, int ELEMENT, int MP_LOSS, int DAMAGE,
+          int ATK_GAIN, int DEF_GAIN, int MATK_GAIN, int MDEF_GAIN, int SPD_GAIN, int HEALTH_GAIN);
 
     std::string NAME();
     std::string DESC();
     bool OFFENSIVE();
-
     int ELEMENT();
     int MP_LOSS();
     int DAMAGE();
-    int STAT_GAIN();
+
+    int ATK_GAIN();
+    int DEF_GAIN();
+    int MATK_GAIN();
+    int MDEF_GAIN();
+    int SPD_GAIN();
+
     int HEALTH_GAIN();
 
 private:
@@ -22,6 +28,12 @@ private:
      int Element;
      int ManaCost;
      int SpellDamage;
-     int StatGain;
+
+     int AtkGain;
+     int DefGain;
+     int MatkGain;
+     int MdefGain;
+     int SpdGain;
+
      int HealthGain;
 };
