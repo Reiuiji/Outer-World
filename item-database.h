@@ -3,7 +3,7 @@ class Item
 {
 public:
     Item();
-    Item( std::string NAME, std::string DESC, int TYPE, int ATK, int DEF, int MATK, int MDEF, bool OWN, int FUNC);
+    Item(std::string NAME, std::string DESC, int TYPE, int ATK, int DEF, int MATK, int MDEF, int FUNC, int PRICE, bool BUYABLE, int NUM_OWNED, int BOUGHT);
 
     std::string NAME();
     std::string DESC();
@@ -13,7 +13,11 @@ public:
     int MATK();
     int MDEF();
     int FUNC();
-    bool OWN();
+    int PRICE();
+
+    bool BUYABLE();
+    int NUM_OWNED();
+    int BOUGHT();
 
 private:
      std::string ItemName;
@@ -24,6 +28,9 @@ private:
      int ItemMatk;
      int ItemMdef;
      int ItemFunc;
-     bool ItemOwned;
+     int ItemPrice;
+
+     bool Buyable;
+     int ItemOwned;
 };
 

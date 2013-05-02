@@ -1,7 +1,8 @@
 #include "item-database.h"
 #include <string>
 
-Item::Item( std::string NAME, std::string DESC, int TYPE, int ATK, int DEF, int MATK, int MDEF, bool OWN, int FUNC)
+Item::Item(std::string NAME, std::string DESC, int TYPE, int ATK, int DEF, int MATK, int MDEF, int FUNC, int PRICE, bool BUYABLE, int NUM_OWNED, int BOUGHT)
+
 {
         ItemName  = NAME;
         ItemDesc  = DESC;
@@ -10,8 +11,10 @@ Item::Item( std::string NAME, std::string DESC, int TYPE, int ATK, int DEF, int 
         ItemDef   = DEF;
         ItemMatk  = MATK;
         ItemMdef  = MDEF;
-        ItemOwned = OWN;
         ItemFunc  = FUNC;
+        ItemPrice = PRICE;
+        Buyable   = BUYABLE;
+        ItemOwned = NUM_OWNED;
 };
 
 std::string Item::NAME()
@@ -53,8 +56,25 @@ int Item::FUNC()
 {
     return ItemFunc;
 };
-
-bool Item::OWN()
+int Item::PRICE()
+{
+    return ItemPrice;
+};
+bool Item::BUYABLE()
+{
+    return Buyable;
+};
+int Item::NUM_OWNED()
 {
     return ItemOwned;
 };
+
+int Item::BOUGHT()
+{
+  ItemOwned++;
+  return 1;
+};
+
+
+
+
