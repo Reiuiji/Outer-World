@@ -1,10 +1,9 @@
 #include "bestiary.h"
 #include <string>
 
-Bestiary::Bestiary(std::string NAME, int LVL, int HP, int MP, int ATK, int DEF, int MATK, int MDEF, int SPD, int LUK, int WEAKNESSES, int RESISTANCES)
+Bestiary::Bestiary(std::string NAME, int HP, int MP, int ATK, int DEF, int MATK, int MDEF, int SPD, int LUK, int WEAKNESSES, int RESISTANCES)
 {
     MonsterName   = NAME;
-    MonsterLevel  = LVL;
     MonsterHp     = HP;
     MonsterMp     = MP;
     MonsterAtk    = ATK;
@@ -20,11 +19,6 @@ Bestiary::Bestiary(std::string NAME, int LVL, int HP, int MP, int ATK, int DEF, 
 std::string Bestiary::NAME()
 {
     return MonsterName;
-};
-
-int Bestiary::LVL()
-{
-    return MonsterLevel;
 };
 
 int Bestiary::HP()
