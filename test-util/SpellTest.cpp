@@ -3,20 +3,26 @@
 #include <string>
 #include "Spells.h"
 
-
-// THIS TEST IS KIND OF SHITTY YOU MIGHT NEED TO REMAKE IT. THE FUNCTION WORKS FINE THOUGH.
-
-
-
-#define MaxArray 3
+#define MaxArray 10
 int main()
 {
     Spells Test[MaxArray] =
     {
-        // Spells(std::string NAME, std::string DESC, bool OFFENSIVE, int ELEMENT, int MP_LOSS, int DAMAGE, int STAT_GAIN, int HEALTH_GAIN)
-        Spells("Spell 1","Desc 1",false,1,10,4,6,2),
-        Spells("Spell 2","Desc 2",false,2,20,5,6,7),
-        Spells("Spell 3","Desc 3",false,3,30,5,7,3),
+        //                                      ELEMENT, MP_LOSS, DAMAGE, ATK, DEF, MATK, MDEF, SPD, HEALTH_GAIN)
+        Spells("Whirlwind",      "Desc 1",   true, 1, 25, 50,  0,  0,  0,  0,  0,   0),
+        Spells("Fleet of Foot",  "Desc 2",  false, 1, 25,  0,  0,  0,  0,  0,  3,   0),
+
+        Spells("Wildfire",       "Desc 3",   true, 2, 25, 50,  0,  0,  0,  0,  0,   0),
+        Spells("Blind Fury",     "Desc 1",  false, 2, 25,  0,  3,  0,  3,  0,  0,   0),
+
+        Spells("Quake",          "Desc 2",   true, 3, 25, 50,  0,  0,  0,  0,  0,   0),
+        Spells("Fortify",        "Desc 3",  false, 3, 25,  0,  0,  3,  0,  3,  0,   0),
+
+        Spells("Tsunami",        "Desc 1",   true, 4, 25, 50,  0,  0,  0,  0,  0,   0),
+        Spells("Purify",         "Desc 2",  false, 4, 25,  0,  0,  0,  0,  0,  0,  50),
+
+        Spells("Ultima",         "Desc 3",   true, 5,200,500,  0,  0,  0,  0,  0,   0),
+        Spells("Time Shift",     "Desc 3",  false, 6,200,  0, 10, 10, 10, 10, 10, 100),
     };
 
 int x = 0;
@@ -34,7 +40,6 @@ for(x=0; x<MaxArray ; x++)
             << Test[x].ELEMENT()     << std::setw(4) << "|"
             << Test[x].MP_LOSS()     << std::setw(5) << "|"
             << Test[x].DAMAGE()      << std::setw(5) << "|"
-            << Test[x].STAT_GAIN()   << std::setw(5) << "|"
             << Test[x].HEALTH_GAIN() << std::setw(5) << "|" << std::endl;
 }
 std::cout << "+--------------------+--------------------+-----+-----+-----+-----+-----+-----+" << std::endl;
