@@ -1,8 +1,8 @@
 # depslib dependency file v1.0
-1366915718 source:/home/okuu/Programing/ECE264FinalProject/Definition.cpp
+1367521661 source:/home/okuu/Programing/ECE264FinalProject/Definition.cpp
 	"Definition.h"
 
-1366919601 /home/okuu/Programing/ECE264FinalProject/Definition.h
+1367521661 /home/okuu/Programing/ECE264FinalProject/Definition.h
 
 1366428562 source:/home/okuu/Programing/ECE264FinalProject/Enemy.cpp
 	<iostream>
@@ -54,7 +54,7 @@
 	"dependencies/curses.h"
 	<curses.h>
 
-1366916903 /home/okuu/Programing/ECE264FinalProject/Game.h
+1367521661 /home/okuu/Programing/ECE264FinalProject/Game.h
 	"Definition.h"
 
 1366883308 source:/home/okuu/Programing/ECE264FinalProject/Player.cpp
@@ -67,12 +67,13 @@
 1366916903 /home/okuu/Programing/ECE264FinalProject/Player.h
 	<string>
 
-1366869039 source:/home/okuu/Programing/ECE264FinalProject/Battle.cpp
+1367521661 source:/home/okuu/Programing/ECE264FinalProject/Battle.cpp
 	"Definition.h"
 	<string.h>
-	"curses.h"
+	"dependencies/curses.h"
+	<curses.h>
 
-1366916903 source:/home/okuu/Programing/ECE264FinalProject/Display.cpp
+1367277246 source:/home/okuu/Programing/ECE264FinalProject/Display.cpp
 	"Player.h"
 	"Display.h"
 	"Definition.h"
@@ -89,7 +90,7 @@
 	<stdio.h>
 	<wchar.h>
 
-1366922218 source:/home/okuu/Programing/ECE264FinalProject/Game.cpp
+1367521074 source:/home/okuu/Programing/ECE264FinalProject/Game.cpp
 	"Display.h"
 	"Player.h"
 	"Enemy.h"
@@ -101,7 +102,7 @@
 	"dependencies/curses.h"
 	<curses.h>
 
-1366919453 /home/okuu/Programing/ECE264FinalProject/Maps.h
+1367521215 /home/okuu/Programing/ECE264FinalProject/Maps.h
 	"Definition.h"
 
 1367089162 source:/home/okuu/programing/ECE264FinalProject/Battle.cpp
@@ -191,4 +192,6 @@
 	"menu.h"
 	"dependencies/curses.h"
 	<curses.h>
+
+1367520773 source:/home/okuu/Programing/ECE264FinalProject/Dungeon.cpp
 

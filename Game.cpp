@@ -356,6 +356,8 @@ else if(CollisionCheck(x,y,xcen,ycen,Map,'B') && input == '\n')
 else if(CollisionCheck(x,y,xcen,ycen,Map,'M') && input == '\n')
     {
     CDisplay display;
+    if(Event[0]==1)
+    {
 // if(Event[0] == 1)
 // {
         display.Message("Hm? Some person is locked out of their house?");
@@ -462,7 +464,7 @@ else if(CollisionCheck(x,y,xcen,ycen,Map,'$') && input == '\n')
         }
 
     }
-
+}
 }
 
 //input function
