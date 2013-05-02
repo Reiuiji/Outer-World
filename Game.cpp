@@ -322,11 +322,8 @@ else if(CollisionCheck(x,y,xcen,ycen,Map,'Á') && input == '\n')
 else if(CollisionCheck(x,y,xcen,ycen,Map,'B') && input == '\n')
     {
     CDisplay display;
-<<<<<<< HEAD
-=======
     if(Event[0] == 0)
     {
->>>>>>> 4051f2f44ade8487535b49c746fdbf9a84822b5e
     display.Message("I apologize, but my shop is currently closed.");
     refresh();
         bool leave1 = false;
@@ -359,13 +356,10 @@ else if(CollisionCheck(x,y,xcen,ycen,Map,'B') && input == '\n')
 else if(CollisionCheck(x,y,xcen,ycen,Map,'M') && input == '\n')
     {
     CDisplay display;
-<<<<<<< HEAD
-    if(event[0]=1)
+    if(Event[0]==1)
     {
-=======
 // if(Event[0] == 1)
 // {
->>>>>>> 4051f2f44ade8487535b49c746fdbf9a84822b5e
         display.Message("Hm? Some person is locked out of their house?");
         refresh();
             bool leave1 = false;
@@ -470,7 +464,7 @@ else if(CollisionCheck(x,y,xcen,ycen,Map,'$') && input == '\n')
         }
 
     }
-
+}
 }
 
 //input function

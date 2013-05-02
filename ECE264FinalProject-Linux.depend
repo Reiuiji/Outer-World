@@ -1,8 +1,8 @@
 # depslib dependency file v1.0
-1367277246 source:/home/okuu/Programing/ECE264FinalProject/Definition.cpp
+1367521661 source:/home/okuu/Programing/ECE264FinalProject/Definition.cpp
 	"Definition.h"
 
-1367520760 /home/okuu/Programing/ECE264FinalProject/Definition.h
+1367521661 /home/okuu/Programing/ECE264FinalProject/Definition.h
 
 1366428562 source:/home/okuu/Programing/ECE264FinalProject/Enemy.cpp
 	<iostream>
@@ -54,7 +54,7 @@
 	"dependencies/curses.h"
 	<curses.h>
 
-1366916903 /home/okuu/Programing/ECE264FinalProject/Game.h
+1367521661 /home/okuu/Programing/ECE264FinalProject/Game.h
 	"Definition.h"
 
 1366883308 source:/home/okuu/Programing/ECE264FinalProject/Player.cpp
@@ -67,10 +67,11 @@
 1366916903 /home/okuu/Programing/ECE264FinalProject/Player.h
 	<string>
 
-1366869039 source:/home/okuu/Programing/ECE264FinalProject/Battle.cpp
+1367521661 source:/home/okuu/Programing/ECE264FinalProject/Battle.cpp
 	"Definition.h"
 	<string.h>
-	"curses.h"
+	"dependencies/curses.h"
+	<curses.h>
 
 1367277246 source:/home/okuu/Programing/ECE264FinalProject/Display.cpp
 	"Player.h"
