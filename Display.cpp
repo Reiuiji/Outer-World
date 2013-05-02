@@ -423,3 +423,4 @@ void CDisplay::Battle(Player plyone, Enemy Mob)
     }
 
 }
+

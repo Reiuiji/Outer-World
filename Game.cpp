@@ -23,6 +23,7 @@
 #include "Enemy.h"
 #include "Game.h"
 #include "Maps.h"
+#include "Dungeon.h"
 #include <string.h>
 #include <stdlib.h>
 #include <time.h>
@@ -64,6 +65,12 @@ int Game()
         if(BattleMode == true)
         {
             GameDisplay.Battle(playerONE,EnemyONE);
+        }
+
+        if(DungeonMode == true)
+        {
+            Dungeon Dungeon1;
+            Dungeon1.StartDungeon(playerONE,1);
         }
 
         if(AutoDisplay==true)
@@ -137,6 +144,10 @@ void Move(int &x,int &y,int xcen, int ycen,char Map[][MapMax])
 
     case 'b':   //Test Enter the Battle mode
         BattleMode = true;
+        break;
+
+    case 'n':
+        DungeonMode = true;
         break;
 
     case '`':   //Exit the game display
