@@ -17,38 +17,12 @@
 * You should have received a copy of the GNU General Public License
 * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
-#define MapMax 52
-#define MaxHeight   40
-#define MaxWidth    100
-#define GameName "OuterW@rld"
+//insert gen functions
 
-#define MaxMsg      50
-#define XCenter     50
-#define msg_X_Width 40
-#define msg_Y_Width 20
-#define YCenter     20
+void DungeonGen(int FloorCount, int FloorSize, int LvlLow, int LvlHigh)
+{
 
 
-#define Displaycenset 5
 
-//Global variables
-extern int WinHeight;
-extern int WinWidth;
-//manage menu windows layout
-extern int MenuX;
-extern int MenuY;
-extern int dotx;
-extern int doty;
-extern int maplocation;
+}
 
-extern bool debug;
-extern bool play;
-extern bool BattleMode;
-extern bool AutoDisplay;
-
-//color setup
-#define COLOR_BROWN 10
-#define ENV_WATER   20
-#define ENV_WFALL   21//water fall
-#define ENV_PATH    22
-#define ENV_TREE    23

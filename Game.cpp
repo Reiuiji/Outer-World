@@ -215,7 +215,6 @@ if(CollisionCheck(x,y,xcen,ycen,Map,',') && input == '\n')
 else if(CollisionCheck(x,y,xcen,ycen,Map,'<') || CollisionCheck(x,y,xcen,ycen,Map,'>'))
     {
     CDisplay display;
-    int c=0;
     display.Message("If the battle system was implemented, you would be fighting.");
     refresh();
         bool leave = false;
@@ -249,7 +248,6 @@ else if(CollisionCheck(x,y,xcen,ycen,Map,'&') && input == '\n')
 else if(CollisionCheck(x,y,xcen,ycen,Map,'A') && input == '\n')
     {
     CDisplay display;
-    int c=0;
     display.Message("Oh, you're awake. Welcome to the city of Seaview. Yes, I know it's a terrible name. Blame the mayor.You washed up in our lake, so we placed you in our");
     refresh();
         bool leave1 = false;
@@ -308,7 +306,6 @@ else if(CollisionCheck(x,y,xcen,ycen,Map,'A') && input == '\n')
 else if(CollisionCheck(x,y,xcen,ycen,Map,'Á') && input == '\n')
     {
     CDisplay display;
-    int c=0;
     display.Message("Nothing new to report here.");
     refresh();
         bool leave1 = false;
@@ -325,7 +322,6 @@ else if(CollisionCheck(x,y,xcen,ycen,Map,'Á') && input == '\n')
 else if(CollisionCheck(x,y,xcen,ycen,Map,'B') && input == '\n')
     {
     CDisplay display;
-    int c=0;
     display.Message("I apologize, but my shop is currently closed.");
     refresh();
         bool leave1 = false;
@@ -352,7 +348,6 @@ else if(CollisionCheck(x,y,xcen,ycen,Map,'B') && input == '\n')
 else if(CollisionCheck(x,y,xcen,ycen,Map,'M') && input == '\n')
     {
     CDisplay display;
-    int c=0;
     if(event[0]=1)
     {
         display.Message("Hm? Some person is locked out of their house?");
@@ -407,7 +402,6 @@ else if(CollisionCheck(x,y,xcen,ycen,Map,'M') && input == '\n')
 else if(CollisionCheck(x,y,xcen,ycen,Map,'H') && input == '\n')
     {
     CDisplay display;
-    int c=0;
     display.Message("For whatever reason the mayor has decided to lock the passageway to my house.");
     refresh();
         bool leave1 = false;
@@ -449,7 +443,6 @@ else if((CollisionCheck(x,y,xcen,ycen,Map,'[') || CollisionCheck(x,y,xcen,ycen,M
 else if(CollisionCheck(x,y,xcen,ycen,Map,'$') && input == '\n')
     {
     CDisplay display;
-    int c=0;
     display.Message("This would be a boss battle.");
     refresh();
         bool leave = false;
