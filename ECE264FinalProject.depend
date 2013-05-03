@@ -147,12 +147,12 @@
 1366428657 /home/okuu/Programing/ECE264FinalProject/Maps.h
 	"Definition.h"
 
-1367526456 source:c:\users\benny\documents\github\ece264finalproject\definition.cpp
+1367568839 source:c:\users\benny\documents\github\ece264finalproject\definition.cpp
 	"Definition.h"
 
-1367528020 c:\users\benny\documents\github\ece264finalproject\definition.h
+1367568839 c:\users\benny\documents\github\ece264finalproject\definition.h
 
-1367550119 source:c:\users\benny\documents\github\ece264finalproject\display.cpp
+1367568839 source:c:\users\benny\documents\github\ece264finalproject\display.cpp
 	"Player.h"
 	"Display.h"
 	"Definition.h"
@@ -163,7 +163,7 @@
 	<windows.h>
 	<curses.h>
 
-1367550127 c:\users\benny\documents\github\ece264finalproject\display.h
+1367568839 c:\users\benny\documents\github\ece264finalproject\display.h
 	"Enemy.h"
 	"Player.h"
 	"Definition.h"
@@ -174,17 +174,17 @@
 	<stdio.h>
 	<wchar.h>
 
-1366906252 source:c:\users\benny\documents\github\ece264finalproject\enemy.cpp
+1367568839 source:c:\users\benny\documents\github\ece264finalproject\enemy.cpp
 	<iostream>
 	<fstream>
 	<string>
 	<cmath>
 	"Enemy.h"
 
-1366906252 c:\users\benny\documents\github\ece264finalproject\enemy.h
+1367568839 c:\users\benny\documents\github\ece264finalproject\enemy.h
 	<string>
 
-1367549485 source:c:\users\benny\documents\github\ece264finalproject\game.cpp
+1367568839 source:c:\users\benny\documents\github\ece264finalproject\game.cpp
 	"EventHandler.h"
 	"Display.h"
 	"Player.h"
@@ -192,20 +192,20 @@
 	"Game.h"
 	"Maps.h"
 	"Dungeon.h"
-	"bestiary.h"
+	"Battle.h"
 	<string.h>
 	<stdlib.h>
 	<time.h>
 	"dependencies/curses.h"
 	<curses.h>
 
-1367514927 c:\users\benny\documents\github\ece264finalproject\game.h
+1367568839 c:\users\benny\documents\github\ece264finalproject\game.h
 	"Definition.h"
 
-1367528020 c:\users\benny\documents\github\ece264finalproject\maps.h
+1367568839 c:\users\benny\documents\github\ece264finalproject\maps.h
 	"Definition.h"
 
-1367512875 source:c:\users\benny\documents\github\ece264finalproject\generator.cpp
+1367568839 source:c:\users\benny\documents\github\ece264finalproject\generator.cpp
 
 1366906252 source:c:\users\benny\documents\github\ece264finalproject\items.cpp
 	<string>
@@ -226,14 +226,14 @@
 
 1366906252 c:\users\benny\documents\github\ece264finalproject\menu.h
 
-1366906252 source:c:\users\benny\documents\github\ece264finalproject\player.cpp
+1367568839 source:c:\users\benny\documents\github\ece264finalproject\player.cpp
 	<iostream>
 	<fstream>
 	<string>
 	<cmath>
 	"Player.h"
 
-1366906252 c:\users\benny\documents\github\ece264finalproject\player.h
+1367568839 c:\users\benny\documents\github\ece264finalproject\player.h
 	<string>
 
 1367476313 source:c:\users\benny\documents\github\ece264finalproject\menu.cpp
@@ -244,8 +244,12 @@
 	"dependencies/curses.h"
 	<curses.h>
 
-1367513010 source:c:\users\benny\documents\github\ece264finalproject\battle.cpp
+1367568839 source:c:\users\benny\documents\github\ece264finalproject\battle.cpp
 	"Definition.h"
+	"Player.h"
+	"Enemy.h"
+	"Display.h"
+	"Battle.h"
 	<string.h>
 	"dependencies/curses.h"
 	<curses.h>
@@ -367,10 +371,10 @@
 	<cmath>
 	"Player.h"
 
-1367511757 c:\users\benny\documents\github\ece264finalproject\eventhandler.h
+1367568839 c:\users\benny\documents\github\ece264finalproject\eventhandler.h
 	<string>
 
-1367537287 c:\users\benny\documents\github\ece264finalproject\dungeon.h
+1367568839 c:\users\benny\documents\github\ece264finalproject\dungeon.h
 
 1367525370 source:c:\users\benny\documents\github\ece264finalproject\bestiary.cpp
 	"bestiary.h"
@@ -392,4 +396,6 @@
 
 1367528650 c:\users\benny\documents\github\ece264finalproject\spells.h
 	<string>
+
+1367568840 c:\users\benny\documents\github\ece264finalproject\battle.h
 

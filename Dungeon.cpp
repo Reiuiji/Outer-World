@@ -20,9 +20,16 @@
 #include "Player.h"
 #include "Display.h"
 #include "Dungeon.h"
-#include <curses.h>
 #include <iostream>
 #include "string.h"
+
+#ifdef _WIN32
+#include "dependencies/curses.h"
+#include <windows.h>
+#endif
+#ifdef linux
+#include <curses.h>
+#endif
 
 //insert gen functions
 
