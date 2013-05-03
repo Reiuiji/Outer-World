@@ -322,6 +322,14 @@ void CDisplay::ColorMap(char var)
         attron(COLOR_PAIR(COLOR_GREEN));
         break;
 
+
+    case '`':  //movement iconx
+    case ',':
+    case ';':
+    case ':':
+        attron(COLOR_PAIR(COLOR_BLUE));
+        break;
+
     default://if not display then it is clear
         attron(COLOR_PAIR(COLOR_WHITE));
         break;
@@ -329,98 +337,10 @@ void CDisplay::ColorMap(char var)
     if(!print)
     {
         printw("%1c",var);//output to the screen the character
+        attron(COLOR_PAIR(COLOR_WHITE));
     }
 }
 
 
-void CDisplay::Battle(Player plyone, Enemy Mob)
-{
 
-    for(int y=0; y<=WinHeight-Displaycenset; y++)
-    {
-        for(int x=0; x<WinWidth; x++)
-        {
-            mvaddch(y-1,x,' ');
-        }
-        if(y>WinHeight/5)
-        {
-            Message(WinWidth/6,(1*WinHeight)/5,(2*WinWidth)/3,WinHeight/5, "Talk");
-        }
-
-        if(y>(2*WinHeight)/5)
-        {
-            Message(WinWidth/6,(2*WinHeight)/5,(2*WinWidth)/3,WinHeight/5, "Action");
-        }
-
-        if(y>(3*WinHeight)/5)
-        {
-            Message(WinWidth/6,(3*WinHeight)/5,(2*WinWidth)/3,WinHeight/5, "Selection");
-        }
-        if(y % (WinHeight/12) == 0)
-        {
-
-            init_StatusBar(y,plyone);
-            wait(40000);
-
-            refresh();
-        }
-
-
-
-
-    }
-    wait(10000);
-
-    refresh();
-
-
-    while(BattleMode == true)
-    {
-        clear();
-        move(0,0);
-        Message(WinWidth/6,(3*WinHeight)/5,(2*WinWidth)/3,WinHeight/5, "Selection");
-        Message(WinWidth/6,(2*WinHeight)/5,(2*WinWidth)/3,WinHeight/5, "Action");
-        Message(WinWidth/6,(1*WinHeight)/5,(2*WinWidth)/3,WinHeight/5, "Talk");
-        init_StatusBar(WinHeight-Displaycenset,plyone);
-        if(AutoDisplay==true)
-        {
-            getmaxyx(stdscr,WinHeight,WinWidth);
-        }
-        refresh();
-
-//battle functions
-        int  c=getch();
-        if(c)
-        {
-            switch(c)
-            {
-            case KEY_DOWN:
-                dotx += 2;
-                break;
-
-            case KEY_UP:
-                dotx -= 2;
-                break;
-
-            case KEY_LEFT:
-                doty -= 2;
-                break;
-
-            case KEY_RIGHT:
-                doty += 2;
-                break;
-
-            case '\n':
-
-                break;
-
-            case '0':
-                BattleMode = false;
-                break;
-
-            }
-        }
-    }
-
-}
 

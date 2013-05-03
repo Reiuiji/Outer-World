@@ -1,6 +1,6 @@
 /*
 * ECE 264 Final Group Prject: Source Code
-* Copyright (C) 2013 Daniel Noyes <Reiuiji@gmail.com>
+* Copyright (C) 2013 Daniel Noyes <Reiuiji@gmail.com> and Ben Doiron <ALEDelric@gmail.com>
 *
 * This file is part of the ECE 264 Final Group Prject
 *
@@ -17,17 +17,9 @@
 * You should have received a copy of the GNU General Public License
 * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
-#include "Definition.h"
+class Battle	//curses display
+{
+public:
+    void StartBattle(Player plyone, Enemy Mob);
 
-int Game(/*Player USER*/);
-void Move(int &x,int &y,int xcen, int ycen,char Map[][MapMax]);
-bool MoveCheck(int &x,int &y,int xcen, int ycen, int xmove, int ymove, char Map[][MapMax]);
-bool CollisionCheck(int x, int y, int xcen, int ycen, char Map[][MapMax], char event);
-bool clearevent(int x, int y, int xcen, int ycen, char Map[][MapMax], char read, char write);
-bool eventListener(int &x, int &y, int xcen,int ycen, char Map[][MapMax], char input);
-
-// void eventListener(int x,int y, char* Map[][MapMax], char input);
-
-void eventListener(int x,int y, char* Map[][MapMax], char input);
-
-int Input(void);
+};

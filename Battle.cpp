@@ -18,6 +18,10 @@
 * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 #include "Definition.h"
+#include "Player.h"
+#include "Enemy.h"
+#include "Display.h"
+#include "Battle.h"
 #include <string.h>
 #ifdef _WIN32
 #include "dependencies/curses.h"
@@ -26,60 +30,94 @@
 #include <curses.h>
 #endif
 
-//curses: outputs the border of the screen
-//checks the limits of the border and output a border tag
-/*void CDisplay::init_Border(int offset)
+void Battle::StartBattle(Player plyone, Enemy Mob)
 {
-    move(offset+1,0);
-    attron(COLOR_PAIR(COLOR_WHITE));
-    for(int y = 0; y<WinHeight-offset; y++)
+    CDisplay Disp;
+
+    for(int y=0; y<=WinHeight-Displaycenset; y++)
     {
-        for(int x = 0; x<WinWidth; x++)
+        for(int x=0; x<WinWidth; x++)
         {
-            if((y == 0 || y == (WinHeight-offset-1)) & !(x == 0 || x == WinWidth-1))
+            mvaddch(y-1,x,' ');
+        }
+        if(y>WinHeight/5)
+        {
+            Disp.Message(WinWidth/6,(1*WinHeight)/5,(2*WinWidth)/3,WinHeight/5, "Descrition");
+        }
+
+        if(y>(2*WinHeight)/5)
+        {
+            Disp.Message(WinWidth/6,(2*WinHeight)/5,(2*WinWidth)/3,WinHeight/5, "Action");
+        }
+
+        if(y>(3*WinHeight)/5)
+        {
+            Disp.Message(WinWidth/6,(3*WinHeight)/5,(2*WinWidth)/3,WinHeight/5, "Selection");
+        }
+        if(y % (WinHeight/12) == 0)
+        {
+
+            Disp.init_StatusBar(y,plyone);
+            Disp.wait(40000);
+
+            refresh();
+        }
+
+
+
+
+    }
+    Disp.wait(10000);
+
+    refresh();
+
+
+    while(BattleMode == true)
+    {
+        clear();
+        move(0,0);
+        Disp.Message(WinWidth/6,(3*WinHeight)/5,(2*WinWidth)/3,WinHeight/5, "Selection");
+        Disp.Message(WinWidth/6,(2*WinHeight)/5,(2*WinWidth)/3,WinHeight/5, "Action");
+        Disp.Message(WinWidth/6,(1*WinHeight)/5,(2*WinWidth)/3,WinHeight/5, "Talk");
+        Disp.init_StatusBar(WinHeight-Displaycenset,plyone);
+        if(AutoDisplay==true)
+        {
+            getmaxyx(stdscr,WinHeight,WinWidth);
+        }
+        refresh();
+
+//battle functions
+        int  c=getch();
+        if(c)
+        {
+            switch(c)
             {
-                mvaddch(offset+y,x,'\45');
-            }
-            else if((x == 0 || x == WinWidth-1) & !(y == 0 || y == (WinHeight-offset-1)))
-            {
-                mvaddch(offset+y,x,'\45');
-            }
-            else if(y == 0 || y == (WinHeight-offset-1) || x == 0 || x == WinWidth-1)
-            {
-                mvaddch(offset+y,x,'\45');
+            case KEY_DOWN:
+                dotx += 2;
+                break;
+
+            case KEY_UP:
+                dotx -= 2;
+                break;
+
+            case KEY_LEFT:
+                doty -= 2;
+                break;
+
+            case KEY_RIGHT:
+                doty += 2;
+                break;
+
+            case '\n':
+
+                break;
+
+            case '0':
+                BattleMode = false;
+                break;
+
             }
         }
     }
+
 }
-
-//curses message display
-void CDisplay::Message(int X,int Y, int Width, int Height, const char *msg)
-{
-    attron(COLOR_PAIR(COLOR_WHITE));
-    //sets up the blank window
-    for(int y = Y; y < Height; y++)
-    {
-        for(int x = X; x < Width; x++)
-        {
-            if(y == Y || y == Height || x == X || x == Width)
-                mvaddstr(y,x,"\45");
-            else
-            {
-                mvaddstr(y,x," ");
-            }
-
-        }
-    }
-    std::string text (msg);
-    int StringCen = (Width-6-(X+6))/2;
-    //inputs the text into the window
-    for(int y = Y+2; y < Height-2; y++)
-    {
-        for(int x = StringCen-text.length()/2; x < StringCen+text.length()/2; x++)
-        {
-            printw("%1c",text.at(x-(StringCen-text.length()/2)));
-
-        }
-    }
-}
-*/
