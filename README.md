@@ -1,7 +1,9 @@
-ECE264FinalProject
+Over W@rld
 ==================
+ECE264FinalProject
+Professor: Honggang Wang
 
-Final Project: text based adventure
+Over W@rld is a text based adventure with the implements of a curses terminal GUI. 
 
 Compliation
 -----------
