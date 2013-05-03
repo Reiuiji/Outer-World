@@ -17,12 +17,9 @@
 * You should have received a copy of the GNU General Public License
 * along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
-#include "Definition.h"
-class CDisplay	//curses display
+class Battle	//curses display
 {
 public:
-    void init_Border(int offset);
-    void Message(int X,int Y, int Width, int Height, const char *msg);
-    void DebugScreen(int x,int y, char Map[][MapMax]);
-    void ColorMap(char var);
+    void StartBattle(Player plyone, Enemy Mob);
+
 };
