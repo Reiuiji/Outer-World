@@ -27,7 +27,7 @@ Coding and Pull Request
 
 * Try to follow the current layout
 * [input more layout later]
-* Commit and give reasons for Pull
+* Commit and give reasons for pushing to the Repo :)
 * Test you code with the latest version
 * Please no Tabs
 * No white space after Code
