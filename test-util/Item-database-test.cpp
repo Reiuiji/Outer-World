@@ -2,6 +2,7 @@
 #include <iomanip>
 #include <string>
 #include "item-database.h"
+#include <windows.h>
 
 #define MaxArray 67
 int main()
@@ -87,16 +88,22 @@ int main()
     };
 
     int x = 0;
+    int y = 0;
+    int m = 0;
+    int own[67] = {0};
+    int owninc = 0;
+    std::string z;
 
-    std::cout << "+--------------------+" << std::setw(100) << std::setfill('-') << "-" << "+-----+-----+-----+-----+-----+-----+-----+-----+-----+" << std::endl;
-    std::cout << "|Name:               |Description:   " << std::setw(100-15) << std::setfill(' ') <<  " " << "|TYPE | ATK | DEF |MATK |MDEF |FUNC |PRICE|BUYAB|OWNED|" << std::endl;
-    std::cout << "+--------------------+" << std::setw(100) << std::setfill('-') <<  "-" << "+-----+-----+-----+-----+-----+-----+-----+-----+-----+" << std::endl;
+    std::cout << "+---+---------------------------+" << std::setw(125) << std::setfill('-') << "-" << "+-----+-----+-----+-----+-----+-----+-----+-----+-----+" << std::endl;
+    std::cout << "|   |Name:                      |Description:   " << std::setw(125-15) << std::setfill(' ') <<  " " << "|TYPE | ATK | DEF |MATK |MDEF |FUNC |PRICE|BUYAB|OWNED|" << std::endl;
+    std::cout << "+---+---------------------------+" << std::setw(125) << std::setfill('-') <<  "-" << "+-----+-----+-----+-----+-----+-----+-----+-----+-----+" << std::endl;
 
     for(x=0; x<MaxArray ; x++)
     {
-        std::cout << std::left << std::setfill(' ') << "|"
-                  << std::setw(20) << Test[x].NAME() << "|"
-                  << std::setw(100) << Test[x].DESC() << "|"
+        std::cout<< std::left << std::setfill(' ') << "|"
+                  << std::setw(3) << x << "|"
+                  << std::setw(27) << Test[x].NAME() << "|"
+                  << std::setw(125) << Test[x].DESC() << "|"
                   << std::setw(5) << Test[x].TYPE() << "|"
                   << std::setw(5) << Test[x].ATK() << "|"
                   << std::setw(5) << Test[x].DEF() << "|"
@@ -108,25 +115,257 @@ int main()
                   << std::setw(5) << Test[x].NUM_OWNED() << "|"
                   << std::endl;
     }
-    std::cout << "+--------------------+" << std::setw(100) << std::setfill('-') <<  "-" << "+-----+-----+-----+-----+-----+-----+-----+-----+-----+" << std::endl;
+    std::cout << "+---+---------------------------+" << std::setw(125) << std::setfill('-') <<  "-" << "+-----+-----+-----+-----+-----+-----+-----+-----+-----+" << std::endl;
 
-    std::cout << "\nThe Rusty Longsword's ownership is currently: " << Test[2].NUM_OWNED() << std::endl;
-    std::cout << "This is me buying the Rusty Longsword: " << Test[2].BOUGHT() << std::endl;
-    std::cout << "This is me buying the Rusty Longsword: " << Test[2].BOUGHT() << std::endl;
-    std::cout << "This is me buying the Rusty Longsword: " << Test[2].BOUGHT() << std::endl;
-    std::cout << "The ownership is now: " << Test[2].NUM_OWNED() << std::endl;
-    std::cout << "This is me selling the Rusty Longsword: " << Test[2].DISCARD() << std::endl;
+    Sleep(2000);
 
-    std::cout << "\nYour current inventory is:" << std::endl;
-    x=0;
-    for(x=0; x<MaxArray ; x++)
+// INVENTORY FUNCTION:
+
+    std::cout << "\n Your inventory currently contains:" << std::endl;
+    for(x=0; x<MaxArray; x++)
     {
         if(Test[x].NUM_OWNED() >= 1)
         {
-            std::cout << Test[x].NAME() << std::endl;
+           std::cout << Test[x].NUM_OWNED() << "x " << Test[x].NAME() << ": " << Test[x].DESC() << std::endl;
         }
     }
 
 
+    Sleep(2000);
+    std::cout << "\n========================================\n\n";
+
+    /*
+    std::cout << "\nThe Adept's Staff ownership is currently: " << Test[2].NUM_OWNED() << std::endl;
+    std::cout << "This is me getting another Adept's Staff. " << std::endl; Test[2].BOUGHT();
+    std::cout << "This is me getting another Adept's Staff. " << std::endl; Test[2].BOUGHT();
+    std::cout << "This is me getting another Adept's Staff. " << std::endl; Test[2].BOUGHT();
+    std::cout << "The ownership is now: " << Test[2].NUM_OWNED() << std::endl;
+    */
+
+    // buying function
+
+errorbuysell:
+    std::cout << "Would you like to buy or sell an item? ";
+    std::cin >> z;
+    if(z == "buy" || z == "Buy" || z == "BUY")
+        goto another;
+    else if(z == "sell" || z == "Sell" || z == "SELL")
+        goto itemlisting;
+    else if(z == "no" || z == "No" || z == "NO")
+        goto broken;
+    else
+    {
+        std::cout << "There was an error. ";
+        goto errorbuysell;
+    }
+
+another:
+    std::cout << "Please enter an item which you would like to buy (Please note that some are not for sale): ";
+error:
+    std::cin >> y;
+
+    if(y >= 1 && y <= 44 && y != 5 && y != 11 && y != 16 && y != 17 && y != 21 && y != 26)
+    {
+        std::cout << "So you want the " << Test[y].NAME() << "? ";
+error2:
+        std::cin >> z;
+        if((z == "y") || (z == "yes") || (z == "Y") || (z == "Yes") || (z == "YES"))
+        {
+            Test[y].BOUGHT();
+            m = m - Test[y].PRICE();
+            std::cout << "You have purchased the " << Test[y].NAME() << ". It cost you " << Test[y].PRICE() << " coins. You have " << m << " coins so far." << std::endl;
+            std::cout << "You now own a total of " << Test[y].NUM_OWNED() << "x " << Test[y].NAME();
+            goto finished;
+
+        }
+        else if((z == "n") || (z == "no") || (z == "N") || (z == "No") || (z == "NO"))
+        {
+            goto another;
+        }
+        else
+        {
+            std::cout << "I couldn't understand your accent. You wanted the " << Test[y].NAME() << "? ";
+            goto error2;
+        }
+
+    }
+    else if (y == -1)
+    {
+        goto broken;
+    }
+    else
+    {
+        std::cout << "There was an error. Are you sure that item is for sale? If so, please re enter the number: ";
+        goto error;
+    }
+
+finished:
+    std::cout << "\n\n Your inventory currently contains:" << std::endl;
+    for(x=0; x<MaxArray; x++)
+    {
+        if(Test[x].NUM_OWNED() >= 1)
+        {
+           std::cout << Test[x].NUM_OWNED() << "x " << Test[x].NAME() << ": " << Test[x].DESC() << std::endl;
+        }
+    }
+
+error3:
+    std::cout << "\nWould you like to buy another item? ";
+    std::cin >> z;
+    if((z == "y") || (z == "yes") || (z == "Y") || (z == "Yes") || (z == "YES"))
+    {
+        goto another;
+    }
+    else if((z == "n") || (z == "no") || (z == "N") || (z == "No") || (z == "NO"))
+    {
+        goto sell;
+    }
+    else
+    {
+        std::cout << "There was an error. " << std::endl;
+        goto error3;
+    }
+
+
+sell:
+    std::cout << "Would you like to sell an item? ";
+    std::cin >> z;
+    if((z == "y") || (z == "yes") || (z == "Y") || (z == "Yes") || (z == "YES"))
+    {
+        goto itemlisting;
+    }
+    else if((z == "n") || (z == "no") || (z == "N") || (z == "No") || (z == "NO"))
+    {
+        goto broken;
+    }
+    else
+    {
+        std::cout << "There was an error. " << std::endl;
+        goto sell;
+    }
+
+itemlisting:
+    std::cout << "\n Your inventory currently contains: " << std::endl;
+    for(x=0; x<MaxArray; x++)
+    {
+        if(Test[x].NUM_OWNED() >= 1)
+        {
+           own[owninc] = x;
+           owninc ++;
+           std::cout << owninc-1 << ": " << Test[x].NUM_OWNED() << "x " << Test[x].NAME() << ": " << Test[x].DESC() << std::endl;
+        }
+    }
+
+anothers:
+    std::cout << "Please enter an item which you would like to sell (Please note that some you cannot sell.): ";
+error5:
+    std::cin >> y;
+
+    if(y >=0 && y<=owninc && own[y] >= 1 && own[y] <= 44 && own[y] != 5 && own[y] != 11
+    && own[y] != 16 && own[y] != 17 && own[y] != 21 && x != 26)
+    {
+        std::cout << "So you want to sell " << Test[own[y]].NAME() << "? ";
+error6:
+        std::cin >> z;
+        if((z == "y") || (z == "yes") || (z == "Y") || (z == "Yes") || (z == "YES"))
+        {
+            Test[own[y]].DISCARD();
+            m = m + (0.5 * Test[own[y]].PRICE());
+            std::cout << "You have sold the " << Test[own[y]].NAME() << ". You gained " << (0.5 * Test[own[y]].PRICE()) << " coins. You have " << m << " coins now." << std::endl;
+            goto finished2;
+
+        }
+        else if((z == "n") || (z == "no") || (z == "N") || (z == "No") || (z == "NO"))
+        {
+            goto anothers;
+        }
+        else
+        {
+            std::cout << "I couldn't understand your accent. You wanted the " << Test[y].NAME() << "? ";
+            goto error2;
+        }
+    }
+    else if (y == -1)
+    {
+        goto broken;
+    }
+    else
+    {
+        std::cout << "There was an error. Are you sure you can sell that? If so, please re enter the number: ";
+        goto error5;
+    }
+
+finished2:
+    std::cout << "\n\n Your inventory currently contains:" << std::endl;
+    for(x=0; x<MaxArray; x++)
+    {
+        if(Test[x].NUM_OWNED() >= 1)
+        {
+           std::cout << Test[x].NUM_OWNED() << "x " << Test[x].NAME() << ": " << Test[x].DESC() << std::endl;
+        }
+    }
+
+error7:
+    std::cout << "\nWould you like to sell another item? ";
+    std::cin >> z;
+    if((z == "y") || (z == "yes") || (z == "Y") || (z == "Yes") || (z == "YES"))
+    {
+        own[67] = {0};
+        owninc = 0;
+        goto itemlisting;
+    }
+    else if((z == "n") || (z == "no") || (z == "N") || (z == "No") || (z == "NO"))
+    {
+        goto buyagain;
+        goto broken;
+    }
+    else
+    {
+        std::cout << "There was an error. " << std::endl;
+        goto error3;
+    }
+
+buyagain:
+    std::cout << "Would you like to buy an item? ";
+    std::cin >> z;
+    if((z == "y") || (z == "yes") || (z == "Y") || (z == "Yes") || (z == "YES"))
+    {
+    system("CLS");
+    std::cout << "+---+---------------------------+" << std::setw(125) << std::setfill('-') << "-" << "+-----+-----+-----+-----+-----+-----+-----+-----+-----+" << std::endl;
+    std::cout << "|   |Name:                      |Description:   " << std::setw(125-15) << std::setfill(' ') <<  " " << "|TYPE | ATK | DEF |MATK |MDEF |FUNC |PRICE|BUYAB|OWNED|" << std::endl;
+    std::cout << "+---+---------------------------+" << std::setw(125) << std::setfill('-') <<  "-" << "+-----+-----+-----+-----+-----+-----+-----+-----+-----+" << std::endl;
+
+    for(x=0; x<MaxArray ; x++)
+    {
+        std::cout<< std::left << std::setfill(' ') << "|"
+                  << std::setw(3) << x << "|"
+                  << std::setw(27) << Test[x].NAME() << "|"
+                  << std::setw(125) << Test[x].DESC() << "|"
+                  << std::setw(5) << Test[x].TYPE() << "|"
+                  << std::setw(5) << Test[x].ATK() << "|"
+                  << std::setw(5) << Test[x].DEF() << "|"
+                  << std::setw(5) << Test[x].MATK() << "|"
+                  << std::setw(5) << Test[x].MDEF() << "|"
+                  << std::setw(5) << Test[x].FUNC() << "|"
+                  << std::setw(5) << Test[x].PRICE() << "|"
+                  << std::setw(5) << Test[x].BUYABLE() << "|"
+                  << std::setw(5) << Test[x].NUM_OWNED() << "|"
+                  << std::endl;
+    }
+    std::cout << "+---+---------------------------+" << std::setw(125) << std::setfill('-') <<  "-" << "+-----+-----+-----+-----+-----+-----+-----+-----+-----+" << std::endl;
+    goto another;
+    }
+    else if((z == "n") || (z == "no") || (z == "N") || (z == "No") || (z == "NO"))
+    {
+        goto broken;
+    }
+    else
+    {
+        std::cout << "There was an error. " << std::endl;
+        goto buyagain;
+    }
+
+
+broken:
     return 0;
 }
