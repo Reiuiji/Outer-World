@@ -107,14 +107,19 @@
 1367524727 /home/okuu/Programing/ECE264FinalProject/Maps.h
 	"Definition.h"
 
-1367089162 source:/home/okuu/programing/ECE264FinalProject/Battle.cpp
+1367542566 source:/home/okuu/programing/ECE264FinalProject/Battle.cpp
 	"Definition.h"
+	"Player.h"
+	"Enemy.h"
+	"Display.h"
+	"Battle.h"
 	<string.h>
-	"curses.h"
+	"dependencies/curses.h"
+	<curses.h>
 
-1367089162 /home/okuu/programing/ECE264FinalProject/Definition.h
+1367535997 /home/okuu/programing/ECE264FinalProject/Definition.h
 
-1367089162 source:/home/okuu/programing/ECE264FinalProject/Definition.cpp
+1367535997 source:/home/okuu/programing/ECE264FinalProject/Definition.cpp
 	"Definition.h"
 
 1367089162 source:/home/okuu/programing/ECE264FinalProject/Enemy.cpp
@@ -127,12 +132,15 @@
 1367089162 /home/okuu/programing/ECE264FinalProject/Enemy.h
 	<string>
 
-1367089162 source:/home/okuu/programing/ECE264FinalProject/Game.cpp
+1367552689 source:/home/okuu/programing/ECE264FinalProject/Game.cpp
+	"EventHandler.h"
 	"Display.h"
 	"Player.h"
 	"Enemy.h"
 	"Game.h"
 	"Maps.h"
+	"Dungeon.h"
+	"Battle.h"
 	<string.h>
 	<stdlib.h>
 	<time.h>
@@ -147,10 +155,10 @@
 1367089162 /home/okuu/programing/ECE264FinalProject/Player.h
 	<string>
 
-1367089162 /home/okuu/programing/ECE264FinalProject/Game.h
+1367547933 /home/okuu/programing/ECE264FinalProject/Game.h
 	"Definition.h"
 
-1367089162 /home/okuu/programing/ECE264FinalProject/Maps.h
+1367552770 /home/okuu/programing/ECE264FinalProject/Maps.h
 	"Definition.h"
 
 1367089163 /home/okuu/programing/ECE264FinalProject/dependencies/curses.h
@@ -159,7 +167,7 @@
 	<stdio.h>
 	<wchar.h>
 
-1367089162 source:/home/okuu/programing/ECE264FinalProject/Generator.cpp
+1367535997 source:/home/okuu/programing/ECE264FinalProject/Generator.cpp
 
 1367089162 source:/home/okuu/programing/ECE264FinalProject/Player.cpp
 	<iostream>
@@ -187,7 +195,7 @@
 
 1367089163 /home/okuu/programing/ECE264FinalProject/menu.h
 
-1367089163 source:/home/okuu/programing/ECE264FinalProject/menu.cpp
+1367426194 source:/home/okuu/programing/ECE264FinalProject/menu.cpp
 	<stdlib.h>
 	"Game.h"
 	"Display.h"
@@ -207,4 +215,30 @@
 
 1367521661 /home/okuu/Programing/ECE264FinalProject/EventHandler.h
 	<string>
+
+1367544550 source:/home/okuu/programing/ECE264FinalProject/Display.cpp
+	"Player.h"
+	"Display.h"
+	"Definition.h"
+	<string.h>
+	<iostream>
+	<time.h>
+	"dependencies/curses.h"
+	<windows.h>
+	<curses.h>
+
+1367535997 /home/okuu/programing/ECE264FinalProject/EventHandler.h
+	<string>
+
+1367535997 /home/okuu/programing/ECE264FinalProject/Dungeon.h
+
+1367542512 /home/okuu/programing/ECE264FinalProject/Battle.h
+
+1367535997 source:/home/okuu/programing/ECE264FinalProject/Dungeon.cpp
+	"Player.h"
+	"Display.h"
+	"Dungeon.h"
+	<curses.h>
+	<iostream>
+	"string.h"
 

@@ -32,10 +32,13 @@
 			<Add option="-Wall" />
 		</Compiler>
 		<Unit filename="Battle.cpp" />
+		<Unit filename="Battle.h" />
 		<Unit filename="Definition.cpp" />
 		<Unit filename="Definition.h" />
 		<Unit filename="Display.cpp" />
 		<Unit filename="Display.h" />
+		<Unit filename="Dungeon.cpp" />
+		<Unit filename="Dungeon.h" />
 		<Unit filename="Enemy.cpp" />
 		<Unit filename="Enemy.h" />
 		<Unit filename="Game.cpp" />
@@ -47,7 +50,6 @@
 		<Unit filename="Player.cpp" />
 		<Unit filename="Player.h" />
 		<Unit filename="README.md" />
-		<Unit filename="battle.h" />
 		<Unit filename="items.cpp" />
 		<Unit filename="items.h" />
 		<Unit filename="main.cpp" />
