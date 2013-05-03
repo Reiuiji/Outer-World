@@ -30,7 +30,7 @@
 #include <curses.h>
 #endif
 
-#include "menu.h"
+#include "Menu.h"
 #include "Definition.h"
 #include "Display.h"
 

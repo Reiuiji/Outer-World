@@ -23,7 +23,7 @@
 #include <stdlib.h>
 #include "Game.h"
 #include "Display.h"
-#include "menu.h"
+#include "Menu.h"
 //#include "Player.h"
 
 #ifdef _WIN32

@@ -1,4 +1,4 @@
-#include "item-database.h"
+#include "Item-database.h"
 #include <string>
 
 Item::Item(std::string NAME, std::string DESC, int TYPE, int ATK, int DEF, int MATK, int MDEF, int FUNC, int PRICE, bool BUYABLE, int NUM_OWNED, int BOUGHT, int DISCARD)

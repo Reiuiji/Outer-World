@@ -31,30 +31,39 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="Battle.cpp" />
-		<Unit filename="Battle.h" />
-		<Unit filename="Definition.cpp" />
-		<Unit filename="Definition.h" />
-		<Unit filename="Display.cpp" />
-		<Unit filename="Display.h" />
-		<Unit filename="Dungeon.cpp" />
-		<Unit filename="Dungeon.h" />
-		<Unit filename="Enemy.cpp" />
-		<Unit filename="Enemy.h" />
-		<Unit filename="Game.cpp" />
-		<Unit filename="Game.h" />
-		<Unit filename="Generator.cpp" />
-		<Unit filename="Generator.h" />
 		<Unit filename="Makefile" />
-		<Unit filename="Maps.h" />
-		<Unit filename="Player.cpp" />
-		<Unit filename="Player.h" />
 		<Unit filename="README.md" />
-		<Unit filename="items.cpp" />
-		<Unit filename="items.h" />
-		<Unit filename="main.cpp" />
-		<Unit filename="menu.cpp" />
-		<Unit filename="menu.h" />
+		<Unit filename="src/Battle.cpp" />
+		<Unit filename="src/Battle.h" />
+		<Unit filename="src/Bestiary.cpp" />
+		<Unit filename="src/Bestiary.h" />
+		<Unit filename="src/Definition.cpp" />
+		<Unit filename="src/Definition.h" />
+		<Unit filename="src/Display.cpp" />
+		<Unit filename="src/Display.h" />
+		<Unit filename="src/Dungeon.cpp" />
+		<Unit filename="src/Dungeon.h" />
+		<Unit filename="src/Enemy.cpp" />
+		<Unit filename="src/Enemy.h" />
+		<Unit filename="src/EventHandler.cpp" />
+		<Unit filename="src/EventHandler.h" />
+		<Unit filename="src/EventList.cpp" />
+		<Unit filename="src/Game.cpp" />
+		<Unit filename="src/Game.h" />
+		<Unit filename="src/Generator.cpp" />
+		<Unit filename="src/Generator.h" />
+		<Unit filename="src/Item-database.cpp" />
+		<Unit filename="src/Item-database.h" />
+		<Unit filename="src/Items.cpp" />
+		<Unit filename="src/Items.h" />
+		<Unit filename="src/Main.cpp" />
+		<Unit filename="src/Maps.h" />
+		<Unit filename="src/Menu.cpp" />
+		<Unit filename="src/Menu.h" />
+		<Unit filename="src/Player.cpp" />
+		<Unit filename="src/Player.h" />
+		<Unit filename="src/Spells.cpp" />
+		<Unit filename="src/Spells.h" />
 		<Extensions>
 			<code_completion />
 			<debugger />

@@ -1,4 +1,4 @@
-#include "bestiary.h"
+#include "Bestiary.h"
 #include <string>
 
 Bestiary::Bestiary(std::string NAME, int HP, int MP, int ATK, int DEF, int MATK, int MDEF, int SPD, int LUK, int WEAKNESSES, int RESISTANCES)

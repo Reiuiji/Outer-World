@@ -1,4 +1,4 @@
-#include "spells.h"
+#include "Spells.h"
 #include <string>
 
 

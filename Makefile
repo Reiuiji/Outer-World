@@ -5,6 +5,8 @@ LD = g++
 
 CFLAGS =  -Wall
 
+DIR = src
+
 LIBDIR = 
 LIB = -l ncurses -l menu
 LDFLAGS = 
@@ -43,31 +45,31 @@ out_debug: before_debug $(OBJ_DEBUG)
 	$(LD) $(LIBDIR_DEBUG) -o $(OUT_DEBUG) $(OBJ_DEBUG)  $(LDFLAGS_DEBUG) $(LIB_DEBUG)
 
 $(OBJDIR_DEBUG)menu.o: menu.cpp
-	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c menu.cpp -o $(OBJDIR_DEBUG)menu.o
+	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c $(DIR)Menu.cpp -o $(OBJDIR_DEBUG)menu.o
 
 $(OBJDIR_DEBUG)main.o: main.cpp
-	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c main.cpp -o $(OBJDIR_DEBUG)main.o
+	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c $(DIR)Main.cpp -o $(OBJDIR_DEBUG)main.o
 
 $(OBJDIR_DEBUG)items.o: items.cpp
-	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c items.cpp -o $(OBJDIR_DEBUG)items.o
+	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c $(DIR)Items.cpp -o $(OBJDIR_DEBUG)items.o
 
 $(OBJDIR_DEBUG)Player.o: Player.cpp
-	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c Player.cpp -o $(OBJDIR_DEBUG)Player.o
+	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c $(DIR)Player.cpp -o $(OBJDIR_DEBUG)Player.o
 
 $(OBJDIR_DEBUG)Definition.o: Definition.cpp
-	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c Definition.cpp -o $(OBJDIR_DEBUG)Definition.o
+	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c $(DIR)Definition.cpp -o $(OBJDIR_DEBUG)Definition.o
 
 $(OBJDIR_DEBUG)Generator.o: Generator.cpp
-	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c Generator.cpp -o $(OBJDIR_DEBUG)Generator.o
+	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c $(DIR)Generator.cpp -o $(OBJDIR_DEBUG)Generator.o
 
 $(OBJDIR_DEBUG)Game.o: Game.cpp
-	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c Game.cpp -o $(OBJDIR_DEBUG)Game.o
+	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c $(DIR)Game.cpp -o $(OBJDIR_DEBUG)Game.o
 
 $(OBJDIR_DEBUG)Enemy.o: Enemy.cpp
-	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c Enemy.cpp -o $(OBJDIR_DEBUG)Enemy.o
+	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c $(DIR)Enemy.cpp -o $(OBJDIR_DEBUG)Enemy.o
 
 $(OBJDIR_DEBUG)Display.o: Display.cpp
-	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c Display.cpp -o $(OBJDIR_DEBUG)Display.o
+	$(CXX) $(CFLAGS_DEBUG) $(INC_DEBUG) -c $(DIR)Display.cpp -o $(OBJDIR_DEBUG)Display.o
 
 clean_debug: 
 	rm -f $(OBJ_DEBUG) $(OUT_DEBUG)
@@ -86,31 +88,31 @@ out_release: before_release $(OBJ_RELEASE)
 	$(LD) $(LIBDIR_RELEASE) -o $(OUT_RELEASE) $(OBJ_RELEASE)  $(LDFLAGS_RELEASE) $(LIB_RELEASE)
 
 $(OBJDIR_RELEASE)menu.o: menu.cpp
-	$(CXX) $(CFLAGS_RELEASE) -c menu.cpp -o $(OBJDIR_RELEASE)menu.o
+	$(CXX) $(CFLAGS_RELEASE) -c $(DIR)Menu.cpp -o $(OBJDIR_RELEASE)menu.o
 
 $(OBJDIR_RELEASE)main.o: main.cpp
-	$(CXX) $(CFLAGS_RELEASE) -c main.cpp -o $(OBJDIR_RELEASE)main.o
+	$(CXX) $(CFLAGS_RELEASE) -c $(DIR)Main.cpp -o $(OBJDIR_RELEASE)main.o
 
 $(OBJDIR_RELEASE)items.o: items.cpp
-	$(CXX) $(CFLAGS_RELEASE) -c items.cpp -o $(OBJDIR_RELEASE)items.o
+	$(CXX) $(CFLAGS_RELEASE) -c $(DIR)Items.cpp -o $(OBJDIR_RELEASE)items.o
 
 $(OBJDIR_RELEASE)Player.o: Player.cpp
-	$(CXX) $(CFLAGS_RELEASE) -c Player.cpp -o $(OBJDIR_RELEASE)Player.o
+	$(CXX) $(CFLAGS_RELEASE) -c $(DIR)Player.cpp -o $(OBJDIR_RELEASE)Player.o
 
 $(OBJDIR_RELEASE)Definition.o: Definition.cpp
-	$(CXX) $(CFLAGS_RELEASE) -c Definition.cpp -o $(OBJDIR_RELEASE)Definition.o
+	$(CXX) $(CFLAGS_RELEASE) -c $(DIR)Definition.cpp -o $(OBJDIR_RELEASE)Definition.o
 
 $(OBJDIR_RELEASE)Generator.o: Generator.cpp
-	$(CXX) $(CFLAGS_RELEASE) -c Generator.cpp -o $(OBJDIR_RELEASE)Generator.o
+	$(CXX) $(CFLAGS_RELEASE) -c $(DIR)Generator.cpp -o $(OBJDIR_RELEASE)Generator.o
 
 $(OBJDIR_RELEASE)Game.o: Game.cpp
-	$(CXX) $(CFLAGS_RELEASE) -c Game.cpp -o $(OBJDIR_RELEASE)Game.o
+	$(CXX) $(CFLAGS_RELEASE) -c $(DIR)Game.cpp -o $(OBJDIR_RELEASE)Game.o
 
 $(OBJDIR_RELEASE)Enemy.o: Enemy.cpp
-	$(CXX) $(CFLAGS_RELEASE) -c Enemy.cpp -o $(OBJDIR_RELEASE)Enemy.o
+	$(CXX) $(CFLAGS_RELEASE) -c $(DIR)Enemy.cpp -o $(OBJDIR_RELEASE)Enemy.o
 
 $(OBJDIR_RELEASE)Display.o: Display.cpp
-	$(CXX) $(CFLAGS_RELEASE) -c Display.cpp -o $(OBJDIR_RELEASE)Display.o
+	$(CXX) $(CFLAGS_RELEASE) -c $(DIR)Display.cpp -o $(OBJDIR_RELEASE)Display.o
 
 clean_release: 
 	rm -f $(OBJ_RELEASE) $(OUT_RELEASE)
