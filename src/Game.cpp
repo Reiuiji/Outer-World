@@ -30,7 +30,7 @@
 #include <time.h>
 
 #ifdef _WIN32
-#include "dependencies/curses.h"
+#include "..\..\ECE264FinalProject\dependencies\curses.h"
 #endif
 #ifdef linux
 #include <curses.h>

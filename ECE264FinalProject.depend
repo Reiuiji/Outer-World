@@ -1,0 +1,130 @@
+# depslib dependency file v1.0
+1367634640 source:c:\users\benny\documents\github\ece264finalproject\src\battle.cpp
+	"Definition.h"
+	"Player.h"
+	"Enemy.h"
+	"Display.h"
+	"Battle.h"
+	<string.h>
+	"..\..\ECE264FinalProject\dependencies\curses.h"
+	<curses.h>
+
+1367601844 c:\users\benny\documents\github\ece264finalproject\src\definition.h
+
+1367601844 c:\users\benny\documents\github\ece264finalproject\src\player.h
+	<string>
+
+1367601844 c:\users\benny\documents\github\ece264finalproject\src\enemy.h
+	<string>
+
+1367601844 c:\users\benny\documents\github\ece264finalproject\src\display.h
+	"Enemy.h"
+	"Player.h"
+	"Definition.h"
+
+1367601844 c:\users\benny\documents\github\ece264finalproject\src\battle.h
+
+1366906252 c:\users\benny\documents\github\ece264finalproject\dependencies\curses.h
+	<stdarg.h>
+	<stddef.h>
+	<stdio.h>
+	<wchar.h>
+
+1367601844 source:c:\users\benny\documents\github\ece264finalproject\src\bestiary.cpp
+	"Bestiary.h"
+	<string>
+
+1367601844 c:\users\benny\documents\github\ece264finalproject\src\bestiary.h
+	<string>
+
+1367601844 source:c:\users\benny\documents\github\ece264finalproject\src\definition.cpp
+	"Definition.h"
+
+1367634662 source:c:\users\benny\documents\github\ece264finalproject\src\display.cpp
+	"Player.h"
+	"Display.h"
+	"Definition.h"
+	<string.h>
+	<iostream>
+	<time.h>
+	"..\..\ECE264FinalProject\dependencies\curses.h"
+	<windows.h>
+	<curses.h>
+
+1367634680 source:c:\users\benny\documents\github\ece264finalproject\src\dungeon.cpp
+	"Player.h"
+	"Display.h"
+	"Dungeon.h"
+	<iostream>
+	"string.h"
+	"..\..\ECE264FinalProject\dependencies\curses.h"
+	<windows.h>
+	<curses.h>
+
+1367601844 c:\users\benny\documents\github\ece264finalproject\src\dungeon.h
+
+1367601844 source:c:\users\benny\documents\github\ece264finalproject\src\enemy.cpp
+	<iostream>
+	<fstream>
+	<string>
+	<cmath>
+	"Enemy.h"
+
+1367601844 source:c:\users\benny\documents\github\ece264finalproject\src\eventhandler.cpp
+	"EventHandler.h"
+	<string>
+
+1367601844 c:\users\benny\documents\github\ece264finalproject\src\eventhandler.h
+	<string>
+
+1367601844 source:c:\users\benny\documents\github\ece264finalproject\src\eventlist.cpp
+
+1367634686 source:c:\users\benny\documents\github\ece264finalproject\src\game.cpp
+	"EventHandler.h"
+	"Display.h"
+	"Player.h"
+	"Enemy.h"
+	"Game.h"
+	"Maps.h"
+	"Dungeon.h"
+	"Battle.h"
+	<string.h>
+	<stdlib.h>
+	<time.h>
+	"..\..\ECE264FinalProject\dependencies\curses.h"
+	<curses.h>
+
+1367601844 c:\users\benny\documents\github\ece264finalproject\src\game.h
+	"Definition.h"
+
+1367634233 c:\users\benny\documents\github\ece264finalproject\src\maps.h
+	"Definition.h"
+
+1367601844 source:c:\users\benny\documents\github\ece264finalproject\src\generator.cpp
+
+1367601844 source:c:\users\benny\documents\github\ece264finalproject\src\item-database.cpp
+	"Item-database.h"
+	<string>
+
+1367601844 c:\users\benny\documents\github\ece264finalproject\src\item-database.h
+	<string>
+
+1367601844 source:c:\users\benny\documents\github\ece264finalproject\src\items.cpp
+	<string>
+	"Items.h"
+
+1367601844 c:\users\benny\documents\github\ece264finalproject\src\items.h
+
+1367634692 source:c:\users\benny\documents\github\ece264finalproject\src\main.cpp
+	<cstdlib>
+	<iostream>
+	<ctime>
+	<string.h>
+	"..\..\ECE264FinalProject\dependencies\curses.h"
+	<curses.h>
+	"Menu.h"
+	"Definition.h"
+	"Display.h"
+
+1367601844 c:\users\benny\documents\github\ece264finalproject\src\menu.h
+
