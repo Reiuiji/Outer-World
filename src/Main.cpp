@@ -37,7 +37,7 @@
 using namespace std;
 
 const char *copyrigth = "Copyright (C) 2013 Daniel Noyes <Reiuiji@gmail.com>\n";
-static char const * revision= "$Rev: 13 $";
+static char const * revision= "$Ver: 20";
 char const load_name[] = "test.Dat";
 
 void Verion()
